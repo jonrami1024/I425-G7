@@ -4,3 +4,11 @@ https://www.mariowiki.com/Mario_Kart_8_Deluxe_in-game_statistics
 Since many character/cars/tires/gliders share the same stat,
 i separated them into groups (ex. driver_size), which will contain all the stats
 the driver table will pull the stats from the driver_size table.
+
+
+Idea:
+The idea is that this project will allow users to do the following:
+1. See detailed stats based on their kart combination (apparently there's about 3,098,370 possible combinations)
+2. Filter by stats (such as which combination has the most speed, acceleration, etc.)
+3. Find the best build that best suits the user (prioritize speed, weight, etc.)
+4. Generate completely randomized builds
