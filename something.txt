@@ -1,2 +1,6 @@
 Link to spreadsheet
 https://www.mariowiki.com/Mario_Kart_8_Deluxe_in-game_statistics
+
+Since many character/cars/tires/gliders share the same stat,
+i separated them into groups (ex. driver_size), which will contain all the stats
+the driver table will pull the stats from the driver_size table.
