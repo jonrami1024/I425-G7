@@ -28,6 +28,6 @@ def get_drivers(service:ServiceDep):
 def get_driver(service: ServiceDep, driverName: str):
     return service.fetch_driver(driverName)
 
-@router.get("/{driverName}/driverSize", response_model=driverSizeRead)
+@router.get("/{driverName}/stats", response_model=driverSizeRead)
 def get_driver_size(service: ServiceDep, driverName: str):
     return service.fetch_driver_driverSize(driverName)

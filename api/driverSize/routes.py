@@ -11,8 +11,8 @@ from .schemas import driverSizeRead
 from api.driver.schemas import DriverRead
 
 router = APIRouter(
-    prefix="/driverSizes",
-    tags=["driverSizes"]
+    prefix="/stats",
+    tags=["stats"]
 )
 
 def get_service(session: SessionDep) -> DriverSizeService:
@@ -24,10 +24,10 @@ ServiceDep = Annotated[DriverSizeService, Depends(get_service)]
 def get_driver_size(service: ServiceDep):
     return service.fetch_driverSizes()
 
-@router.get("/{driverSizeGroup}", response_model=driverSizeRead)
+@router.get("/{stats}", response_model=driverSizeRead)
 def get_driver_size_group(service: ServiceDep, driverSizeGroup: str):
     return service.fetch_driverSize(driverSizeGroup)
 
-@router.get("/{driverSizeGroup}/drivers", response_model=list[DriverRead])
+@router.get("/{stats}/drivers", response_model=list[DriverRead])
 def get_driver_size_group_drivers(service: ServiceDep, driverSizeGroup: str):
     return service.fetch_driverSize_drivers(driverSizeGroup)

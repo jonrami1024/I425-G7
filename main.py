@@ -12,9 +12,12 @@ from api.driverSize.routes import router as driverSize_router
 
 app = FastAPI(
     title="Mario Kart 8 API",
-    description="API for Mario Kart 8 kart build stats",
+    description="API for Mario Kart 8 kart build stats. This project is an unofficial, open-source utility and is not affiliated with, authorized, maintained, or endorsed by Nintendo Co., Ltd. or any of its affiliates. All product names, logos, and brands are property of their respective owners.",
     version="1.0.0",
-    contact={"url": "https://github.com/jonrami1024/I425-G7"}
+    contact={
+        "name": "Github",
+        "url": "https://github.com/jonrami1024/I425-G7"
+    }
 )
 
 static_path = os.path.join(os.path.dirname(__file__), "api/static")
