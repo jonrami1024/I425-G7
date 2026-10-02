@@ -12,7 +12,7 @@ from api.driver.schemas import DriverRead
 
 router = APIRouter(
     prefix="/stats",
-    tags=["stats"]
+    tags=["driver stats"]
 )
 
 def get_service(session: SessionDep) -> DriverSizeService:
