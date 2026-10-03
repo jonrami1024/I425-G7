@@ -6,9 +6,12 @@ from starlette.staticfiles import StaticFiles
 from fastapi import FastAPI
 
 from api.exceptions import sqlalchemy_exception_handler
-from api.driver.routes import router as driver_router
 
+# from api
+from api.driver.routes import router as driver_router
 from api.driverSize.routes import router as driverSize_router
+from api.body.routes import router as body_router
+from api.bodyTypeGroup.routes import router as bodyType_router
 
 app = FastAPI(
     title="Mario Kart 8 API",
@@ -36,5 +39,9 @@ async def say_hello(name: str):
 
 
 app.add_exception_handler(SQLAlchemyError, sqlalchemy_exception_handler)
+
+# add app routers
 app.include_router(driver_router)
 app.include_router(driverSize_router)
+app.include_router(body_router)
+app.include_router(bodyType_router)
