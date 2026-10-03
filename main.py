@@ -14,6 +14,8 @@ from api.body.routes import router as body_router
 from api.bodyTypeGroup.routes import router as bodyType_router
 from api.tire.routes import router as tire_router
 from api.tireGroup.routes import router as tireGroup_router
+from api.glider.routes import router as glider_router
+from api.gliderGroup.routes import router as glider_group_router
 
 app = FastAPI(
     title="Mario Kart 8 API",
@@ -49,3 +51,5 @@ app.include_router(body_router)
 app.include_router(bodyType_router)
 app.include_router(tire_router)
 app.include_router(tireGroup_router)
+app.include_router(glider_router)
+app.include_router(glider_group_router)
