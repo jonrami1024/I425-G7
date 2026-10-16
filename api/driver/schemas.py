@@ -6,14 +6,14 @@ from typing import Optional
 from pydantic import BaseModel, ConfigDict
 
 class DriverBase(BaseModel):
-    driverName: str
-    driverSizeGroup: str
-    driver_img: str
+    driver_id: int
+    name: str
+    driver_group_id: int
+    image_file: str
 
-
-model_config = ConfigDict(
-    from_attributes = True
-)
+    model_config = ConfigDict(
+        from_attributes = True
+    )
 
 class DriverRead(DriverBase):
     pass

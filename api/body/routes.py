@@ -11,7 +11,7 @@ from .services import KartService
 from api.bodyTypeGroup.schemas import kartTypeRead
 
 router = APIRouter(
-    prefix="/karts",
+    prefix="/bodies",
     tags=["kart"],
 )
 
@@ -23,13 +23,13 @@ ServiceDep = Annotated[KartService, Depends(get_service)]
 def get_Karts(service: ServiceDep):
     return service.fetch_karts()
 
-@router.get("/{bodyName}", response_model=KartRead)
-def get_Kart(service: ServiceDep, bodyName: str):
-    return service.fetch_kart(bodyName)
+@router.get("/{body_id}", response_model=KartRead)
+def get_Kart(service: ServiceDep, body_id: int):
+    return service.fetch_kart(body_id)
 
-@router.get("/{bodyName}/stats", response_model=kartTypeRead)
-def get_kart_stats(service: ServiceDep, bodyName: str):
-    return service.fetch_kart_kartType(bodyName)
+@router.get("/{body_id}/stats", response_model=kartTypeRead)
+def get_kart_stats(service: ServiceDep, body_id: int):
+    return service.fetch_kart_kartType(body_id)
 
 
 

@@ -23,11 +23,11 @@ ServiceDep = Annotated[TireService, Depends(get_service)]
 def get_tires(service:ServiceDep):
     return service.fetch_tires()
 
-@router.get("/{tire}", response_model=TireRead)
-def get_tire(service: ServiceDep, tire:str):
-    return service.fetch_tire(tire)
+@router.get("/{tire_id}", response_model=TireRead)
+def get_tire(service: ServiceDep, tire_id: int):
+    return service.fetch_tire(tire_id)
 
-@router.get("/{tire}/stats", response_model=tireGroupRead)
-def get_tire_stats(service: ServiceDep, tire:str):
-    return service.fetch_tire_tireGroup(tire)
+@router.get("/{tire_id}/stats", response_model=tireGroupRead)
+def get_tire_stats(service: ServiceDep, tire_id: int):
+    return service.fetch_tire_tireGroup(tire_id)
 

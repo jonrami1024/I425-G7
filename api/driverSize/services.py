@@ -19,13 +19,13 @@ class DriverSizeService:
         if not driverSizes:
             raise HTTPException(status_code=404, detail="No driver sizes found")
         return driverSizes
-    def fetch_driverSize(self, driverSizeGroup: str):
-        driver_size = self.session.get(driverSize, driverSizeGroup)
+    def fetch_driverSize(self, driver_group_id: str):
+        driver_size = self.session.get(driverSize, driver_group_id)
         if not driver_size:
             raise HTTPException(status_code=404, detail="No driver size group found")
         return driver_size
-    def fetch_driverSize_drivers(self, driverSizeGroup: str):
-        driver_size = self.fetch_driverSize(driverSizeGroup)
+    def fetch_driverSize_drivers(self, driver_group_id: str):
+        driver_size = self.fetch_driverSize(driver_group_id)
         if not driver_size.drivers:
             raise HTTPException(status_code=404, detail="No drivers found for this size group")
         return driver_size.drivers

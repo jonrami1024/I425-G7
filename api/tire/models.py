@@ -9,9 +9,10 @@ if TYPE_CHECKING:
     from api.tireGroup.models import tireGroup
 
 class Tires(SQLModel, table=True):
-    __tablename__ = "tire"
-    tire: str = Field(primary_key=True)
-    tireGroup: str = Field(foreign_key="tireGroup.tireGroup")
-    tire_img: str
+    __tablename__ = "tires"
+    tire_id: int = Field(primary_key=True)
+    name: str
+    tire_group_id: int = Field(foreign_key="tire_groups.tire_group_id")
+    image_file: str
 
     tire_group: "tireGroup" = Relationship(back_populates="tires")

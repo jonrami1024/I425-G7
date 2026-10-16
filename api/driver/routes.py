@@ -24,10 +24,10 @@ ServiceDep = Annotated[DriverService, Depends(get_service)]
 def get_drivers(service:ServiceDep):
     return service.fetch_drivers()
 
-@router.get("/{driverName}", response_model=DriverRead)
-def get_driver(service: ServiceDep, driverName: str):
-    return service.fetch_driver(driverName)
+@router.get("/{driver_id}", response_model=DriverRead)
+def get_driver(service: ServiceDep, driver_id: int):
+    return service.fetch_driver(driver_id)
 
-@router.get("/{driverName}/stats", response_model=driverSizeRead)
-def get_driver_size(service: ServiceDep, driverName: str):
-    return service.fetch_driver_driverSize(driverName)
+@router.get("/{driver_id}/stats", response_model=driverSizeRead)
+def get_driver_size(service: ServiceDep, driver_id: int):
+    return service.fetch_driver_driverSize(driver_id)

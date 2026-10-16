@@ -14,13 +14,11 @@ class GliderService:
         if not gliders:
             raise HTTPException(status_code=404, detail="No gliders found")
         return gliders
-    def fetch_glider(self, glider):
-        glider = self.session.get(Gliders, glider)
+    def fetch_glider(self, glider_id):
+        glider = self.session.get(Gliders, glider_id)
         if not glider:
             raise HTTPException(status_code=404, detail="No glider found")
         return glider
-    def fetch_glider_gliderGroup(self, glider: str):
-        glider_obj = self.fetch_glider(glider)
-        if not glider_obj.glider_group:
-            raise HTTPException(status_code=404, detail="Glider Group not found")
-        return glider_obj.glider_group
+    def fetch_glider_gliderGroup(self, glider_id: int):
+        glider_obj = self.fetch_glider(glider_id)
+        return glider_obj

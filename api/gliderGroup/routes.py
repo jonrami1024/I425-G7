@@ -11,7 +11,7 @@ from .schemas import gliderGroupRead
 from api.glider.schemas import GliderRead
 
 router = APIRouter(
-    prefix="/gliderStats",
+    prefix="/glider-groups",
     tags=["glider stats"],
 )
 

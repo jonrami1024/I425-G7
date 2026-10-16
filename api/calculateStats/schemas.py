@@ -13,5 +13,6 @@ class BuildStatsResponse(BaseModel):
     acceleration: StatDetail
     weight: StatDetail
     handling: StatDetail
-    miniTurbo: StatDetail
+    traction: StatDetail
+    mini_Turbo: StatDetail
     invincibility: StatDetail

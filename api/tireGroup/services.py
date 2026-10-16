@@ -15,13 +15,13 @@ class TireGroupService:
         if not tireGroups:
             raise HTTPException(status_code=404, detail="Tire Group not found")
         return tireGroups
-    def fetch_tireGroup(self, tireGroup_name: str):
-        tire_group = self.session.get(tireGroup, tireGroup_name)
+    def fetch_tireGroup(self, tire_group_id: str):
+        tire_group = self.session.get(tireGroup, tire_group_id)
         if not tire_group:
             raise HTTPException(status_code=404, detail="Tire Group not found")
         return tire_group
-    def fetch_tireGroups_tires(self, tireGroup_name: str):
-        tire_group = self.fetch_tireGroup(tireGroup_name)
+    def fetch_tireGroups_tires(self, tire_group_id: str):
+        tire_group = self.fetch_tireGroup(tire_group_id)
         if not tire_group.tires:
             raise HTTPException(status_code=404, detail="Tires not found")
         return tire_group.tires

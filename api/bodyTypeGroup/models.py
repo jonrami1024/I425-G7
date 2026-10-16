@@ -10,13 +10,14 @@ if TYPE_CHECKING:
     from api.body.models import Karts
 
 class kartType(SQLModel, table=True):
-    __tablename__ = "bodyTypeGroup"
-    bodyTypeGroup: str = Field(primary_key=True)
+    __tablename__ = "body_groups"
+    body_group_id: int = Field(primary_key=True)
     speed: int
     acceleration: int
     weight: int
     handling: int
-    miniTurbo: int
+    traction: int
+    mini_turbo: int
     invincibility: int
 
     karts: list["Karts"] = Relationship(back_populates="kartType")

@@ -9,13 +9,15 @@ if TYPE_CHECKING:
     from api.driver.models import Drivers
 
 class driverSize(SQLModel, table=True):
-    __tablename__ = "driver_size"
-    driverSizeGroup: str = Field(primary_key=True)
+    __tablename__ = "driver_groups"
+    driver_group_id: int = Field(primary_key=True)
+    size: str
     speed: int
     acceleration: int
     weight: int
     handling: int
-    miniTurbo: int
+    traction: int
+    mini_turbo: int
     invincibility: int
 
     drivers: list["Drivers"] = Relationship(back_populates="driverSize")

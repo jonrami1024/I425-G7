@@ -5,9 +5,16 @@
 from pydantic import BaseModel, ConfigDict
 
 class GliderBase(BaseModel):
-    glider: str
-    gliderGroup: str
-    glider_img: str
+    glider_id: int
+    name: str
+    image_file: str
+    speed: int
+    acceleration: int
+    weight: int
+    handling: int
+    traction: int
+    mini_turbo: int
+    invincibility: int
 
     model_config = ConfigDict(
         from_attributes=True

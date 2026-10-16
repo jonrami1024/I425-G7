@@ -5,7 +5,7 @@
 
 from sqlmodel import create_engine, Session
 
-DATABASE_URL = "sqlite:///api/database.sqlite"
+DATABASE_URL = "sqlite:///kartlab.sqlite"
 conn_args = {"check_same_thread": False}
 engine = create_engine(DATABASE_URL, echo=True, connect_args=conn_args)
 

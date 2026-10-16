@@ -18,5 +18,3 @@ class gliderGroup(SQLModel, table=True):
     handling: int
     miniTurbo: int
     invincibility: int
-
-    gliders: list["Gliders"] = Relationship(back_populates="glider_group")

@@ -10,7 +10,7 @@ from .schemas import tireGroupRead
 from api.tire.schemas import TireRead
 
 router = APIRouter(
-    prefix="/tireStats",
+    prefix="/tire-groups",
     tags=["tire stats"],
 )
 
@@ -23,10 +23,10 @@ ServiceDep = Annotated[TireGroupService, Depends(get_service)]
 def get_tire_groups(service: ServiceDep):
     return service.fetch_tireGroups()
 
-@router.get("/{stats}", response_model=tireGroupRead)
-def get_tire_groups_stats(service: ServiceDep, stats: str):
-    return service.fetch_tireGroup(stats)
+@router.get("/{tire_group_id}", response_model=tireGroupRead)
+def get_tire_groups_stats(service: ServiceDep, tire_group_id: int):
+    return service.fetch_tireGroup(tire_group_id)
 
-@router.get("/{stats}/tires", response_model=list[TireRead])
-def get_tire_groups_tires(service: ServiceDep, stats: str):
-    return service.fetch_tireGroups_tires(stats)
+@router.get("/{tire_group_id}/tires", response_model=list[TireRead])
+def get_tire_groups_tires(service: ServiceDep, tire_group_id: int):
+    return service.fetch_tireGroups_tires(tire_group_id)

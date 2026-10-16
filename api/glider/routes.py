@@ -23,10 +23,10 @@ ServiceDep = Annotated[GliderService, Depends(get_service)]
 def get_gliders(service: ServiceDep):
     return service.fetch_gliders()
 
-@router.get("/{glider}", response_model=GliderRead)
-def get_glider(service: ServiceDep, glider: str):
-    return service.fetch_glider(glider)
+@router.get("/{glider_id}", response_model=GliderRead)
+def get_glider(service: ServiceDep, glider_id: int):
+    return service.fetch_glider(glider_id)
 
-@router.get("/{glider}/stats", response_model=gliderGroupRead)
-def get_glider_group(service: ServiceDep, glider: str):
-    return service.fetch_glider_gliderGroup(glider)
+@router.get("/{glider_id}/stats", response_model=GliderRead)
+def get_glider_group(service: ServiceDep, glider_id: int):
+    return service.fetch_glider_gliderGroup(glider_id)

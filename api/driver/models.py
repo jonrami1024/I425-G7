@@ -10,9 +10,11 @@ if TYPE_CHECKING:
 
 class Drivers(SQLModel, table=True):
     __tablename__ = "driver"
-    driverName: str = Field(primary_key=True)
-    driverSizeGroup: str = Field(foreign_key="driver_size.driverSizeGroup")
-    driver_img: str
+    __tablename__ = "drivers"
+    driver_id: int = Field(primary_key=True)
+    name: str
+    driver_group_id: int = Field(foreign_key="driver_groups.driver_group_id")
+    image_file: str
 
     driverSize: "driverSize" = Relationship(back_populates="drivers")
 

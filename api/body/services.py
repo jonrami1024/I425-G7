@@ -14,13 +14,13 @@ class KartService:
         if not karts:
             raise HTTPException(status_code=404, detail="No Karts found")
         return karts
-    def fetch_kart(self, bodyName):
-        kart = self.session.get(Karts, bodyName)
+    def fetch_kart(self, body_id):
+        kart = self.session.get(Karts, body_id)
         if not kart:
             raise HTTPException(status_code=404, detail="No Kart found")
         return kart
-    def fetch_kart_kartType(self, bodyName: str):
-        kart = self.fetch_kart(bodyName)
+    def fetch_kart_kartType(self, body_id: int):
+        kart = self.fetch_kart(body_id)
         if not kart.kartType:
             raise HTTPException(status_code=404, detail="No Kart Type found")
         return kart.kartType

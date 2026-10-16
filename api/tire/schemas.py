@@ -6,9 +6,10 @@ from typing import Optional
 from pydantic import BaseModel, ConfigDict
 
 class tireBase(BaseModel):
-    tire: str
-    tireGroup: str
-    tire_img: str
+    tire_id: int
+    name: str
+    tire_group_id: int
+    image_file: str
 
     model_config = ConfigDict(
         from_attributes=True

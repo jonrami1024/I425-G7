@@ -7,9 +7,11 @@ from pydantic import BaseModel, ConfigDict
 
 
 class KartBase(BaseModel):
-    bodyName: str
-    bodyTypeGroup: str
-    body_img: str
+    body_id: int
+    name: str
+    vehicle_type: str
+    body_group_id: int
+    image_file: str
 
     model_config = ConfigDict(
         from_attributes = True

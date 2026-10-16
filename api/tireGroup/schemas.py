@@ -5,12 +5,13 @@
 from pydantic import BaseModel, ConfigDict
 
 class tireGroupBase(BaseModel):
-    tireGroup: str
+    tire_group_id: int
     speed: int
     acceleration: int
     weight: int
     handling: int
-    miniTurbo: int
+    traction: int
+    mini_turbo: int
     invincibility: int
 
     model_config = ConfigDict(
