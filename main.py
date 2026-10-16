@@ -17,6 +17,9 @@ from api.tireGroup.routes import router as tireGroup_router
 from api.glider.routes import router as glider_router
 from api.gliderGroup.routes import router as glider_group_router
 from api.calculateStats.routes import router as calculate_stats_router
+from api.users.routes import router as user_router
+from api.builds.routes import router as builds_router
+from api.build_ratings.routes import router as ratings_router
 
 app = FastAPI(
     title="Mario Kart 8 API",
@@ -55,3 +58,6 @@ app.include_router(tireGroup_router)
 app.include_router(glider_router)
 app.include_router(glider_group_router)
 app.include_router(calculate_stats_router)
+app.include_router(user_router)
+app.include_router(builds_router)
+app.include_router(ratings_router)
