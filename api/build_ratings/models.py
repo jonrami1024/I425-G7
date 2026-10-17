@@ -2,7 +2,7 @@
 # Date: 10/16/2026
 # File: models.py
 # Description:
-from sqlmodel import SQLModel, Field
+from sqlmodel import SQLModel, Field, Relationship
 
 class Ratings(SQLModel, table=True):
     __tablename__ = "build_ratings"
@@ -10,3 +10,5 @@ class Ratings(SQLModel, table=True):
     build_id: int = Field(foreign_key="builds.build_id")
     user_id: int = Field(foreign_key="users.user_id")
     score: int
+
+    build: "Builds" = Relationship(back_populates="ratings")

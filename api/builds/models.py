@@ -3,7 +3,7 @@
 # File: models.py
 # Description:
 
-from sqlmodel import SQLModel, Field
+from sqlmodel import SQLModel, Field, Relationship
 
 class Builds(SQLModel, table=True):
     __tablename__ = "builds"
@@ -14,3 +14,6 @@ class Builds(SQLModel, table=True):
     tire_id: int = Field(foreign_key="tires.tire_id")
     glider_id: int = Field(foreign_key="gliders.glider_id")
     build_name: str
+
+    user: "Users" = Relationship(back_populates="builds")
+    ratings: list["Ratings"] = Relationship(back_populates="build")

@@ -3,10 +3,12 @@
 # File: models.py
 # Description:
 
-from sqlmodel import SQLModel, Field
+from sqlmodel import SQLModel, Field, Relationship
 
 class Users(SQLModel, table=True):
     __tablename__ = "users"
     user_id: int = Field(primary_key=True)
     username: str
     email: str
+
+    builds: list["Builds"] = Relationship(back_populates="user")
