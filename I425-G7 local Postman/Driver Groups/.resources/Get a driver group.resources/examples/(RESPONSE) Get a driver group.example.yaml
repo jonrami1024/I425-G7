@@ -1,0 +1,27 @@
+$kind: http-example
+request:
+  url: " {{base_url}}/driver-groups/13"
+  method: GET
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    date: Sat, 17 Oct 2026 21:51:13 GMT
+    server: uvicorn
+    content-length: "135"
+    content-type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "driver_group_id": 13,
+        "size": "Medium",
+        "speed": 9,
+        "acceleration": 1,
+        "weight": 8,
+        "handling": 2,
+        "traction": 0,
+        "mini_turbo": 1,
+        "invincibility": 4
+      }
+order: 1000

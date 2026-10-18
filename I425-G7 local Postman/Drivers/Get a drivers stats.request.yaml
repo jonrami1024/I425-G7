@@ -1,0 +1,5 @@
+$kind: http-request
+url: " {{base_url}}/drivers/15/stats"
+method: GET
+examples: .resources/Get a drivers stats.resources/examples
+order: 3320739115048409

@@ -1,0 +1,5 @@
+$kind: http-request
+url: "{{base_url}}/builds/3/ratings"
+method: GET
+examples: .resources/Get a build rating.resources/examples
+order: 4000

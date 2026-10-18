@@ -1,0 +1,5 @@
+$kind: http-request
+url: "{{base_url}}/users/1/builds/1"
+method: GET
+examples: .resources/Get a users specific build.resources/examples
+order: 1792109416401

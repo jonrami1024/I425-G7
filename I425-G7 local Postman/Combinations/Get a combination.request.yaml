@@ -1,0 +1,10 @@
+$kind: http-request
+url: "{{base_url}}/combinations?driver_id=1&body_id=5&tire_id=7&glider_id=3"
+method: GET
+queryParams:
+  driver_id: "1"
+  body_id: "5"
+  tire_id: "7"
+  glider_id: "3"
+examples: .resources/Get a combination.resources/examples
+order: 1000

@@ -1,0 +1,26 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/tires/11/stats"
+  method: GET
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    date: Sat, 17 Oct 2026 21:45:37 GMT
+    server: uvicorn
+    content-length: "116"
+    content-type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "tire_group_id": 7,
+        "speed": 3,
+        "acceleration": 2,
+        "weight": 2,
+        "handling": 4,
+        "traction": 1,
+        "mini_turbo": 3,
+        "invincibility": 5
+      }
+order: 1000

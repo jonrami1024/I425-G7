@@ -1,0 +1,66 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/builds"
+  method: GET
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    date: Sat, 17 Oct 2026 21:46:18 GMT
+    server: uvicorn
+    content-length: "582"
+    content-type: application/json
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "build_id": 1,
+          "user_id": 1,
+          "driver_id": 30,
+          "body_id": 11,
+          "tire_id": 1,
+          "build_name": "Balanced Teddy"
+        },
+        {
+          "build_id": 2,
+          "user_id": 2,
+          "driver_id": 53,
+          "body_id": 16,
+          "tire_id": 19,
+          "build_name": "Max Speed Bowser"
+        },
+        {
+          "build_id": 3,
+          "user_id": 3,
+          "driver_id": 1,
+          "body_id": 1,
+          "tire_id": 1,
+          "build_name": "Baby Peach Handler"
+        },
+        {
+          "build_id": 4,
+          "user_id": 4,
+          "driver_id": 49,
+          "body_id": 39,
+          "tire_id": 13,
+          "build_name": "Heavy Tank"
+        },
+        {
+          "build_id": 5,
+          "user_id": 5,
+          "driver_id": 40,
+          "body_id": 13,
+          "tire_id": 1,
+          "build_name": "Rosalina Drift"
+        },
+        {
+          "build_id": 6,
+          "user_id": 1,
+          "driver_id": 15,
+          "body_id": 2,
+          "tire_id": 3,
+          "build_name": "Toad Scooter"
+        }
+      ]
+order: 1000

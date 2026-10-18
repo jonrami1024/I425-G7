@@ -1,0 +1,21 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/users/2"
+  method: GET
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    date: Sat, 17 Oct 2026 21:46:06 GMT
+    server: uvicorn
+    content-length: "74"
+    content-type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "user_id": 2,
+        "username": "bananapeel99",
+        "email": "bananapeel99@example.com"
+      }
+order: 1000

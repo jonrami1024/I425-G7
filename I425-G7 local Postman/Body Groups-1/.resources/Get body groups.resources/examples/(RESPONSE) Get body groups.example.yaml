@@ -1,0 +1,288 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/body-groups"
+  method: GET
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    date: Sat, 17 Oct 2026 21:43:50 GMT
+    server: uvicorn
+    content-length: "3178"
+    content-type: application/json
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "body_group_id": 1,
+          "speed": 0,
+          "acceleration": 7,
+          "weight": 0,
+          "handling": 5,
+          "traction": 4,
+          "mini_turbo": 7,
+          "invincibility": 0
+        },
+        {
+          "body_group_id": 2,
+          "speed": 2,
+          "acceleration": 6,
+          "weight": 0,
+          "handling": 4,
+          "traction": 6,
+          "mini_turbo": 6,
+          "invincibility": 3
+        },
+        {
+          "body_group_id": 3,
+          "speed": 2,
+          "acceleration": 6,
+          "weight": 0,
+          "handling": 4,
+          "traction": 6,
+          "mini_turbo": 6,
+          "invincibility": 2
+        },
+        {
+          "body_group_id": 4,
+          "speed": 2,
+          "acceleration": 6,
+          "weight": 1,
+          "handling": 5,
+          "traction": 4,
+          "mini_turbo": 6,
+          "invincibility": 3
+        },
+        {
+          "body_group_id": 5,
+          "speed": 2,
+          "acceleration": 6,
+          "weight": 1,
+          "handling": 5,
+          "traction": 4,
+          "mini_turbo": 6,
+          "invincibility": 2
+        },
+        {
+          "body_group_id": 6,
+          "speed": 2,
+          "acceleration": 5,
+          "weight": 2,
+          "handling": 4,
+          "traction": 3,
+          "mini_turbo": 6,
+          "invincibility": 3
+        },
+        {
+          "body_group_id": 7,
+          "speed": 2,
+          "acceleration": 5,
+          "weight": 2,
+          "handling": 4,
+          "traction": 3,
+          "mini_turbo": 6,
+          "invincibility": 2
+        },
+        {
+          "body_group_id": 8,
+          "speed": 2,
+          "acceleration": 5,
+          "weight": 2,
+          "handling": 4,
+          "traction": 3,
+          "mini_turbo": 6,
+          "invincibility": 1
+        },
+        {
+          "body_group_id": 9,
+          "speed": 2,
+          "acceleration": 5,
+          "weight": 1,
+          "handling": 4,
+          "traction": 5,
+          "mini_turbo": 5,
+          "invincibility": 4
+        },
+        {
+          "body_group_id": 10,
+          "speed": 3,
+          "acceleration": 3,
+          "weight": 3,
+          "handling": 2,
+          "traction": 4,
+          "mini_turbo": 5,
+          "invincibility": 3
+        },
+        {
+          "body_group_id": 11,
+          "speed": 3,
+          "acceleration": 3,
+          "weight": 3,
+          "handling": 2,
+          "traction": 4,
+          "mini_turbo": 5,
+          "invincibility": 1
+        },
+        {
+          "body_group_id": 12,
+          "speed": 3,
+          "acceleration": 2,
+          "weight": 3,
+          "handling": 4,
+          "traction": 7,
+          "mini_turbo": 5,
+          "invincibility": 4
+        },
+        {
+          "body_group_id": 13,
+          "speed": 3,
+          "acceleration": 2,
+          "weight": 3,
+          "handling": 4,
+          "traction": 7,
+          "mini_turbo": 5,
+          "invincibility": 3
+        },
+        {
+          "body_group_id": 14,
+          "speed": 3,
+          "acceleration": 4,
+          "weight": 2,
+          "handling": 3,
+          "traction": 3,
+          "mini_turbo": 5,
+          "invincibility": 4
+        },
+        {
+          "body_group_id": 15,
+          "speed": 3,
+          "acceleration": 4,
+          "weight": 2,
+          "handling": 3,
+          "traction": 3,
+          "mini_turbo": 5,
+          "invincibility": 3
+        },
+        {
+          "body_group_id": 16,
+          "speed": 4,
+          "acceleration": 3,
+          "weight": 0,
+          "handling": 2,
+          "traction": 3,
+          "mini_turbo": 4,
+          "invincibility": 4
+        },
+        {
+          "body_group_id": 17,
+          "speed": 4,
+          "acceleration": 3,
+          "weight": 0,
+          "handling": 2,
+          "traction": 3,
+          "mini_turbo": 4,
+          "invincibility": 3
+        },
+        {
+          "body_group_id": 18,
+          "speed": 4,
+          "acceleration": 2,
+          "weight": 1,
+          "handling": 3,
+          "traction": 2,
+          "mini_turbo": 4,
+          "invincibility": 5
+        },
+        {
+          "body_group_id": 19,
+          "speed": 4,
+          "acceleration": 2,
+          "weight": 1,
+          "handling": 3,
+          "traction": 2,
+          "mini_turbo": 4,
+          "invincibility": 3
+        },
+        {
+          "body_group_id": 20,
+          "speed": 4,
+          "acceleration": 2,
+          "weight": 2,
+          "handling": 3,
+          "traction": 0,
+          "mini_turbo": 4,
+          "invincibility": 5
+        },
+        {
+          "body_group_id": 21,
+          "speed": 4,
+          "acceleration": 2,
+          "weight": 2,
+          "handling": 3,
+          "traction": 0,
+          "mini_turbo": 4,
+          "invincibility": 4
+        },
+        {
+          "body_group_id": 22,
+          "speed": 4,
+          "acceleration": 2,
+          "weight": 2,
+          "handling": 3,
+          "traction": 0,
+          "mini_turbo": 4,
+          "invincibility": 3
+        },
+        {
+          "body_group_id": 23,
+          "speed": 4,
+          "acceleration": 1,
+          "weight": 4,
+          "handling": 1,
+          "traction": 3,
+          "mini_turbo": 3,
+          "invincibility": 6
+        },
+        {
+          "body_group_id": 24,
+          "speed": 4,
+          "acceleration": 1,
+          "weight": 4,
+          "handling": 1,
+          "traction": 3,
+          "mini_turbo": 3,
+          "invincibility": 5
+        },
+        {
+          "body_group_id": 25,
+          "speed": 5,
+          "acceleration": 1,
+          "weight": 3,
+          "handling": 1,
+          "traction": 1,
+          "mini_turbo": 3,
+          "invincibility": 6
+        },
+        {
+          "body_group_id": 26,
+          "speed": 5,
+          "acceleration": 0,
+          "weight": 4,
+          "handling": 0,
+          "traction": 5,
+          "mini_turbo": 3,
+          "invincibility": 7
+        },
+        {
+          "body_group_id": 27,
+          "speed": 5,
+          "acceleration": 0,
+          "weight": 4,
+          "handling": 0,
+          "traction": 5,
+          "mini_turbo": 3,
+          "invincibility": 6
+        }
+      ]
+order: 1000

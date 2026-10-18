@@ -1,0 +1,60 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/ratings"
+  method: GET
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    date: Sat, 17 Oct 2026 21:47:07 GMT
+    server: uvicorn
+    content-length: "358"
+    content-type: application/json
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "rating_id": 1,
+          "build_id": 1,
+          "user_id": 2,
+          "score": 5
+        },
+        {
+          "rating_id": 2,
+          "build_id": 1,
+          "user_id": 3,
+          "score": 4
+        },
+        {
+          "rating_id": 3,
+          "build_id": 2,
+          "user_id": 1,
+          "score": 4
+        },
+        {
+          "rating_id": 4,
+          "build_id": 3,
+          "user_id": 4,
+          "score": 5
+        },
+        {
+          "rating_id": 5,
+          "build_id": 4,
+          "user_id": 5,
+          "score": 2
+        },
+        {
+          "rating_id": 6,
+          "build_id": 5,
+          "user_id": 2,
+          "score": 5
+        },
+        {
+          "rating_id": 7,
+          "build_id": 6,
+          "user_id": 3,
+          "score": 3
+        }
+      ]
+order: 1000

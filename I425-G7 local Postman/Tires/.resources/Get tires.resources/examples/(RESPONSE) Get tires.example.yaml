@@ -1,0 +1,150 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/tires"
+  method: GET
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    date: Sat, 17 Oct 2026 21:45:17 GMT
+    server: uvicorn
+    content-length: "2061"
+    content-type: application/json
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "tire_id": 1,
+          "name": "Roller",
+          "tire_group_id": 1,
+          "image_file": "images/tires/roller.png"
+        },
+        {
+          "tire_id": 2,
+          "name": "Azure Roller",
+          "tire_group_id": 1,
+          "image_file": "images/tires/azure_roller.png"
+        },
+        {
+          "tire_id": 3,
+          "name": "Button",
+          "tire_group_id": 2,
+          "image_file": "images/tires/button.png"
+        },
+        {
+          "tire_id": 4,
+          "name": "Leaf Tires",
+          "tire_group_id": 2,
+          "image_file": "images/tires/leaf_tires.png"
+        },
+        {
+          "tire_id": 5,
+          "name": "Cushion",
+          "tire_group_id": 3,
+          "image_file": "images/tires/cushion.png"
+        },
+        {
+          "tire_id": 6,
+          "name": "Sponge",
+          "tire_group_id": 4,
+          "image_file": "images/tires/sponge.png"
+        },
+        {
+          "tire_id": 7,
+          "name": "GLA Tires",
+          "tire_group_id": 5,
+          "image_file": "images/tires/gla_tires.png"
+        },
+        {
+          "tire_id": 8,
+          "name": "Standard",
+          "tire_group_id": 6,
+          "image_file": "images/tires/standard.png"
+        },
+        {
+          "tire_id": 9,
+          "name": "Blue Standard",
+          "tire_group_id": 6,
+          "image_file": "images/tires/blue_standard.png"
+        },
+        {
+          "tire_id": 10,
+          "name": "Slim",
+          "tire_group_id": 7,
+          "image_file": "images/tires/slim.png"
+        },
+        {
+          "tire_id": 11,
+          "name": "Crimson Slim",
+          "tire_group_id": 7,
+          "image_file": "images/tires/crimson_slim.png"
+        },
+        {
+          "tire_id": 12,
+          "name": "Wood",
+          "tire_group_id": 7,
+          "image_file": "images/tires/wood.png"
+        },
+        {
+          "tire_id": 13,
+          "name": "Monster",
+          "tire_group_id": 8,
+          "image_file": "images/tires/monster.png"
+        },
+        {
+          "tire_id": 14,
+          "name": "Hot Monster",
+          "tire_group_id": 8,
+          "image_file": "images/tires/hot_monster.png"
+        },
+        {
+          "tire_id": 15,
+          "name": "Ancient Tires",
+          "tire_group_id": 9,
+          "image_file": "images/tires/ancient_tires.png"
+        },
+        {
+          "tire_id": 16,
+          "name": "Off-Road",
+          "tire_group_id": 10,
+          "image_file": "images/tires/off_road.png"
+        },
+        {
+          "tire_id": 17,
+          "name": "Retro Off-Road",
+          "tire_group_id": 10,
+          "image_file": "images/tires/retro_off_road.png"
+        },
+        {
+          "tire_id": 18,
+          "name": "Triforce Tires",
+          "tire_group_id": 10,
+          "image_file": "images/tires/triforce_tires.png"
+        },
+        {
+          "tire_id": 19,
+          "name": "Slick",
+          "tire_group_id": 11,
+          "image_file": "images/tires/slick.png"
+        },
+        {
+          "tire_id": 20,
+          "name": "Cyber Slick",
+          "tire_group_id": 11,
+          "image_file": "images/tires/cyber_slick.png"
+        },
+        {
+          "tire_id": 21,
+          "name": "Metal",
+          "tire_group_id": 12,
+          "image_file": "images/tires/metal.png"
+        },
+        {
+          "tire_id": 22,
+          "name": "Gold Tires",
+          "tire_group_id": 13,
+          "image_file": "images/tires/gold_tires.png"
+        }
+      ]
+order: 1000

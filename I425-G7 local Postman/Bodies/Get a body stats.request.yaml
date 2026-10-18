@@ -1,0 +1,5 @@
+$kind: http-request
+url: " {{base_url}}/bodies/5/stats"
+method: GET
+examples: .resources/Get a body stats.resources/examples
+order: 3548519320792959

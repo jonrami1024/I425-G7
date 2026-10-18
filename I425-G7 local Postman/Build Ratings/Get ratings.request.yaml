@@ -1,0 +1,5 @@
+$kind: http-request
+url: "{{base_url}}/ratings"
+method: GET
+examples: .resources/Get ratings.resources/examples
+order: 1000

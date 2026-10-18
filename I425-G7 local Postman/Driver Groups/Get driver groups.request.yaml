@@ -1,0 +1,5 @@
+$kind: http-request
+url: " {{base_url}}/driver-groups"
+method: GET
+examples: .resources/Get driver groups.resources/examples
+order: 1791995889626

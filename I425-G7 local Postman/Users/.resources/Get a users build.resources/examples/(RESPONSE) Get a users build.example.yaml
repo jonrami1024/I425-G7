@@ -1,0 +1,26 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/users/2/builds"
+  method: GET
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    date: Sat, 17 Oct 2026 21:46:11 GMT
+    server: uvicorn
+    content-length: "101"
+    content-type: application/json
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "build_id": 2,
+          "user_id": 2,
+          "driver_id": 53,
+          "body_id": 16,
+          "tire_id": 19,
+          "build_name": "Max Speed Bowser"
+        }
+      ]
+order: 1000

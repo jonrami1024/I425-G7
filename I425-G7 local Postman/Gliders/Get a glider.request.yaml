@@ -1,0 +1,5 @@
+$kind: http-request
+url: "{{base_url}}/gliders/4"
+method: GET
+examples: .resources/Get a glider.resources/examples
+order: 755937538304227

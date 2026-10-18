@@ -1,0 +1,342 @@
+$kind: http-example
+request:
+  url: " {{base_url}}/drivers"
+  method: GET
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    date: Sat, 17 Oct 2026 21:44:44 GMT
+    server: uvicorn
+    content-length: "5350"
+    content-type: application/json
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "driver_id": 1,
+          "name": "Baby Peach",
+          "driver_group_id": 1,
+          "image_file": "images/drivers/baby_peach.png"
+        },
+        {
+          "driver_id": 2,
+          "name": "Baby Daisy",
+          "driver_group_id": 1,
+          "image_file": "images/drivers/baby_daisy.png"
+        },
+        {
+          "driver_id": 3,
+          "name": "Baby Rosalina",
+          "driver_group_id": 2,
+          "image_file": "images/drivers/baby_rosalina.png"
+        },
+        {
+          "driver_id": 4,
+          "name": "Lemmy",
+          "driver_group_id": 2,
+          "image_file": "images/drivers/lemmy.png"
+        },
+        {
+          "driver_id": 5,
+          "name": "Baby Mario",
+          "driver_group_id": 3,
+          "image_file": "images/drivers/baby_mario.png"
+        },
+        {
+          "driver_id": 6,
+          "name": "Baby Luigi",
+          "driver_group_id": 3,
+          "image_file": "images/drivers/baby_luigi.png"
+        },
+        {
+          "driver_id": 7,
+          "name": "Dry Bones",
+          "driver_group_id": 3,
+          "image_file": "images/drivers/dry_bones.png"
+        },
+        {
+          "driver_id": 8,
+          "name": "Mii (Light)",
+          "driver_group_id": 3,
+          "image_file": "images/drivers/mii_light.png"
+        },
+        {
+          "driver_id": 9,
+          "name": "Koopa Troopa",
+          "driver_group_id": 4,
+          "image_file": "images/drivers/koopa_troopa.png"
+        },
+        {
+          "driver_id": 10,
+          "name": "Lakitu",
+          "driver_group_id": 4,
+          "image_file": "images/drivers/lakitu.png"
+        },
+        {
+          "driver_id": 11,
+          "name": "Bowser Jr.",
+          "driver_group_id": 4,
+          "image_file": "images/drivers/bowser_jr.png"
+        },
+        {
+          "driver_id": 12,
+          "name": "Toadette",
+          "driver_group_id": 5,
+          "image_file": "images/drivers/toadette.png"
+        },
+        {
+          "driver_id": 13,
+          "name": "Wendy",
+          "driver_group_id": 5,
+          "image_file": "images/drivers/wendy.png"
+        },
+        {
+          "driver_id": 14,
+          "name": "Isabelle",
+          "driver_group_id": 5,
+          "image_file": "images/drivers/isabelle.png"
+        },
+        {
+          "driver_id": 15,
+          "name": "Toad",
+          "driver_group_id": 6,
+          "image_file": "images/drivers/toad.png"
+        },
+        {
+          "driver_id": 16,
+          "name": "Shy Guy",
+          "driver_group_id": 6,
+          "image_file": "images/drivers/shy_guy.png"
+        },
+        {
+          "driver_id": 17,
+          "name": "Larry",
+          "driver_group_id": 6,
+          "image_file": "images/drivers/larry.png"
+        },
+        {
+          "driver_id": 18,
+          "name": "Cat Peach",
+          "driver_group_id": 7,
+          "image_file": "images/drivers/cat_peach.png"
+        },
+        {
+          "driver_id": 19,
+          "name": "Inkling Girl",
+          "driver_group_id": 7,
+          "image_file": "images/drivers/inkling_girl.png"
+        },
+        {
+          "driver_id": 20,
+          "name": "Villager (Female)",
+          "driver_group_id": 7,
+          "image_file": "images/drivers/villager_female.png"
+        },
+        {
+          "driver_id": 21,
+          "name": "Diddy Kong",
+          "driver_group_id": 7,
+          "image_file": "images/drivers/diddy_kong.png"
+        },
+        {
+          "driver_id": 22,
+          "name": "Peach",
+          "driver_group_id": 8,
+          "image_file": "images/drivers/peach.png"
+        },
+        {
+          "driver_id": 23,
+          "name": "Daisy",
+          "driver_group_id": 8,
+          "image_file": "images/drivers/daisy.png"
+        },
+        {
+          "driver_id": 24,
+          "name": "Yoshi",
+          "driver_group_id": 8,
+          "image_file": "images/drivers/yoshi.png"
+        },
+        {
+          "driver_id": 25,
+          "name": "Birdo",
+          "driver_group_id": 8,
+          "image_file": "images/drivers/birdo.png"
+        },
+        {
+          "driver_id": 26,
+          "name": "Peachette",
+          "driver_group_id": 8,
+          "image_file": "images/drivers/peachette.png"
+        },
+        {
+          "driver_id": 27,
+          "name": "Tanooki Mario",
+          "driver_group_id": 9,
+          "image_file": "images/drivers/tanooki_mario.png"
+        },
+        {
+          "driver_id": 28,
+          "name": "Inkling Boy",
+          "driver_group_id": 9,
+          "image_file": "images/drivers/inkling_boy.png"
+        },
+        {
+          "driver_id": 29,
+          "name": "Villager (Male)",
+          "driver_group_id": 9,
+          "image_file": "images/drivers/villager_male.png"
+        },
+        {
+          "driver_id": 30,
+          "name": "Mario",
+          "driver_group_id": 10,
+          "image_file": "images/drivers/mario.png"
+        },
+        {
+          "driver_id": 31,
+          "name": "Ludwig",
+          "driver_group_id": 10,
+          "image_file": "images/drivers/ludwig.png"
+        },
+        {
+          "driver_id": 32,
+          "name": "Mii (Medium)",
+          "driver_group_id": 10,
+          "image_file": "images/drivers/mii_medium.png"
+        },
+        {
+          "driver_id": 33,
+          "name": "Luigi",
+          "driver_group_id": 11,
+          "image_file": "images/drivers/luigi.png"
+        },
+        {
+          "driver_id": 34,
+          "name": "Iggy",
+          "driver_group_id": 11,
+          "image_file": "images/drivers/iggy.png"
+        },
+        {
+          "driver_id": 35,
+          "name": "Kamek",
+          "driver_group_id": 11,
+          "image_file": "images/drivers/kamek.png"
+        },
+        {
+          "driver_id": 36,
+          "name": "Metal Mario",
+          "driver_group_id": 12,
+          "image_file": "images/drivers/metal_mario.png"
+        },
+        {
+          "driver_id": 37,
+          "name": "Gold Mario",
+          "driver_group_id": 12,
+          "image_file": "images/drivers/gold_mario.png"
+        },
+        {
+          "driver_id": 38,
+          "name": "Pink Gold Peach",
+          "driver_group_id": 12,
+          "image_file": "images/drivers/pink_gold_peach.png"
+        },
+        {
+          "driver_id": 39,
+          "name": "Wiggler",
+          "driver_group_id": 13,
+          "image_file": "images/drivers/wiggler.png"
+        },
+        {
+          "driver_id": 40,
+          "name": "Rosalina",
+          "driver_group_id": 14,
+          "image_file": "images/drivers/rosalina.png"
+        },
+        {
+          "driver_id": 41,
+          "name": "King Boo",
+          "driver_group_id": 14,
+          "image_file": "images/drivers/king_boo.png"
+        },
+        {
+          "driver_id": 42,
+          "name": "Link",
+          "driver_group_id": 14,
+          "image_file": "images/drivers/link.png"
+        },
+        {
+          "driver_id": 43,
+          "name": "Link (BotW)",
+          "driver_group_id": 14,
+          "image_file": "images/drivers/link_botw.png"
+        },
+        {
+          "driver_id": 44,
+          "name": "Pauline",
+          "driver_group_id": 14,
+          "image_file": "images/drivers/pauline.png"
+        },
+        {
+          "driver_id": 45,
+          "name": "Petey Piranha",
+          "driver_group_id": 15,
+          "image_file": "images/drivers/petey_piranha.png"
+        },
+        {
+          "driver_id": 46,
+          "name": "Waluigi",
+          "driver_group_id": 16,
+          "image_file": "images/drivers/waluigi.png"
+        },
+        {
+          "driver_id": 47,
+          "name": "Donkey Kong",
+          "driver_group_id": 16,
+          "image_file": "images/drivers/donkey_kong.png"
+        },
+        {
+          "driver_id": 48,
+          "name": "Roy",
+          "driver_group_id": 16,
+          "image_file": "images/drivers/roy.png"
+        },
+        {
+          "driver_id": 49,
+          "name": "Wario",
+          "driver_group_id": 17,
+          "image_file": "images/drivers/wario.png"
+        },
+        {
+          "driver_id": 50,
+          "name": "Dry Bowser",
+          "driver_group_id": 17,
+          "image_file": "images/drivers/dry_bowser.png"
+        },
+        {
+          "driver_id": 51,
+          "name": "Funky Kong",
+          "driver_group_id": 17,
+          "image_file": "images/drivers/funky_kong.png"
+        },
+        {
+          "driver_id": 52,
+          "name": "Mii (Heavy)",
+          "driver_group_id": 17,
+          "image_file": "images/drivers/mii_heavy.png"
+        },
+        {
+          "driver_id": 53,
+          "name": "Bowser",
+          "driver_group_id": 18,
+          "image_file": "images/drivers/bowser.png"
+        },
+        {
+          "driver_id": 54,
+          "name": "Morton",
+          "driver_group_id": 18,
+          "image_file": "images/drivers/morton.png"
+        }
+      ]
+order: 1000

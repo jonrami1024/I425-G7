@@ -1,0 +1,5 @@
+$kind: http-request
+url: "{{base_url}}/body-groups/6"
+method: GET
+examples: .resources/Get a body group.resources/examples
+order: 384958577148606

@@ -1,0 +1,216 @@
+$kind: http-example
+request:
+  url: " {{base_url}}/driver-groups"
+  method: GET
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    date: Sat, 17 Oct 2026 21:51:04 GMT
+    server: uvicorn
+    content-length: "2435"
+    content-type: application/json
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "driver_group_id": 1,
+          "size": "Small",
+          "speed": 1,
+          "acceleration": 4,
+          "weight": 0,
+          "handling": 10,
+          "traction": 5,
+          "mini_turbo": 5,
+          "invincibility": 6
+        },
+        {
+          "driver_group_id": 2,
+          "size": "Small",
+          "speed": 1,
+          "acceleration": 5,
+          "weight": 0,
+          "handling": 9,
+          "traction": 3,
+          "mini_turbo": 5,
+          "invincibility": 6
+        },
+        {
+          "driver_group_id": 3,
+          "size": "Small",
+          "speed": 2,
+          "acceleration": 5,
+          "weight": 1,
+          "handling": 8,
+          "traction": 4,
+          "mini_turbo": 5,
+          "invincibility": 5
+        },
+        {
+          "driver_group_id": 4,
+          "size": "Small",
+          "speed": 3,
+          "acceleration": 4,
+          "weight": 2,
+          "handling": 8,
+          "traction": 5,
+          "mini_turbo": 4,
+          "invincibility": 4
+        },
+        {
+          "driver_group_id": 5,
+          "size": "Small",
+          "speed": 3,
+          "acceleration": 5,
+          "weight": 2,
+          "handling": 7,
+          "traction": 2,
+          "mini_turbo": 4,
+          "invincibility": 3
+        },
+        {
+          "driver_group_id": 6,
+          "size": "Small",
+          "speed": 4,
+          "acceleration": 4,
+          "weight": 3,
+          "handling": 7,
+          "traction": 4,
+          "mini_turbo": 4,
+          "invincibility": 3
+        },
+        {
+          "driver_group_id": 7,
+          "size": "Medium",
+          "speed": 5,
+          "acceleration": 4,
+          "weight": 3,
+          "handling": 6,
+          "traction": 3,
+          "mini_turbo": 4,
+          "invincibility": 3
+        },
+        {
+          "driver_group_id": 8,
+          "size": "Medium",
+          "speed": 6,
+          "acceleration": 3,
+          "weight": 4,
+          "handling": 5,
+          "traction": 3,
+          "mini_turbo": 4,
+          "invincibility": 1
+        },
+        {
+          "driver_group_id": 9,
+          "size": "Medium",
+          "speed": 6,
+          "acceleration": 3,
+          "weight": 5,
+          "handling": 5,
+          "traction": 1,
+          "mini_turbo": 4,
+          "invincibility": 1
+        },
+        {
+          "driver_group_id": 10,
+          "size": "Medium",
+          "speed": 7,
+          "acceleration": 2,
+          "weight": 6,
+          "handling": 4,
+          "traction": 2,
+          "mini_turbo": 3,
+          "invincibility": 3
+        },
+        {
+          "driver_group_id": 11,
+          "size": "Medium",
+          "speed": 7,
+          "acceleration": 2,
+          "weight": 6,
+          "handling": 5,
+          "traction": 1,
+          "mini_turbo": 3,
+          "invincibility": 3
+        },
+        {
+          "driver_group_id": 12,
+          "size": "Medium",
+          "speed": 8,
+          "acceleration": 1,
+          "weight": 10,
+          "handling": 3,
+          "traction": 1,
+          "mini_turbo": 1,
+          "invincibility": 3
+        },
+        {
+          "driver_group_id": 13,
+          "size": "Medium",
+          "speed": 9,
+          "acceleration": 1,
+          "weight": 8,
+          "handling": 2,
+          "traction": 0,
+          "mini_turbo": 1,
+          "invincibility": 4
+        },
+        {
+          "driver_group_id": 14,
+          "size": "Large",
+          "speed": 8,
+          "acceleration": 1,
+          "weight": 7,
+          "handling": 3,
+          "traction": 3,
+          "mini_turbo": 2,
+          "invincibility": 4
+        },
+        {
+          "driver_group_id": 15,
+          "size": "Large",
+          "speed": 8,
+          "acceleration": 1,
+          "weight": 10,
+          "handling": 3,
+          "traction": 1,
+          "mini_turbo": 1,
+          "invincibility": 6
+        },
+        {
+          "driver_group_id": 16,
+          "size": "Large",
+          "speed": 9,
+          "acceleration": 1,
+          "weight": 8,
+          "handling": 2,
+          "traction": 0,
+          "mini_turbo": 1,
+          "invincibility": 4
+        },
+        {
+          "driver_group_id": 17,
+          "size": "Large",
+          "speed": 10,
+          "acceleration": 0,
+          "weight": 9,
+          "handling": 1,
+          "traction": 1,
+          "mini_turbo": 0,
+          "invincibility": 5
+        },
+        {
+          "driver_group_id": 18,
+          "size": "Large",
+          "speed": 10,
+          "acceleration": 0,
+          "weight": 10,
+          "handling": 0,
+          "traction": 0,
+          "mini_turbo": 0,
+          "invincibility": 6
+        }
+      ]
+order: 1000
