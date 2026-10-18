@@ -7,6 +7,7 @@ from sqlmodel import SQLModel, Field, Relationship
 
 if TYPE_CHECKING:
     from api.bodyTypeGroup.models import kartType
+    from api.builds.models import Builds
 
 class Karts(SQLModel, table=True):
     __tablename__ = "bodies"
@@ -17,5 +18,6 @@ class Karts(SQLModel, table=True):
     image_file: str
 
     kartType: "kartType" = Relationship(back_populates="karts")
+    builds: list["Builds"] = Relationship(back_populates="body")
 
 

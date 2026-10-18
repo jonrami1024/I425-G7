@@ -15,7 +15,6 @@ from api.bodyTypeGroup.routes import router as bodyType_router
 from api.tire.routes import router as tire_router
 from api.tireGroup.routes import router as tireGroup_router
 from api.glider.routes import router as glider_router
-from api.gliderGroup.routes import router as glider_group_router
 from api.calculateStats.routes import router as calculate_stats_router
 from api.users.routes import router as user_router
 from api.builds.routes import router as builds_router
@@ -35,17 +34,6 @@ static_path = os.path.join(os.path.dirname(__file__), "api/static")
 app.mount("/static", StaticFiles(directory=static_path))
 
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
-
-
-@app.get("/hello/{name}")
-async def say_hello(name: str):
-    return {"message": f"Hello {name}"}
-
-
-
 app.add_exception_handler(SQLAlchemyError, sqlalchemy_exception_handler)
 
 # add app routers
@@ -56,7 +44,6 @@ app.include_router(bodyType_router)
 app.include_router(tire_router)
 app.include_router(tireGroup_router)
 app.include_router(glider_router)
-app.include_router(glider_group_router)
 app.include_router(calculate_stats_router)
 app.include_router(user_router)
 app.include_router(builds_router)

@@ -2,7 +2,12 @@
 # Date: 10/16/2026
 # File: models.py
 # Description:
+from typing import TYPE_CHECKING
 from sqlmodel import SQLModel, Field, Relationship
+
+if TYPE_CHECKING:
+    from api.builds.models import Builds
+    from api.users.models import Users
 
 class Ratings(SQLModel, table=True):
     __tablename__ = "build_ratings"
@@ -12,3 +17,4 @@ class Ratings(SQLModel, table=True):
     score: int
 
     build: "Builds" = Relationship(back_populates="ratings")
+    user: "Users" = Relationship(back_populates="ratings")

@@ -7,9 +7,9 @@ from sqlmodel import SQLModel, Field, Relationship
 
 if TYPE_CHECKING:
     from api.driverSize.models import driverSize
+    from api.builds.models import Builds
 
 class Drivers(SQLModel, table=True):
-    __tablename__ = "driver"
     __tablename__ = "drivers"
     driver_id: int = Field(primary_key=True)
     name: str
@@ -17,4 +17,5 @@ class Drivers(SQLModel, table=True):
     image_file: str
 
     driverSize: "driverSize" = Relationship(back_populates="drivers")
+    builds: list["Builds"] = Relationship(back_populates="driver")
 

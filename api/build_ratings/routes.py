@@ -2,6 +2,7 @@
 # Date: 10/16/2026
 # File: routes.py
 # Description:
+
 from fastapi import APIRouter, Depends
 from typing import Annotated
 from api.dependencies import SessionDep
@@ -11,17 +12,17 @@ from .services import RatingsService
 
 router = APIRouter(
     prefix="/ratings",
-    tags=["rating"],
+    tags=["Ratings"],
 )
 
 def get_service(session: SessionDep) -> RatingsService:
     return RatingsService(session)
 ServiceDep = Annotated[RatingsService, Depends(get_service)]
 
-@router.get("/", response_model=list[RatingRead])
+@router.get("/", response_model=list[RatingRead], summary="Get all ratings")
 def get_ratings(service: ServiceDep):
     return service.fetch_ratings()
 
-@router.get("/{rating_id}", response_model=RatingRead)
+@router.get("/{rating_id}", response_model=RatingRead, summary="Get one rating")
 def get_rating(service: ServiceDep, rating_id: int):
     return service.fetch_rating(rating_id)

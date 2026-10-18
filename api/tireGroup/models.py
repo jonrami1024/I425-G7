@@ -12,6 +12,7 @@ if TYPE_CHECKING:
 class tireGroup(SQLModel, table=True):
     __tablename__ = "tire_groups"
     tire_group_id: int = Field(primary_key=True)
+    label: str
     speed: int
     acceleration: int
     weight: int

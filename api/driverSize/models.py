@@ -11,6 +11,7 @@ if TYPE_CHECKING:
 class driverSize(SQLModel, table=True):
     __tablename__ = "driver_groups"
     driver_group_id: int = Field(primary_key=True)
+    label: str
     size: str
     speed: int
     acceleration: int

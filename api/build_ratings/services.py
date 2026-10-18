@@ -12,10 +12,10 @@ class RatingsService:
     def fetch_ratings(self):
         ratings = self.session.exec(select(Ratings)).all()
         if not ratings:
-            raise HTTPException(status_code=404, detail="No ratings")
+            raise HTTPException(status_code=404, detail="No ratings found")
         return ratings
     def fetch_rating(self, rating_id):
         rating = self.session.get(Ratings, rating_id)
         if not rating:
-            raise HTTPException(status_code=404, detail="No rating")
+            raise HTTPException(status_code=404, detail="Rating not found")
         return rating

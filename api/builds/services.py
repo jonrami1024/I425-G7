@@ -7,6 +7,7 @@ from fastapi import HTTPException
 from api.builds.models import Builds
 from api.build_ratings.models import Ratings
 from api.calculateStats.services import CalculateStatsService
+from api.calculateStats.schemas import BuildStatsRead, BuildParts
 
 class BuildService:
     def __init__(self, session: Session):
@@ -21,17 +22,23 @@ class BuildService:
     def fetch_build(self, build_id: int):
         build = self.session.get(Builds, build_id)
         if not build:
-            raise HTTPException(status_code=404, detail="No build found")
+            raise HTTPException(status_code=404, detail="Build not found")
         return build
 
     def fetch_build_stats(self, build_id: int):
         build = self.fetch_build(build_id)
         stats_service = CalculateStatsService(self.session)
-        return stats_service.calculate_build_stats(
+        combo = stats_service.calculate_build_stats(
             driver_id=build.driver_id,
             body_id=build.body_id,
             tire_id=build.tire_id,
             glider_id=build.glider_id
+        )
+        return BuildStatsRead(
+            build_id=build.build_id,
+            build_name=build.build_name,
+            parts=BuildParts(driver=combo.driver, body=combo.body, tire=combo.tire, glider=combo.glider),
+            stats=combo.stats
         )
 
     def fetch_build_ratings(self, build_id: int):

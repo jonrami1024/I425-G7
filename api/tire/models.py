@@ -7,6 +7,7 @@ from typing import TYPE_CHECKING
 from sqlmodel import SQLModel, Field, Relationship
 if TYPE_CHECKING:
     from api.tireGroup.models import tireGroup
+    from api.builds.models import Builds
 
 class Tires(SQLModel, table=True):
     __tablename__ = "tires"
@@ -16,3 +17,4 @@ class Tires(SQLModel, table=True):
     image_file: str
 
     tire_group: "tireGroup" = Relationship(back_populates="tires")
+    builds: list["Builds"] = Relationship(back_populates="tire")

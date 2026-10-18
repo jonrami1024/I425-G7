@@ -12,7 +12,7 @@ from api.body.schemas import KartRead
 
 router = APIRouter(
     prefix="/body-groups",
-    tags=["kart stats"]
+    tags=["Body Groups"]
 )
 
 def get_service(session: SessionDep) -> KartTypeService:
@@ -20,14 +20,14 @@ def get_service(session: SessionDep) -> KartTypeService:
 
 ServiceDep = Annotated[KartTypeService, Depends(get_service)]
 
-@router.get("/", response_model=list[kartTypeRead])
+@router.get("/", response_model=list[kartTypeRead], summary="Get all body groups")
 def get_kart_Type(service: ServiceDep):
     return service.fetch_kartTypes()
 
-@router.get("/{body_group_id}", response_model=kartTypeRead)
+@router.get("/{body_group_id}", response_model=kartTypeRead, summary="Get one body group and its stats")
 def get_kart_Type_group(service: ServiceDep, body_group_id: int):
     return service.fetch_kartType(body_group_id)
 
-@router.get("/{body_group_id}/bodies", response_model=list[KartRead])
+@router.get("/{body_group_id}/bodies", response_model=list[KartRead], summary="Get all bodies in a body group")
 def get_kartType_karts(service: ServiceDep, body_group_id: int):
     return service.fetch_kartType_karts(body_group_id)

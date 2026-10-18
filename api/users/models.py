@@ -3,7 +3,12 @@
 # File: models.py
 # Description:
 
+from typing import TYPE_CHECKING
 from sqlmodel import SQLModel, Field, Relationship
+
+if TYPE_CHECKING:
+    from api.builds.models import Builds
+    from api.build_ratings.models import Ratings
 
 class Users(SQLModel, table=True):
     __tablename__ = "users"
@@ -12,3 +17,4 @@ class Users(SQLModel, table=True):
     email: str
 
     builds: list["Builds"] = Relationship(back_populates="user")
+    ratings: list["Ratings"] = Relationship(back_populates="user")

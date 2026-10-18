@@ -25,3 +25,8 @@ class TireService:
         if not tire_obj.tire_group:
             raise HTTPException(status_code=404, detail="Tire Group not found")
         return tire_obj.tire_group
+    def fetch_tire_builds(self, part_id: int):
+        part = self.fetch_tire(part_id)
+        if not part.builds:
+            raise HTTPException(status_code=404, detail="No builds use this part")
+        return part.builds

@@ -12,6 +12,7 @@ if TYPE_CHECKING:
 class kartType(SQLModel, table=True):
     __tablename__ = "body_groups"
     body_group_id: int = Field(primary_key=True)
+    label: str
     speed: int
     acceleration: int
     weight: int

@@ -12,15 +12,20 @@ class KartService:
     def fetch_karts(self):
         karts = self.session.exec(select(Karts)).all()
         if not karts:
-            raise HTTPException(status_code=404, detail="No Karts found")
+            raise HTTPException(status_code=404, detail="No bodies found")
         return karts
     def fetch_kart(self, body_id):
         kart = self.session.get(Karts, body_id)
         if not kart:
-            raise HTTPException(status_code=404, detail="No Kart found")
+            raise HTTPException(status_code=404, detail="Body not found")
         return kart
     def fetch_kart_kartType(self, body_id: int):
         kart = self.fetch_kart(body_id)
         if not kart.kartType:
-            raise HTTPException(status_code=404, detail="No Kart Type found")
+            raise HTTPException(status_code=404, detail="Body group not found for this body")
         return kart.kartType
+    def fetch_kart_builds(self, part_id: int):
+        part = self.fetch_kart(part_id)
+        if not part.builds:
+            raise HTTPException(status_code=404, detail="No builds use this part")
+        return part.builds

@@ -7,6 +7,7 @@ from pydantic import BaseModel, ConfigDict
 
 class driverSizeBase(BaseModel):
     driver_group_id: int
+    label: str
     size: str
     speed: int
     acceleration: int

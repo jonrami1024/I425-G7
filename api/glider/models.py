@@ -6,7 +6,7 @@ from typing import TYPE_CHECKING
 from sqlmodel import SQLModel, Field, Relationship
 
 if TYPE_CHECKING:
-    from api.gliderGroup.models import gliderGroup
+    from api.builds.models import Builds
 
 class Gliders(SQLModel, table=True):
     __tablename__ = "gliders"
@@ -20,3 +20,5 @@ class Gliders(SQLModel, table=True):
     traction: int
     mini_turbo: int
     invincibility: int
+
+    builds: list["Builds"] = Relationship(back_populates="glider")

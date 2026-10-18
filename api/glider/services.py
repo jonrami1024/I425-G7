@@ -17,8 +17,10 @@ class GliderService:
     def fetch_glider(self, glider_id):
         glider = self.session.get(Gliders, glider_id)
         if not glider:
-            raise HTTPException(status_code=404, detail="No glider found")
+            raise HTTPException(status_code=404, detail="Glider not found")
         return glider
-    def fetch_glider_gliderGroup(self, glider_id: int):
-        glider_obj = self.fetch_glider(glider_id)
-        return glider_obj
+    def fetch_glider_builds(self, part_id: int):
+        part = self.fetch_glider(part_id)
+        if not part.builds:
+            raise HTTPException(status_code=404, detail="No builds use this part")
+        return part.builds

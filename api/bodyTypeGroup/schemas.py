@@ -8,6 +8,7 @@ from pydantic import BaseModel, ConfigDict
 
 class kartTypeBase(BaseModel):
     body_group_id: int
+    label: str
     speed: int
     acceleration: int
     weight: int

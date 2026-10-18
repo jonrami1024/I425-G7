@@ -6,6 +6,7 @@ from pydantic import BaseModel, ConfigDict
 
 class tireGroupBase(BaseModel):
     tire_group_id: int
+    label: str
     speed: int
     acceleration: int
     weight: int

@@ -10,6 +10,7 @@ class BuildBase(BaseModel):
     driver_id: int
     body_id: int
     tire_id: int
+    glider_id: int
     build_name: str
 
     model_config = ConfigDict(

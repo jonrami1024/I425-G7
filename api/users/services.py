@@ -32,3 +32,9 @@ class UserService:
         if not build:
             raise HTTPException(status_code=404, detail="Build not found for this user")
         return build
+
+    def fetch_user_ratings(self, user_id: int):
+        user = self.fetch_user(user_id)
+        if not user.ratings:
+            raise HTTPException(status_code=404, detail="No ratings found for this user")
+        return user.ratings
