@@ -12,3 +12,7 @@
 - Added a summary to every endpoint and readable tags for `/docs`
 - Applied the Lab 1 feedback to the database: group labels, `build_name` and `username` checks, and the rule against rating your own build
 - Updated the `.sql` script, ER diagram, API documentation (changes highlighted), Postman collection, and endpoint screenshots
+
+### Jonathan Ramirez-Molina
+- Added users, builds, and build ratings to api
+- Added relationships between builds and ratings
