@@ -1,6 +1,0 @@
-$kind: http-request
-name: Get a tire stats
-url: "{{base_url}}/tires/11/stats"
-method: GET
-examples: .resources/Get a tire stats-1.resources/examples
-order: 2341553574094855

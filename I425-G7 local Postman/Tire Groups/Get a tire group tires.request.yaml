@@ -1,5 +1,0 @@
-$kind: http-request
-url: "{{base_url}}/tire-groups/9/tires"
-method: GET
-examples: .resources/Get a tire group tires.resources/examples
-order: 3617926208795627

@@ -1,5 +1,0 @@
-$kind: http-request
-url: " {{base_url}}/bodies"
-method: GET
-examples: .resources/Get bodies.resources/examples
-order: 1792022553317

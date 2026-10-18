@@ -1,5 +1,0 @@
-$kind: http-request
-url: "{{base_url}}/users/2"
-method: GET
-examples: .resources/Get a user.resources/examples
-order: 1792109414401

@@ -1,5 +1,0 @@
-$kind: http-request
-url: "{{base_url}}/body-groups/4/bodies"
-method: GET
-examples: .resources/Get a body bodies group.resources/examples
-order: 1756232181491557

@@ -1,5 +1,0 @@
-$kind: http-request
-url: "{{base_url}}/builds"
-method: GET
-examples: .resources/Get builds.resources/examples
-order: 1000
