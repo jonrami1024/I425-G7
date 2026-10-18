@@ -14,5 +14,30 @@
 - Updated the `.sql` script, ER diagram, API documentation (changes highlighted), Postman collection, and endpoint screenshots
 
 ### Jonathan Ramirez-Molina
-- Added users, builds, and build ratings to api
+- Added `users`, `builds`, and `build_ratings` to api
 - Added relationships between builds and ratings
+
+### Angel Avila
+- Created the `Lab 2 Changes Documentation`. This docx contains the changes I have made within the files of our project to 
+match the endpoint document and incorporate the Lab 1 feedback. Below are changes made, in the document it'll specify more of what changed.
+  - Revised Database
+  - Revised root file (I425-G7)
+  - Revised body
+  - Revised bodyTypeGroup
+  - Revised calculateStats
+  - Revised driver
+  - Revised driverSize
+  - Revised glider
+  - Revised gliderGroup
+  - Revised tire
+  - Revised tireGroup
+  - Revised users
+  - Revised builds
+  - Revised build_ratings
+- Created the Postman collection for our project, `I425-G7 local`. Each response came back as 200 OK. Every model is included, with it's endpoints.
+
+
+
+
+
+
