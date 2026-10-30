@@ -23,9 +23,10 @@ ServiceDep = Annotated[BuildService, Depends(get_service)]
 @router.get("/", response_model=Union[list[BuildRead], BuildPage], summary="Get all builds from all users")
 def get_builds(service: ServiceDep,
                limit: Optional[int] = Query(default=None, ge=1),
-               offset: Optional[int] = Query(default=0, ge=0)
+               offset: Optional[int] = Query(default=0, ge=0),
+               sort: Optional[str] = Query(default=None)
                ):
-    return service.fetch_builds(limit=limit, offset=offset)
+    return service.fetch_builds(limit=limit, offset=offset, sort=sort)
 
 @router.get("/{build_id}", response_model=BuildRead, summary="Get one build")
 def get_build(service: ServiceDep, build_id: int):

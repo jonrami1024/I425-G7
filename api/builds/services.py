@@ -10,13 +10,15 @@ from api.build_ratings.models import Ratings
 from api.builds.schemas import BuildPage, PaginationMeta
 from api.calculateStats.services import CalculateStatsService
 from api.calculateStats.schemas import BuildStatsRead, BuildParts
+from api.utilities.sorting import apply_sorting
+
 
 class BuildService:
     def __init__(self, session: Session):
         self.session = session
 
-    def fetch_builds(self, limit: int | None = None, offset: int = 0):
-        return self.paginate_builds(limit=limit, offset=offset)
+    def fetch_builds(self, limit: int | None = None, offset: int = 0, sort: str | None = None):
+        return self.paginate_builds(limit=limit, offset=offset, sort=sort)
 
     def fetch_build(self, build_id: int):
         build = self.session.get(Builds, build_id)
@@ -70,6 +72,10 @@ class BuildService:
         if limit is None:
             limit = total
         stmt = select(Builds).offset(offset).limit(limit)
+
+        if sort is not None:
+            stmt = apply_sorting(stmt, sort, Builds)
+
         builds = self.session.exec(stmt).all()
         total_pages = (total + limit - 1) // limit
         current_page = (offset // limit) + 1
@@ -83,6 +89,7 @@ class BuildService:
                 total_pages=total_pages,
                 current_page=current_page,
                 next_page=next_page,
-                previous_page=previous_page),
+                previous_page=previous_page,
+                sort=sort),
             builds=builds
         )

@@ -30,6 +30,7 @@ class PaginationMeta(BaseModel):
     current_page: int
     next_page: Optional[int] = None
     previous_page: Optional[int] = None
+    sort: Optional[str] = None
 class BuildPage(BaseModel):
     meta: PaginationMeta
     builds: list[BuildRead]

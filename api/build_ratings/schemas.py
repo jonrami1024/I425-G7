@@ -26,6 +26,7 @@ class PaginationMeta(BaseModel):
     current_page: int
     next_page: Optional[int] = None
     previous_page: Optional[int] = None
+    sort: Optional[str] = None
 class RatingPage(BaseModel):
     meta: PaginationMeta
     ratings: list[RatingRead]

@@ -22,9 +22,10 @@ ServiceDep = Annotated[RatingsService, Depends(get_service)]
 @router.get("/", response_model=Union[list[RatingRead], RatingPage], summary="Get all ratings")
 def get_ratings(service: ServiceDep,
                 limit: Optional[int] = Query(default=None, ge=1),
-                offset: Optional[int] = Query(default=0, ge=0)
+                offset: Optional[int] = Query(default=0, ge=0),
+                sort: Optional[str] = Query(default=None)
                 ):
-    return service.fetch_ratings(limit=limit, offset=offset)
+    return service.fetch_ratings(limit=limit, offset=offset, sort=sort)
 
 @router.get("/{rating_id}", response_model=RatingRead, summary="Get one rating")
 def get_rating(service: ServiceDep, rating_id: int):

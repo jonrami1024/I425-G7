@@ -3,21 +3,19 @@
 # File: services.py
 # Description:
 from sqlalchemy import func
+from sqlalchemy.sql.functions import user
 from sqlmodel import select, Session
 from fastapi import HTTPException
 from api.users.models import Users
 from api.users.schemas import PaginationMeta, UserPage
+from api.utilities.sorting import apply_sorting
 
 
 class UserService:
     def __init__(self, session: Session):
         self.session = session
-    def fetch_users(self, limit: int | None = None, offset: int = 0):
-        # users = self.session.exec(select(Users)).all()
-        # if not users:
-        #     raise HTTPException(status_code=404, detail="Users not found")
-        # return users
-        return self.paginate_users(limit = limit, offset = offset)
+    def fetch_users(self, limit: int | None = None, offset: int = 0, sort: str | None = None):
+        return self.paginate_users(limit = limit, offset = offset, sort=sort)
     def fetch_user(self, user_id):
         user = self.session.get(Users, user_id)
         if not user:
@@ -54,6 +52,10 @@ class UserService:
         if limit is None:
             limit = total
         stmt = select(Users).offset(offset).limit(limit)
+
+        if sort is not None:
+            stmt = apply_sorting(stmt, sort, Users)
+
         users = self.session.exec(stmt).all()
         total_pages = (total + limit -1) // limit
         current_page = (offset // limit) + 1
@@ -67,6 +69,7 @@ class UserService:
                 total_pages=total_pages,
                 current_page=current_page,
                 next_page=next_page,
-                previous_page=previous_page),
+                previous_page=previous_page,
+                sort=sort),
             users = users
         )

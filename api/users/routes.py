@@ -23,9 +23,10 @@ ServiceDep = Annotated[UserService, Depends(get_service)]
 @router.get("/", response_model=Union[list[UserRead], UserPage], summary="Get all users")
 def get_users(service: ServiceDep,
               limit: Optional[int] = Query(default=None, ge=1),
-              offset: Optional[int] = Query(default=0, ge=0)
+              offset: Optional[int] = Query(default=0, ge=0),
+              sort: Optional[str] = Query(default=None)
               ):
-    return service.fetch_users(limit=limit, offset=offset)
+    return service.fetch_users(limit=limit, offset=offset, sort=sort)
 
 @router.get("/{user_id}", response_model=UserRead, summary="Get one user")
 def get_user(service: ServiceDep, user_id: int):
