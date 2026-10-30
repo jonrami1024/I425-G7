@@ -3,10 +3,10 @@
 # File: routes.py
 # Description:
 
-from fastapi import APIRouter, Depends
-from typing import Annotated
+from fastapi import APIRouter, Depends, Query
+from typing import Annotated, Union, Optional
 from api.dependencies import SessionDep
-from .schemas import UserRead
+from .schemas import UserRead, UserPage
 from .services import UserService
 from api.builds.schemas import BuildRead
 from api.build_ratings.schemas import RatingRead
@@ -20,9 +20,12 @@ def get_service(session: SessionDep) -> UserService:
     return UserService(session)
 ServiceDep = Annotated[UserService, Depends(get_service)]
 
-@router.get("/", response_model=list[UserRead], summary="Get all users")
-def get_users(service: ServiceDep):
-    return service.fetch_users()
+@router.get("/", response_model=Union[list[UserRead], UserPage], summary="Get all users")
+def get_users(service: ServiceDep,
+              limit: Optional[int] = Query(default=None, ge=1),
+              offset: Optional[int] = Query(default=0, ge=0)
+              ):
+    return service.fetch_users(limit=limit, offset=offset)
 
 @router.get("/{user_id}", response_model=UserRead, summary="Get one user")
 def get_user(service: ServiceDep, user_id: int):

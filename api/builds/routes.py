@@ -3,10 +3,10 @@
 # File: routes.py
 # Description:
 
-from fastapi import APIRouter, Depends
-from typing import Annotated
+from fastapi import APIRouter, Depends, Query
+from typing import Annotated, Union, Optional
 from api.dependencies import SessionDep
-from .schemas import BuildRead
+from .schemas import BuildRead, BuildPage
 from .services import BuildService
 from api.calculateStats.schemas import BuildStatsRead
 from api.build_ratings.schemas import RatingRead
@@ -20,9 +20,12 @@ def get_service(session: SessionDep) -> BuildService:
     return BuildService(session)
 ServiceDep = Annotated[BuildService, Depends(get_service)]
 
-@router.get("/", response_model=list[BuildRead], summary="Get all builds from all users")
-def get_builds(service: ServiceDep):
-    return service.fetch_builds()
+@router.get("/", response_model=Union[list[BuildRead], BuildPage], summary="Get all builds from all users")
+def get_builds(service: ServiceDep,
+               limit: Optional[int] = Query(default=None, ge=1),
+               offset: Optional[int] = Query(default=0, ge=0)
+               ):
+    return service.fetch_builds(limit=limit, offset=offset)
 
 @router.get("/{build_id}", response_model=BuildRead, summary="Get one build")
 def get_build(service: ServiceDep, build_id: int):

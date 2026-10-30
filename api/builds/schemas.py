@@ -2,6 +2,8 @@
 # Date: 10/16/2026
 # File: schemas.py
 # Description:
+from typing import Optional
+
 from pydantic import BaseModel, ConfigDict
 
 class BuildBase(BaseModel):
@@ -19,3 +21,15 @@ class BuildBase(BaseModel):
 
 class BuildRead(BuildBase):
     pass
+
+class PaginationMeta(BaseModel):
+    limit: int
+    offset: int
+    total: int
+    total_pages: int
+    current_page: int
+    next_page: Optional[int] = None
+    previous_page: Optional[int] = None
+class BuildPage(BaseModel):
+    meta: PaginationMeta
+    builds: list[BuildRead]

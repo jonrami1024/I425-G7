@@ -2,18 +2,22 @@
 # Date: 10/16/2026
 # File: services.py
 # Description:
+from sqlalchemy import func
 from sqlmodel import select, Session
 from fastapi import HTTPException
 from api.users.models import Users
+from api.users.schemas import PaginationMeta, UserPage
+
 
 class UserService:
     def __init__(self, session: Session):
         self.session = session
-    def fetch_users(self):
-        users = self.session.exec(select(Users)).all()
-        if not users:
-            raise HTTPException(status_code=404, detail="Users not found")
-        return users
+    def fetch_users(self, limit: int | None = None, offset: int = 0):
+        # users = self.session.exec(select(Users)).all()
+        # if not users:
+        #     raise HTTPException(status_code=404, detail="Users not found")
+        # return users
+        return self.paginate_users(limit = limit, offset = offset)
     def fetch_user(self, user_id):
         user = self.session.get(Users, user_id)
         if not user:
@@ -38,3 +42,31 @@ class UserService:
         if not user.ratings:
             raise HTTPException(status_code=404, detail="No ratings found for this user")
         return user.ratings
+
+    def paginate_users(
+            self,
+    limit: int | None = None,
+    offset: int = 0, sort: str | None = None) -> UserPage:
+        total_stmt = select(func.count()).select_from(Users)
+        total = self.session.exec(total_stmt).one()
+        if total == 0:
+            raise HTTPException(status_code=404, detail="There isnt any users in the database")
+        if limit is None:
+            limit = total
+        stmt = select(Users).offset(offset).limit(limit)
+        users = self.session.exec(stmt).all()
+        total_pages = (total + limit -1) // limit
+        current_page = (offset // limit) + 1
+        next_page = current_page + 1 if offset + limit < total else None
+        previous_page = current_page - 1 if current_page > 1 else None
+        return UserPage(
+            meta=PaginationMeta(
+                limit=limit,
+                offset=offset,
+                total=total,
+                total_pages=total_pages,
+                current_page=current_page,
+                next_page=next_page,
+                previous_page=previous_page),
+            users = users
+        )
