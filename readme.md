@@ -15,6 +15,8 @@
 
 ### Jonathan Ramirez-Molina
 - Added pagination to users, build_ratings, and builds (/users/?limit=2&offset=3)
+- Added Sorting to users, build_ratings, and builds
+- Added searching to users and builds
 
 ### Angel Avila
 - Created the `Lab 2 Changes Documentation`. This docx contains the changes I have made within the files of our project to 

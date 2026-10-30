@@ -28,6 +28,12 @@ def get_users(service: ServiceDep,
               ):
     return service.fetch_users(limit=limit, offset=offset, sort=sort)
 
+@router.get("/search", response_model=list[UserRead], summary="Search Users")
+def search_users(service: ServiceDep,
+                 q: Optional[str] = Query(default=None),
+                 logic: str = Query(default="or")):
+    return service.search_users(q, logic)
+
 @router.get("/{user_id}", response_model=UserRead, summary="Get one user")
 def get_user(service: ServiceDep, user_id: int):
     return service.fetch_user(user_id)

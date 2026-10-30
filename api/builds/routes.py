@@ -28,6 +28,12 @@ def get_builds(service: ServiceDep,
                ):
     return service.fetch_builds(limit=limit, offset=offset, sort=sort)
 
+@router.get("/search", response_model=list[BuildRead], summary="Search builds")
+def search_builds(service: ServiceDep,
+                  q: Optional[str] = Query(default=None),
+                  logic: str = Query(default="or")):
+    return service.search_builds(q, logic)
+
 @router.get("/{build_id}", response_model=BuildRead, summary="Get one build")
 def get_build(service: ServiceDep, build_id: int):
     return service.fetch_build(build_id)

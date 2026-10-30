@@ -3,7 +3,7 @@
 # File: services.py
 # Description:
 from sqlalchemy import func
-from sqlmodel import select, Session
+from sqlmodel import select, Session, or_, and_
 from fastapi import HTTPException
 from api.builds.models import Builds
 from api.build_ratings.models import Ratings
@@ -93,3 +93,32 @@ class BuildService:
                 sort=sort),
             builds=builds
         )
+    # slightly different from practice 10 since most of the data are numbers
+    def search_builds(self,
+                      q: str | None = None,
+                      logic: str = "or"):
+        stmt = select(Builds)
+        if q:
+            words = [w.strip() for w in q.split(",") if w.strip()]
+            conditions = []
+            for word in words:
+                try:
+                    num = int(word)
+                    conditions.append(or_(
+                        Builds.driver_id == num,
+                        Builds.body_id == num,
+                        Builds.tire_id == num,
+                        Builds.glider_id == num,
+                        Builds.user_id == num,
+                        Builds.build_id == num
+                    ))
+                except ValueError:
+                    pattern = f"%{word}%"
+                    conditions.append(or_(
+                        Builds.build_name.ilike(pattern)
+                    ))
+            if conditions:
+                stmt = stmt.where(and_(*conditions) if logic.lower() == "and" else or_(*conditions))
+
+        builds = self.session.exec(stmt).all()
+        return builds

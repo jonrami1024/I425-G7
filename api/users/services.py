@@ -2,7 +2,7 @@
 # Date: 10/16/2026
 # File: services.py
 # Description:
-from sqlalchemy import func
+from sqlalchemy import func, or_, and_
 from sqlalchemy.sql.functions import user
 from sqlmodel import select, Session
 from fastapi import HTTPException
@@ -73,3 +73,23 @@ class UserService:
                 sort=sort),
             users = users
         )
+
+    # slightly different from practice 10 since theres no numbers to convert
+    def search_users(self,
+                     q: str | None = None,
+                     logic: str = "or"):
+        stmt = select(Users)
+        if q:
+            words = [w.strip() for w in q.split(",") if w.strip()]
+            conditions = []
+
+            for word in words:
+                pattern = f"%{word}%"
+                conditions.append(or_(
+                    Users.username.ilike(pattern),
+                    Users.email.ilike(pattern)
+                ))
+            if conditions:
+                stmt = stmt.where(and_(*conditions) if logic.lower() == "and" else or_(*conditions))
+        users = self.session.exec(stmt).all()
+        return users
