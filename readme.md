@@ -14,8 +14,7 @@
 - Updated the `.sql` script, ER diagram, API documentation (changes highlighted), Postman collection, and endpoint screenshots
 
 ### Jonathan Ramirez-Molina
-- Added `users`, `builds`, and `build_ratings` to api
-- Added relationships between builds and ratings
+- Added pagination to users (/users/?limit=2&offset=3)
 
 ### Angel Avila
 - Created the `Lab 2 Changes Documentation`. This docx contains the changes I have made within the files of our project to 
