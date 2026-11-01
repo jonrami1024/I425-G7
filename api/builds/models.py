@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     from api.users.models import Users
     from api.build_ratings.models import Ratings
     from api.driver.models import Drivers
-    from api.body.models import Karts
+    from api.body.models import Bodies
     from api.tire.models import Tires
     from api.glider.models import Gliders
 
@@ -27,6 +27,6 @@ class Builds(SQLModel, table=True):
     user: "Users" = Relationship(back_populates="builds")
     ratings: list["Ratings"] = Relationship(back_populates="build")
     driver: "Drivers" = Relationship(back_populates="builds")
-    body: "Karts" = Relationship(back_populates="builds")
+    body: "Bodies" = Relationship(back_populates="builds")
     tire: "Tires" = Relationship(back_populates="builds")
     glider: "Gliders" = Relationship(back_populates="builds")

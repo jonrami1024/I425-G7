@@ -1,7 +1,7 @@
 from sqlmodel import Session
 from fastapi import HTTPException
 from api.driver.models import Drivers
-from api.body.models import Karts
+from api.body.models import Bodies
 from api.tire.models import Tires
 from api.glider.models import Gliders
 from api.calculateStats.schemas import CombinationRead, StatsBlock, StatDetail
@@ -14,11 +14,11 @@ class CalculateStatsService:
 
     def calculate_build_stats(self, driver_id: int, body_id: int, tire_id: int, glider_id: int) -> CombinationRead:
         driver = self.session.get(Drivers, driver_id)
-        if not driver or not driver.driverSize:
+        if not driver or not driver.driver_group:
             raise HTTPException(status_code=404, detail="Driver not found")
 
-        body = self.session.get(Karts, body_id)
-        if not body or not body.kartType:
+        body = self.session.get(Bodies, body_id)
+        if not body or not body.body_group:
             raise HTTPException(status_code=404, detail="Body not found")
 
         tire = self.session.get(Tires, tire_id)
@@ -29,7 +29,7 @@ class CalculateStatsService:
         if not glider:
             raise HTTPException(status_code=404, detail="Glider not found")
 
-        parts = [driver.driverSize, body.kartType, tire.tire_group, glider]
+        parts = [driver.driver_group, body.body_group, tire.tire_group, glider]
         stats = {}
         for stat in STATS:
             level = sum(getattr(part, stat) for part in parts)

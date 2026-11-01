@@ -5,7 +5,7 @@
 from typing import Optional
 from pydantic import BaseModel, ConfigDict
 
-class tireBase(BaseModel):
+class TireBase(BaseModel):
     tire_id: int
     name: str
     tire_group_id: int
@@ -15,5 +15,5 @@ class tireBase(BaseModel):
         from_attributes=True
     )
 
-class TireRead(tireBase):
+class TireRead(TireBase):
     pass

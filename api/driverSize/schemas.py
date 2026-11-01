@@ -5,7 +5,7 @@
 from typing import Optional
 from pydantic import BaseModel, ConfigDict
 
-class driverSizeBase(BaseModel):
+class DriverGroupBase(BaseModel):
     driver_group_id: int
     label: str
     size: str
@@ -21,5 +21,5 @@ class driverSizeBase(BaseModel):
         from_attributes = True
     )
 
-class driverSizeRead(driverSizeBase):
+class DriverGroupRead(DriverGroupBase):
     pass

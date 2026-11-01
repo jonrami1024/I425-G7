@@ -6,7 +6,7 @@
 from typing import Optional
 from pydantic import BaseModel, ConfigDict
 
-class kartTypeBase(BaseModel):
+class BodyGroupBase(BaseModel):
     body_group_id: int
     label: str
     speed: int
@@ -21,5 +21,5 @@ class kartTypeBase(BaseModel):
         from_attributes= True
     )
 
-class kartTypeRead(kartTypeBase):
+class BodyGroupRead(BodyGroupBase):
     pass

@@ -6,7 +6,7 @@ from typing import TYPE_CHECKING
 from sqlmodel import SQLModel, Field, Relationship
 
 if TYPE_CHECKING:
-    from api.driverSize.models import driverSize
+    from api.driverSize.models import DriverGroups
     from api.builds.models import Builds
 
 class Drivers(SQLModel, table=True):
@@ -16,6 +16,6 @@ class Drivers(SQLModel, table=True):
     driver_group_id: int = Field(foreign_key="driver_groups.driver_group_id")
     image_file: str
 
-    driverSize: "driverSize" = Relationship(back_populates="drivers")
+    driver_group: "DriverGroups" = Relationship(back_populates="drivers")
     builds: list["Builds"] = Relationship(back_populates="driver")
 

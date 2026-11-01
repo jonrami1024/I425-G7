@@ -6,28 +6,28 @@
 from fastapi import APIRouter, Depends
 from typing import Annotated
 from api.dependencies import SessionDep
-from .services import KartTypeService
-from .schemas import kartTypeRead
-from api.body.schemas import KartRead
+from .services import BodyGroupService
+from .schemas import BodyGroupRead
+from api.body.schemas import BodyRead
 
 router = APIRouter(
     prefix="/body-groups",
     tags=["Body Groups"]
 )
 
-def get_service(session: SessionDep) -> KartTypeService:
-    return KartTypeService(session)
+def get_service(session: SessionDep) -> BodyGroupService:
+    return BodyGroupService(session)
 
-ServiceDep = Annotated[KartTypeService, Depends(get_service)]
+ServiceDep = Annotated[BodyGroupService, Depends(get_service)]
 
-@router.get("/", response_model=list[kartTypeRead], summary="Get all body groups")
+@router.get("/", response_model=list[BodyGroupRead], summary="Get all body groups")
 def get_kart_Type(service: ServiceDep):
     return service.fetch_kartTypes()
 
-@router.get("/{body_group_id}", response_model=kartTypeRead, summary="Get one body group and its stats")
+@router.get("/{body_group_id}", response_model=BodyGroupRead, summary="Get one body group and its stats")
 def get_kart_Type_group(service: ServiceDep, body_group_id: int):
     return service.fetch_kartType(body_group_id)
 
-@router.get("/{body_group_id}/bodies", response_model=list[KartRead], summary="Get all bodies in a body group")
+@router.get("/{body_group_id}/bodies", response_model=list[BodyRead], summary="Get all bodies in a body group")
 def get_kartType_karts(service: ServiceDep, body_group_id: int):
     return service.fetch_kartType_karts(body_group_id)

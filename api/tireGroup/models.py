@@ -9,7 +9,7 @@ from sqlmodel import SQLModel, Field, Relationship
 if TYPE_CHECKING:
     from api.tire.models import Tires
 
-class tireGroup(SQLModel, table=True):
+class TireGroups(SQLModel, table=True):
     __tablename__ = "tire_groups"
     tire_group_id: int = Field(primary_key=True)
     label: str

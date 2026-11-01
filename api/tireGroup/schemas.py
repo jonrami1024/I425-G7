@@ -4,7 +4,7 @@
 # Description:
 from pydantic import BaseModel, ConfigDict
 
-class tireGroupBase(BaseModel):
+class TireGroupBase(BaseModel):
     tire_group_id: int
     label: str
     speed: int
@@ -19,5 +19,5 @@ class tireGroupBase(BaseModel):
         from_attributes = True
     )
 
-class tireGroupRead(tireGroupBase):
+class TireGroupRead(TireGroupBase):
     pass

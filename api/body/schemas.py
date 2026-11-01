@@ -6,7 +6,7 @@ from typing import Optional, TypedDict
 from pydantic import BaseModel, ConfigDict
 
 
-class KartBase(BaseModel):
+class BodyBase(BaseModel):
     body_id: int
     name: str
     vehicle_type: str
@@ -17,5 +17,5 @@ class KartBase(BaseModel):
         from_attributes = True
     )
 
-class KartRead(KartBase):
+class BodyRead(BodyBase):
     pass

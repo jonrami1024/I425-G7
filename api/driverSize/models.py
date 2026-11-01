@@ -8,7 +8,7 @@ from sqlmodel import SQLModel, Field, Relationship
 if TYPE_CHECKING:
     from api.driver.models import Drivers
 
-class driverSize(SQLModel, table=True):
+class DriverGroups(SQLModel, table=True):
     __tablename__ = "driver_groups"
     driver_group_id: int = Field(primary_key=True)
     label: str
@@ -21,4 +21,4 @@ class driverSize(SQLModel, table=True):
     mini_turbo: int
     invincibility: int
 
-    drivers: list["Drivers"] = Relationship(back_populates="driverSize")
+    drivers: list["Drivers"] = Relationship(back_populates="driver_group")

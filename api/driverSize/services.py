@@ -6,26 +6,22 @@
 
 from sqlmodel import select, Session
 from fastapi import HTTPException
-from api.driverSize.models import driverSize
+from api.driverSize.models import DriverGroups
 
 
 
 
-class DriverSizeService:
+class DriverGroupService:
     def __init__(self, session: Session):
         self.session = session
     def fetch_driverSizes(self):
-        driverSizes = self.session.exec(select(driverSize)).all()
-        if not driverSizes:
-            raise HTTPException(status_code=404, detail="No driver groups found")
+        driverSizes = self.session.exec(select(DriverGroups)).all()
         return driverSizes
-    def fetch_driverSize(self, driver_group_id: str):
-        driver_size = self.session.get(driverSize, driver_group_id)
+    def fetch_driverSize(self, driver_group_id: int):
+        driver_size = self.session.get(DriverGroups, driver_group_id)
         if not driver_size:
             raise HTTPException(status_code=404, detail="Driver group not found")
         return driver_size
-    def fetch_driverSize_drivers(self, driver_group_id: str):
+    def fetch_driverSize_drivers(self, driver_group_id: int):
         driver_size = self.fetch_driverSize(driver_group_id)
-        if not driver_size.drivers:
-            raise HTTPException(status_code=404, detail="No drivers found for this driver group")
         return driver_size.drivers

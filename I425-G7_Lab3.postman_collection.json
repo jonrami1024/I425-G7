@@ -1,0 +1,3628 @@
+{
+  "info": {
+    "_postman_id": "6999219d-0e5a-4dbc-a5f0-521350f0f575",
+    "name": "I425-G7 Mario Kart 8 API (Lab 3)",
+    "description": "Start the API with: uvicorn main:app --reload\nRun the folders in order. 'Create, Update, Delete' passes the new IDs between requests automatically. 'Validation and Errors' shows requests that are rejected.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Drivers",
+      "item": [
+        {
+          "name": "Gets all drivers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/drivers/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "drivers",
+                ""
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/drivers/"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"driver_id\": 1,\n    \"name\": \"Baby Peach\",\n    \"driver_group_id\": 1,\n    \"image_file\": \"img/character/image8.webp\"\n  },\n  {\n    \"driver_id\": 2,\n    \"name\": \"Baby Daisy\",\n    \"driver_group_id\": 1,\n    \"image_file\": \"img/character/image5.webp\"\n  },\n  {\n    \"driver_id\": 3,\n    \"name\": \"Baby Rosalina\",\n    \"driver_group_id\": 2,\n    \"image_file\": \"img/character/image9.webp\"\n  },\n  {\n    \"driver_id\": 4,\n    \"name\": \"Lemmy\",\n    \"driver_group_id\": 2,\n    \"image_file\": \"img/character/image26.webp\"\n  },\n  {\n    \"driver_id\": 5,\n    \"name\": \"Baby Mario\",\n    \"driver_group_id\": 3,\n    \"image_file\": \"img/character/image7.webp\"\n  },\n  {\n    \"driver_id\": 6,\n    \"name\": \"Baby Luigi\",\n    \"driver_group_id\": 3,\n    \"image_file\": \"img/character/image6.webp\"\n  },\n  {\n    \"driver_id\": 7,\n    \"name\": \"Dry Bones\",\n    \"driver_group_id\": 3,\n    \"image_file\": \"img/character/image15.webp\"\n  },\n  {\n    \"driver_id\": 8,\n    \"name\": \"Mii (Light)\",\n    \"driver_group_id\": 3,\n    \"image_file\": \"img/character/image51.png\"\n  },\n  {\n    \"driver_id\": 9,\n    \"name\": \"Koopa Troopa\",\n    \"driver_group_id\": 4,\n    \"image_file\": \"img/character/image23.webp\"\n  },\n  {\n    \"driver_id\": 10,\n    \"name\": \"Lakitu\",\n    \"driver_group_id\": 4,\n    \"image_file\": \"img/character/image24.webp\"\n  },\n  {\n    \"driver_id\": 11,\n    \"name\": \"Bowser Jr.\",\n    \"driver_group_id\": 4,\n    \"image_file\": \"img/character/image2.webp\"\n  },\n  {\n    \"driver_id\": 12,\n    \"name\": \"Toadette\",\n    \"driver_group_id\": 5,\n    \"image_file\": \"img/character/image43.webp\"\n  },\n  {\n    \"driver_id\": 13,\n    \"name\": \"Wendy\",\n    \"driver_group_id\": 5,\n    \"image_file\": \"img/character/image46.webp\"\n  },\n  {\n    \"driver_id\": 14,\n    \"name\": \"Isabelle\",\n    \"driver_group_id\": 5,\n    \"image_file\": \"img/character/image20.webp\"\n  },\n  {\n    \"driver_id\": 15,\n    \"name\": \"Toad\",\n    \"driver_group_id\": 6,\n    \"image_file\": \"img/character/image42.webp\"\n  },\n  {\n    \"driver_id\": 16,\n    \"name\": \"Shy Guy\",\n    \"driver_group_id\": 6,\n    \"image_file\": \"img/character/image40.webp\"\n  },\n  {\n    \"driver_id\": 17,\n    \"name\": \"Larry\",\n    \"driver_group_id\": 6,\n    \"image_file\": \"img/character/image25.webp\"\n  },\n  {\n    \"driver_id\": 18,\n    \"name\": \"Cat Peach\",\n    \"driver_group_id\": 7,\n    \"image_file\": \"img/character/image11.webp\"\n  },\n  {\n    \"driver_id\": 19,\n    \"name\": \"Inkling Girl\",\n    \"driver_group_id\": 7,\n    \"image_file\": \"img/character/image17.webp\"\n  },\n  {\n    \"driver_id\": 20,\n    \"name\": \"Villager (Female)\",\n    \"driver_group_id\": 7,\n    \"image_file\": \"img/character/image49.webp\"\n  },\n  {\n    \"driver_id\": 21,\n    \"name\": \"Diddy Kong\",\n    \"driver_group_id\": 7,\n    \"image_file\": \"img/character/image13.webp\"\n  },\n  {\n    \"driver_id\": 22,\n    \"name\": \"Peach\",\n    \"driver_group_id\": 8,\n    \"image_file\": \"img/character/image34.webp\"\n  },\n  {\n    \"driver_id\": 23,\n    \"name\": \"Daisy\",\n    \"driver_group_id\": 8,\n    \"image_file\": \"img/character/image12.webp\"\n  },\n  {\n    \"driver_id\": 24,\n    \"name\": \"Yoshi\",\n    \"driver_group_id\": 8,\n    \"image_file\": \"img/character/image48.webp\"\n  },\n  {\n    \"driver_id\": 25,\n    \"name\": \"Birdo\",\n    \"driver_group_id\": 8,\n    \"image_file\": \"img/character/image3.webp\"\n  },\n  {\n    \"driver_id\": 26,\n    \"name\": \"Peachette\",\n    \"driver_group_id\": 8,\n    \"image_file\": \"img/character/image35.webp\"\n  },\n  {\n    \"driver_id\": 27,\n    \"name\": \"Tanooki Mario\",\n    \"driver_group_id\": 9,\n    \"image_file\": \"img/character/image41.webp\"\n  },\n  {\n    \"driver_id\": 28,\n    \"name\": \"Inkling Boy\",\n    \"driver_group_id\": 9,\n    \"image_file\": \"img/character/image50.webp\"\n  },\n  {\n    \"driver_id\": 29,\n    \"name\": \"Villager (Male)\",\n    \"driver_group_id\": 9,\n    \"image_file\": \"img/character/image29.webp\"\n  },\n  {\n    \"driver_id\": 30,\n    \"name\": \"Mario\",\n    \"driver_group_id\": 10,\n    \"image_file\": \"img/character/image30.webp\"\n  },\n  {\n    \"driver_id\": 31,\n    \"name\": \"Ludwig\",\n    \"driver_group_id\": 10,\n    \"image_file\": \"img/character/image27.webp\"\n  },\n  {\n    \"driver_id\": 32,\n    \"name\": \"Mii (Medium)\",\n    \"driver_group_id\": 10,\n    \"image_file\": \"img/character/image52.png\"\n  },\n  {\n    \"driver_id\": 33,\n    \"name\": \"Luigi\",\n    \"driver_group_id\": 11,\n    \"image_file\": \"img/character/image28.webp\"\n  },\n  {\n    \"driver_id\": 34,\n    \"name\": \"Iggy\",\n    \"driver_group_id\": 11,\n    \"image_file\": \"img/character/image19.webp\"\n  },\n  {\n    \"driver_id\": 35,\n    \"name\": \"Kamek\",\n    \"driver_group_id\": 11,\n    \"image_file\": \"img/character/image21.webp\"\n  },\n  {\n    \"driver_id\": 36,\n    \"name\": \"Metal Mario\",\n    \"driver_group_id\": 12,\n    \"image_file\": \"img/character/image31.webp\"\n  },\n  {\n    \"driver_id\": 37,\n    \"name\": \"Gold Mario\",\n    \"driver_group_id\": 12,\n    \"image_file\": \"img/character/image54.webp\"\n  },\n  {\n    \"driver_id\": 38,\n    \"name\": \"Pink Gold Peach\",\n    \"driver_group_id\": 12,\n    \"image_file\": \"img/character/image37.webp\"\n  },\n  {\n    \"driver_id\": 39,\n    \"name\": \"Wiggler\",\n    \"driver_group_id\": 13,\n    \"image_file\": \"img/character/image47.webp\"\n  },\n  {\n    \"driver_id\": 40,\n    \"name\": \"Rosalina\",\n    \"driver_group_id\": 14,\n    \"image_file\": \"img/character/image38.webp\"\n  },\n  {\n    \"driver_id\": 41,\n    \"name\": \"King Boo\",\n    \"driver_group_id\": 14,\n    \"image_file\": \"img/character/image22.webp\"\n  },\n  {\n    \"driver_id\": 42,\n    \"name\": \"Link\",\n    \"driver_group_id\": 14,\n    \"image_file\": \"img/character/image4.webp\"\n  },\n  {\n    \"driver_id\": 43,\n    \"name\": \"Link (BotW)\",\n    \"driver_group_id\": 14,\n    \"image_file\": \"img/character/image4.webp\"\n  },\n  {\n    \"driver_id\": 44,\n    \"name\": \"Pauline\",\n    \"driver_group_id\": 14,\n    \"image_file\": \"img/character/image33.webp\"\n  },\n  {\n    \"driver_id\": 45,\n    \"name\": \"Petey Piranha\",\n    \"driver_group_id\": 15,\n    \"image_file\": \"img/character/image36.webp\"\n  },\n  {\n    \"driver_id\": 46,\n    \"name\": \"Waluigi\",\n    \"driver_group_id\": 16,\n    \"image_file\": \"img/character/image44.webp\"\n  },\n  {\n    \"driver_id\": 47,\n    \"name\": \"Donkey Kong\",\n    \"driver_group_id\": 16,\n    \"image_file\": \"img/character/image14.webp\"\n  },\n  {\n    \"driver_id\": 48,\n    \"name\": \"Roy\",\n    \"driver_group_id\": 16,\n    \"image_file\": \"img/character/image39.webp\"\n  },\n  {\n    \"driver_id\": 49,\n    \"name\": \"Wario\",\n    \"driver_group_id\": 17,\n    \"image_file\": \"img/character/image45.webp\"\n  },\n  {\n    \"driver_id\": 50,\n    \"name\": \"Dry Bowser\",\n    \"driver_group_id\": 17,\n    \"image_file\": \"img/character/image16.webp\"\n  },\n  {\n    \"driver_id\": 51,\n    \"name\": \"Funky Kong\",\n    \"driver_group_id\": 17,\n    \"image_file\": \"img/character/image18.webp\"\n  },\n  {\n    \"driver_id\": 52,\n    \"name\": \"Mii (Heavy)\",\n    \"driver_group_id\": 17,\n    \"image_file\": \"img/character/image53.png\"\n  },\n  {\n    \"driver_id\": 53,\n    \"name\": \"Bowser\",\n    \"driver_group_id\": 18,\n    \"image_file\": \"img/character/image10.webp\"\n  },\n  {\n    \"driver_id\": 54,\n    \"name\": \"Morton\",\n    \"driver_group_id\": 18,\n    \"image_file\": \"img/character/image32.webp\"\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Gets one driver",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/drivers/30",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "drivers",
+                "30"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/drivers/30"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"driver_id\": 30,\n  \"name\": \"Mario\",\n  \"driver_group_id\": 10,\n  \"image_file\": \"img/character/image30.webp\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Gets a driver's stats (its driver group)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/drivers/30/stats",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "drivers",
+                "30",
+                "stats"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/drivers/30/stats"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"driver_group_id\": 10,\n  \"label\": \"Mario class\",\n  \"size\": \"Medium\",\n  \"speed\": 7,\n  \"acceleration\": 2,\n  \"weight\": 6,\n  \"handling\": 4,\n  \"traction\": 2,\n  \"mini_turbo\": 3,\n  \"invincibility\": 3\n}"
+            }
+          ]
+        },
+        {
+          "name": "Gets all builds that use a driver",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/drivers/30/builds",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "drivers",
+                "30",
+                "builds"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/drivers/30/builds"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"build_id\": 1,\n    \"user_id\": 1,\n    \"driver_id\": 30,\n    \"body_id\": 11,\n    \"tire_id\": 1,\n    \"glider_id\": 1,\n    \"build_name\": \"Balanced Teddy\"\n  }\n]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Driver Groups",
+      "item": [
+        {
+          "name": "Gets all driver stat groups",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/driver-groups/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "driver-groups",
+                ""
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/driver-groups/"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"driver_group_id\": 1,\n    \"label\": \"Baby Peach class\",\n    \"size\": \"Small\",\n    \"speed\": 1,\n    \"acceleration\": 4,\n    \"weight\": 0,\n    \"handling\": 10,\n    \"traction\": 5,\n    \"mini_turbo\": 5,\n    \"invincibility\": 6\n  },\n  {\n    \"driver_group_id\": 2,\n    \"label\": \"Baby Rosalina class\",\n    \"size\": \"Small\",\n    \"speed\": 1,\n    \"acceleration\": 5,\n    \"weight\": 0,\n    \"handling\": 9,\n    \"traction\": 3,\n    \"mini_turbo\": 5,\n    \"invincibility\": 6\n  },\n  {\n    \"driver_group_id\": 3,\n    \"label\": \"Baby Mario class\",\n    \"size\": \"Small\",\n    \"speed\": 2,\n    \"acceleration\": 5,\n    \"weight\": 1,\n    \"handling\": 8,\n    \"traction\": 4,\n    \"mini_turbo\": 5,\n    \"invincibility\": 5\n  },\n  {\n    \"driver_group_id\": 4,\n    \"label\": \"Koopa Troopa class\",\n    \"size\": \"Small\",\n    \"speed\": 3,\n    \"acceleration\": 4,\n    \"weight\": 2,\n    \"handling\": 8,\n    \"traction\": 5,\n    \"mini_turbo\": 4,\n    \"invincibility\": 4\n  },\n  {\n    \"driver_group_id\": 5,\n    \"label\": \"Toadette class\",\n    \"size\": \"Small\",\n    \"speed\": 3,\n    \"acceleration\": 5,\n    \"weight\": 2,\n    \"handling\": 7,\n    \"traction\": 2,\n    \"mini_turbo\": 4,\n    \"invincibility\": 3\n  },\n  {\n    \"driver_group_id\": 6,\n    \"label\": \"Toad class\",\n    \"size\": \"Small\",\n    \"speed\": 4,\n    \"acceleration\": 4,\n    \"weight\": 3,\n    \"handling\": 7,\n    \"traction\": 4,\n    \"mini_turbo\": 4,\n    \"invincibility\": 3\n  },\n  {\n    \"driver_group_id\": 7,\n    \"label\": \"Cat Peach class\",\n    \"size\": \"Medium\",\n    \"speed\": 5,\n    \"acceleration\": 4,\n    \"weight\": 3,\n    \"handling\": 6,\n    \"traction\": 3,\n    \"mini_turbo\": 4,\n    \"invincibility\": 3\n  },\n  {\n    \"driver_group_id\": 8,\n    \"label\": \"Peach class\",\n    \"size\": \"Medium\",\n    \"speed\": 6,\n    \"acceleration\": 3,\n    \"weight\": 4,\n    \"handling\": 5,\n    \"traction\": 3,\n    \"mini_turbo\": 4,\n    \"invincibility\": 1\n  },\n  {\n    \"driver_group_id\": 9,\n    \"label\": \"Tanooki Mario class\",\n    \"size\": \"Medium\",\n    \"speed\": 6,\n    \"acceleration\": 3,\n    \"weight\": 5,\n    \"handling\": 5,\n    \"traction\": 1,\n    \"mini_turbo\": 4,\n    \"invincibility\": 1\n  },\n  {\n    \"driver_group_id\": 10,\n    \"label\": \"Mario class\",\n    \"size\": \"Medium\",\n    \"speed\": 7,\n    \"acceleration\": 2,\n    \"weight\": 6,\n    \"handling\": 4,\n    \"traction\": 2,\n    \"mini_turbo\": 3,\n    \"invincibility\": 3\n  },\n  {\n    \"driver_group_id\": 11,\n    \"label\": \"Luigi class\",\n    \"size\": \"Medium\",\n    \"speed\": 7,\n    \"acceleration\": 2,\n    \"weight\": 6,\n    \"handling\": 5,\n    \"traction\": 1,\n    \"mini_turbo\": 3,\n    \"invincibility\": 3\n  },\n  {\n    \"driver_group_id\": 12,\n    \"label\": \"Metal Mario class\",\n    \"size\": \"Medium\",\n    \"speed\": 8,\n    \"acceleration\": 1,\n    \"weight\": 10,\n    \"handling\": 3,\n    \"traction\": 1,\n    \"mini_turbo\": 1,\n    \"invincibility\": 3\n  },\n  {\n    \"driver_group_id\": 13,\n    \"label\": \"Wiggler class\",\n    \"size\": \"Medium\",\n    \"speed\": 9,\n    \"acceleration\": 1,\n    \"weight\": 8,\n    \"handling\": 2,\n    \"traction\": 0,\n    \"mini_turbo\": 1,\n    \"invincibility\": 4\n  },\n  {\n    \"driver_group_id\": 14,\n    \"label\": \"Rosalina class\",\n    \"size\": \"Large\",\n    \"speed\": 8,\n    \"acceleration\": 1,\n    \"weight\": 7,\n    \"handling\": 3,\n    \"traction\": 3,\n    \"mini_turbo\": 2,\n    \"invincibility\": 4\n  },\n  {\n    \"driver_group_id\": 15,\n    \"label\": \"Petey Piranha class\",\n    \"size\": \"Large\",\n    \"speed\": 8,\n    \"acceleration\": 1,\n    \"weight\": 10,\n    \"handling\": 3,\n    \"traction\": 1,\n    \"mini_turbo\": 1,\n    \"invincibility\": 6\n  },\n  {\n    \"driver_group_id\": 16,\n    \"label\": \"Waluigi class\",\n    \"size\": \"Large\",\n    \"speed\": 9,\n    \"acceleration\": 1,\n    \"weight\": 8,\n    \"handling\": 2,\n    \"traction\": 0,\n    \"mini_turbo\": 1,\n    \"invincibility\": 4\n  },\n  {\n    \"driver_group_id\": 17,\n    \"label\": \"Wario class\",\n    \"size\": \"Large\",\n    \"speed\": 10,\n    \"acceleration\": 0,\n    \"weight\": 9,\n    \"handling\": 1,\n    \"traction\": 1,\n    \"mini_turbo\": 0,\n    \"invincibility\": 5\n  },\n  {\n    \"driver_group_id\": 18,\n    \"label\": \"Bowser class\",\n    \"size\": \"Large\",\n    \"speed\": 10,\n    \"acceleration\": 0,\n    \"weight\": 10,\n    \"handling\": 0,\n    \"traction\": 0,\n    \"mini_turbo\": 0,\n    \"invincibility\": 6\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Gets one driver group and its stats",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/driver-groups/10",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "driver-groups",
+                "10"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/driver-groups/10"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"driver_group_id\": 10,\n  \"label\": \"Mario class\",\n  \"size\": \"Medium\",\n  \"speed\": 7,\n  \"acceleration\": 2,\n  \"weight\": 6,\n  \"handling\": 4,\n  \"traction\": 2,\n  \"mini_turbo\": 3,\n  \"invincibility\": 3\n}"
+            }
+          ]
+        },
+        {
+          "name": "Gets all drivers in a driver group",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/driver-groups/10/drivers",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "driver-groups",
+                "10",
+                "drivers"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/driver-groups/10/drivers"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"driver_id\": 30,\n    \"name\": \"Mario\",\n    \"driver_group_id\": 10,\n    \"image_file\": \"img/character/image30.webp\"\n  },\n  {\n    \"driver_id\": 31,\n    \"name\": \"Ludwig\",\n    \"driver_group_id\": 10,\n    \"image_file\": \"img/character/image27.webp\"\n  },\n  {\n    \"driver_id\": 32,\n    \"name\": \"Mii (Medium)\",\n    \"driver_group_id\": 10,\n    \"image_file\": \"img/character/image52.png\"\n  }\n]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Bodies",
+      "item": [
+        {
+          "name": "Gets all bodies",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/bodies/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "bodies",
+                ""
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/bodies/"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"body_id\": 1,\n    \"name\": \"Biddybuggy\",\n    \"vehicle_type\": \"Kart\",\n    \"body_group_id\": 1,\n    \"image_file\": \"img/kart/image3.webp\"\n  },\n  {\n    \"body_id\": 2,\n    \"name\": \"Mr. Scooty\",\n    \"vehicle_type\": \"Standard Bike\",\n    \"body_group_id\": 1,\n    \"image_file\": \"img/kart/image24.webp\"\n  },\n  {\n    \"body_id\": 3,\n    \"name\": \"Streetle\",\n    \"vehicle_type\": \"Kart\",\n    \"body_group_id\": 2,\n    \"image_file\": \"img/kart/image23.webp\"\n  },\n  {\n    \"body_id\": 4,\n    \"name\": \"Landship\",\n    \"vehicle_type\": \"Kart\",\n    \"body_group_id\": 3,\n    \"image_file\": \"img/kart/image11.webp\"\n  },\n  {\n    \"body_id\": 5,\n    \"name\": \"Pipe Frame\",\n    \"vehicle_type\": \"Kart\",\n    \"body_group_id\": 4,\n    \"image_file\": \"img/kart/image25.webp\"\n  },\n  {\n    \"body_id\": 6,\n    \"name\": \"Varmint\",\n    \"vehicle_type\": \"Standard Bike\",\n    \"body_group_id\": 5,\n    \"image_file\": \"img/kart/image36.webp\"\n  },\n  {\n    \"body_id\": 7,\n    \"name\": \"City Tripper\",\n    \"vehicle_type\": \"Standard Bike\",\n    \"body_group_id\": 5,\n    \"image_file\": \"img/kart/image13.webp\"\n  },\n  {\n    \"body_id\": 8,\n    \"name\": \"Cat Cruiser\",\n    \"vehicle_type\": \"Kart\",\n    \"body_group_id\": 6,\n    \"image_file\": \"img/kart/image4.webp\"\n  },\n  {\n    \"body_id\": 9,\n    \"name\": \"Comet\",\n    \"vehicle_type\": \"Sport Bike\",\n    \"body_group_id\": 6,\n    \"image_file\": \"img/kart/image10.webp\"\n  },\n  {\n    \"body_id\": 10,\n    \"name\": \"Yoshi Bike\",\n    \"vehicle_type\": \"Sport Bike\",\n    \"body_group_id\": 7,\n    \"image_file\": \"img/kart/image40.webp\"\n  },\n  {\n    \"body_id\": 11,\n    \"name\": \"Teddy Buggy\",\n    \"vehicle_type\": \"ATV\",\n    \"body_group_id\": 8,\n    \"image_file\": \"img/kart/image34.webp\"\n  },\n  {\n    \"body_id\": 12,\n    \"name\": \"W 25 Silver Arrow\",\n    \"vehicle_type\": \"Kart\",\n    \"body_group_id\": 9,\n    \"image_file\": \"img/kart/image38.webp\"\n  },\n  {\n    \"body_id\": 13,\n    \"name\": \"Wild Wiggler\",\n    \"vehicle_type\": \"ATV\",\n    \"body_group_id\": 9,\n    \"image_file\": \"img/kart/image39.webp\"\n  },\n  {\n    \"body_id\": 14,\n    \"name\": \"Standard Bike\",\n    \"vehicle_type\": \"Standard Bike\",\n    \"body_group_id\": 9,\n    \"image_file\": \"img/kart/image31.webp\"\n  },\n  {\n    \"body_id\": 15,\n    \"name\": \"Flame Rider\",\n    \"vehicle_type\": \"Standard Bike\",\n    \"body_group_id\": 9,\n    \"image_file\": \"img/kart/image7.webp\"\n  },\n  {\n    \"body_id\": 16,\n    \"name\": \"Mach 8\",\n    \"vehicle_type\": \"Kart\",\n    \"body_group_id\": 10,\n    \"image_file\": \"img/kart/image12.webp\"\n  },\n  {\n    \"body_id\": 17,\n    \"name\": \"Sports Coupe\",\n    \"vehicle_type\": \"Kart\",\n    \"body_group_id\": 10,\n    \"image_file\": \"img/kart/image29.webp\"\n  },\n  {\n    \"body_id\": 18,\n    \"name\": \"Inkstriker\",\n    \"vehicle_type\": \"ATV\",\n    \"body_group_id\": 11,\n    \"image_file\": \"img/kart/image18.webp\"\n  },\n  {\n    \"body_id\": 19,\n    \"name\": \"Tanooki Kart\",\n    \"vehicle_type\": \"Kart\",\n    \"body_group_id\": 12,\n    \"image_file\": \"img/kart/image26.webp\"\n  },\n  {\n    \"body_id\": 20,\n    \"name\": \"Koopa Clown\",\n    \"vehicle_type\": \"Kart\",\n    \"body_group_id\": 13,\n    \"image_file\": \"img/kart/image19.webp\"\n  },\n  {\n    \"body_id\": 21,\n    \"name\": \"Master Cycle Zero\",\n    \"vehicle_type\": \"Standard Bike\",\n    \"body_group_id\": 13,\n    \"image_file\": \"img/kart/image17.webp\"\n  },\n  {\n    \"body_id\": 22,\n    \"name\": \"300 SL Roadster\",\n    \"vehicle_type\": \"Kart\",\n    \"body_group_id\": 14,\n    \"image_file\": \"img/kart/image1.webp\"\n  },\n  {\n    \"body_id\": 23,\n    \"name\": \"Standard Kart\",\n    \"vehicle_type\": \"Kart\",\n    \"body_group_id\": 15,\n    \"image_file\": \"img/kart/image32.webp\"\n  },\n  {\n    \"body_id\": 24,\n    \"name\": \"The Duke\",\n    \"vehicle_type\": \"Standard Bike\",\n    \"body_group_id\": 15,\n    \"image_file\": \"img/kart/image30.webp\"\n  },\n  {\n    \"body_id\": 25,\n    \"name\": \"Blue Falcon\",\n    \"vehicle_type\": \"Kart\",\n    \"body_group_id\": 16,\n    \"image_file\": \"img/kart/image5.webp\"\n  },\n  {\n    \"body_id\": 26,\n    \"name\": \"Splat Buggy\",\n    \"vehicle_type\": \"ATV\",\n    \"body_group_id\": 17,\n    \"image_file\": \"img/kart/image20.webp\"\n  },\n  {\n    \"body_id\": 27,\n    \"name\": \"Prancer\",\n    \"vehicle_type\": \"Kart\",\n    \"body_group_id\": 18,\n    \"image_file\": \"img/kart/image2.webp\"\n  },\n  {\n    \"body_id\": 28,\n    \"name\": \"Sport Bike\",\n    \"vehicle_type\": \"Sport Bike\",\n    \"body_group_id\": 19,\n    \"image_file\": \"img/kart/image28.webp\"\n  },\n  {\n    \"body_id\": 29,\n    \"name\": \"Jet Bike\",\n    \"vehicle_type\": \"Sport Bike\",\n    \"body_group_id\": 19,\n    \"image_file\": \"img/kart/image35.webp\"\n  },\n  {\n    \"body_id\": 30,\n    \"name\": \"Sneeker\",\n    \"vehicle_type\": \"Kart\",\n    \"body_group_id\": 20,\n    \"image_file\": \"img/kart/image27.webp\"\n  },\n  {\n    \"body_id\": 31,\n    \"name\": \"Gold Standard\",\n    \"vehicle_type\": \"Kart\",\n    \"body_group_id\": 21,\n    \"image_file\": \"img/kart/image9.webp\"\n  },\n  {\n    \"body_id\": 32,\n    \"name\": \"Master Cycle\",\n    \"vehicle_type\": \"Sport Bike\",\n    \"body_group_id\": 22,\n    \"image_file\": \"img/kart/image21.webp\"\n  },\n  {\n    \"body_id\": 33,\n    \"name\": \"Steel Driver\",\n    \"vehicle_type\": \"Kart\",\n    \"body_group_id\": 23,\n    \"image_file\": \"img/kart/image33.webp\"\n  },\n  {\n    \"body_id\": 34,\n    \"name\": \"Tri-Speeder\",\n    \"vehicle_type\": \"Kart\",\n    \"body_group_id\": 23,\n    \"image_file\": \"img/kart/image14.webp\"\n  },\n  {\n    \"body_id\": 35,\n    \"name\": \"Bone Rattler\",\n    \"vehicle_type\": \"ATV\",\n    \"body_group_id\": 24,\n    \"image_file\": \"img/kart/image37.webp\"\n  },\n  {\n    \"body_id\": 36,\n    \"name\": \"Circuit Special\",\n    \"vehicle_type\": \"Kart\",\n    \"body_group_id\": 25,\n    \"image_file\": \"img/kart/image41.webp\"\n  },\n  {\n    \"body_id\": 37,\n    \"name\": \"B Dasher\",\n    \"vehicle_type\": \"Kart\",\n    \"body_group_id\": 25,\n    \"image_file\": \"img/kart/image15.webp\"\n  },\n  {\n    \"body_id\": 38,\n    \"name\": \"P-Wing\",\n    \"vehicle_type\": \"Kart\",\n    \"body_group_id\": 25,\n    \"image_file\": \"img/kart/image22.webp\"\n  },\n  {\n    \"body_id\": 39,\n    \"name\": \"Badwagon\",\n    \"vehicle_type\": \"Kart\",\n    \"body_group_id\": 26,\n    \"image_file\": \"img/kart/image16.webp\"\n  },\n  {\n    \"body_id\": 40,\n    \"name\": \"GLA\",\n    \"vehicle_type\": \"Kart\",\n    \"body_group_id\": 26,\n    \"image_file\": \"img/kart/image8.webp\"\n  },\n  {\n    \"body_id\": 41,\n    \"name\": \"Standard ATV\",\n    \"vehicle_type\": \"ATV\",\n    \"body_group_id\": 27,\n    \"image_file\": \"img/kart/image6.webp\"\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Gets one body",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/bodies/11",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "bodies",
+                "11"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/bodies/11"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"body_id\": 11,\n  \"name\": \"Teddy Buggy\",\n  \"vehicle_type\": \"ATV\",\n  \"body_group_id\": 8,\n  \"image_file\": \"img/kart/image34.webp\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Gets a body's stats (its body group)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/bodies/11/stats",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "bodies",
+                "11",
+                "stats"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/bodies/11/stats"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"body_group_id\": 8,\n  \"label\": \"Teddy Buggy class\",\n  \"speed\": 2,\n  \"acceleration\": 5,\n  \"weight\": 2,\n  \"handling\": 4,\n  \"traction\": 3,\n  \"mini_turbo\": 6,\n  \"invincibility\": 1\n}"
+            }
+          ]
+        },
+        {
+          "name": "Gets all builds that use a body",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/bodies/11/builds",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "bodies",
+                "11",
+                "builds"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/bodies/11/builds"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"build_id\": 1,\n    \"user_id\": 1,\n    \"driver_id\": 30,\n    \"body_id\": 11,\n    \"tire_id\": 1,\n    \"glider_id\": 1,\n    \"build_name\": \"Balanced Teddy\"\n  }\n]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Body Groups",
+      "item": [
+        {
+          "name": "Gets all body stat groups",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/body-groups/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "body-groups",
+                ""
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/body-groups/"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"body_group_id\": 1,\n    \"label\": \"Biddybuggy class\",\n    \"speed\": 0,\n    \"acceleration\": 7,\n    \"weight\": 0,\n    \"handling\": 5,\n    \"traction\": 4,\n    \"mini_turbo\": 7,\n    \"invincibility\": 0\n  },\n  {\n    \"body_group_id\": 2,\n    \"label\": \"Streetle class\",\n    \"speed\": 2,\n    \"acceleration\": 6,\n    \"weight\": 0,\n    \"handling\": 4,\n    \"traction\": 6,\n    \"mini_turbo\": 6,\n    \"invincibility\": 3\n  },\n  {\n    \"body_group_id\": 3,\n    \"label\": \"Landship class\",\n    \"speed\": 2,\n    \"acceleration\": 6,\n    \"weight\": 0,\n    \"handling\": 4,\n    \"traction\": 6,\n    \"mini_turbo\": 6,\n    \"invincibility\": 2\n  },\n  {\n    \"body_group_id\": 4,\n    \"label\": \"Pipe Frame class\",\n    \"speed\": 2,\n    \"acceleration\": 6,\n    \"weight\": 1,\n    \"handling\": 5,\n    \"traction\": 4,\n    \"mini_turbo\": 6,\n    \"invincibility\": 3\n  },\n  {\n    \"body_group_id\": 5,\n    \"label\": \"Varmint class\",\n    \"speed\": 2,\n    \"acceleration\": 6,\n    \"weight\": 1,\n    \"handling\": 5,\n    \"traction\": 4,\n    \"mini_turbo\": 6,\n    \"invincibility\": 2\n  },\n  {\n    \"body_group_id\": 6,\n    \"label\": \"Cat Cruiser class\",\n    \"speed\": 2,\n    \"acceleration\": 5,\n    \"weight\": 2,\n    \"handling\": 4,\n    \"traction\": 3,\n    \"mini_turbo\": 6,\n    \"invincibility\": 3\n  },\n  {\n    \"body_group_id\": 7,\n    \"label\": \"Yoshi Bike class\",\n    \"speed\": 2,\n    \"acceleration\": 5,\n    \"weight\": 2,\n    \"handling\": 4,\n    \"traction\": 3,\n    \"mini_turbo\": 6,\n    \"invincibility\": 2\n  },\n  {\n    \"body_group_id\": 8,\n    \"label\": \"Teddy Buggy class\",\n    \"speed\": 2,\n    \"acceleration\": 5,\n    \"weight\": 2,\n    \"handling\": 4,\n    \"traction\": 3,\n    \"mini_turbo\": 6,\n    \"invincibility\": 1\n  },\n  {\n    \"body_group_id\": 9,\n    \"label\": \"W 25 Silver Arrow class\",\n    \"speed\": 2,\n    \"acceleration\": 5,\n    \"weight\": 1,\n    \"handling\": 4,\n    \"traction\": 5,\n    \"mini_turbo\": 5,\n    \"invincibility\": 4\n  },\n  {\n    \"body_group_id\": 10,\n    \"label\": \"Mach 8 class\",\n    \"speed\": 3,\n    \"acceleration\": 3,\n    \"weight\": 3,\n    \"handling\": 2,\n    \"traction\": 4,\n    \"mini_turbo\": 5,\n    \"invincibility\": 3\n  },\n  {\n    \"body_group_id\": 11,\n    \"label\": \"Inkstriker class\",\n    \"speed\": 3,\n    \"acceleration\": 3,\n    \"weight\": 3,\n    \"handling\": 2,\n    \"traction\": 4,\n    \"mini_turbo\": 5,\n    \"invincibility\": 1\n  },\n  {\n    \"body_group_id\": 12,\n    \"label\": \"Tanooki Kart class\",\n    \"speed\": 3,\n    \"acceleration\": 2,\n    \"weight\": 3,\n    \"handling\": 4,\n    \"traction\": 7,\n    \"mini_turbo\": 5,\n    \"invincibility\": 4\n  },\n  {\n    \"body_group_id\": 13,\n    \"label\": \"Koopa Clown class\",\n    \"speed\": 3,\n    \"acceleration\": 2,\n    \"weight\": 3,\n    \"handling\": 4,\n    \"traction\": 7,\n    \"mini_turbo\": 5,\n    \"invincibility\": 3\n  },\n  {\n    \"body_group_id\": 14,\n    \"label\": \"300 SL Roadster class\",\n    \"speed\": 3,\n    \"acceleration\": 4,\n    \"weight\": 2,\n    \"handling\": 3,\n    \"traction\": 3,\n    \"mini_turbo\": 5,\n    \"invincibility\": 4\n  },\n  {\n    \"body_group_id\": 15,\n    \"label\": \"Standard Kart class\",\n    \"speed\": 3,\n    \"acceleration\": 4,\n    \"weight\": 2,\n    \"handling\": 3,\n    \"traction\": 3,\n    \"mini_turbo\": 5,\n    \"invincibility\": 3\n  },\n  {\n    \"body_group_id\": 16,\n    \"label\": \"Blue Falcon class\",\n    \"speed\": 4,\n    \"acceleration\": 3,\n    \"weight\": 0,\n    \"handling\": 2,\n    \"traction\": 3,\n    \"mini_turbo\": 4,\n    \"invincibility\": 4\n  },\n  {\n    \"body_group_id\": 17,\n    \"label\": \"Splat Buggy class\",\n    \"speed\": 4,\n    \"acceleration\": 3,\n    \"weight\": 0,\n    \"handling\": 2,\n    \"traction\": 3,\n    \"mini_turbo\": 4,\n    \"invincibility\": 3\n  },\n  {\n    \"body_group_id\": 18,\n    \"label\": \"Prancer class\",\n    \"speed\": 4,\n    \"acceleration\": 2,\n    \"weight\": 1,\n    \"handling\": 3,\n    \"traction\": 2,\n    \"mini_turbo\": 4,\n    \"invincibility\": 5\n  },\n  {\n    \"body_group_id\": 19,\n    \"label\": \"Sport Bike class\",\n    \"speed\": 4,\n    \"acceleration\": 2,\n    \"weight\": 1,\n    \"handling\": 3,\n    \"traction\": 2,\n    \"mini_turbo\": 4,\n    \"invincibility\": 3\n  },\n  {\n    \"body_group_id\": 20,\n    \"label\": \"Sneeker class\",\n    \"speed\": 4,\n    \"acceleration\": 2,\n    \"weight\": 2,\n    \"handling\": 3,\n    \"traction\": 0,\n    \"mini_turbo\": 4,\n    \"invincibility\": 5\n  },\n  {\n    \"body_group_id\": 21,\n    \"label\": \"Gold Standard class\",\n    \"speed\": 4,\n    \"acceleration\": 2,\n    \"weight\": 2,\n    \"handling\": 3,\n    \"traction\": 0,\n    \"mini_turbo\": 4,\n    \"invincibility\": 4\n  },\n  {\n    \"body_group_id\": 22,\n    \"label\": \"Master Cycle class\",\n    \"speed\": 4,\n    \"acceleration\": 2,\n    \"weight\": 2,\n    \"handling\": 3,\n    \"traction\": 0,\n    \"mini_turbo\": 4,\n    \"invincibility\": 3\n  },\n  {\n    \"body_group_id\": 23,\n    \"label\": \"Steel Driver class\",\n    \"speed\": 4,\n    \"acceleration\": 1,\n    \"weight\": 4,\n    \"handling\": 1,\n    \"traction\": 3,\n    \"mini_turbo\": 3,\n    \"invincibility\": 6\n  },\n  {\n    \"body_group_id\": 24,\n    \"label\": \"Bone Rattler class\",\n    \"speed\": 4,\n    \"acceleration\": 1,\n    \"weight\": 4,\n    \"handling\": 1,\n    \"traction\": 3,\n    \"mini_turbo\": 3,\n    \"invincibility\": 5\n  },\n  {\n    \"body_group_id\": 25,\n    \"label\": \"Circuit Special class\",\n    \"speed\": 5,\n    \"acceleration\": 1,\n    \"weight\": 3,\n    \"handling\": 1,\n    \"traction\": 1,\n    \"mini_turbo\": 3,\n    \"invincibility\": 6\n  },\n  {\n    \"body_group_id\": 26,\n    \"label\": \"Badwagon class\",\n    \"speed\": 5,\n    \"acceleration\": 0,\n    \"weight\": 4,\n    \"handling\": 0,\n    \"traction\": 5,\n    \"mini_turbo\": 3,\n    \"invincibility\": 7\n  },\n  {\n    \"body_group_id\": 27,\n    \"label\": \"Standard ATV class\",\n    \"speed\": 5,\n    \"acceleration\": 0,\n    \"weight\": 4,\n    \"handling\": 0,\n    \"traction\": 5,\n    \"mini_turbo\": 3,\n    \"invincibility\": 6\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Gets one body group and its stats",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/body-groups/9",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "body-groups",
+                "9"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/body-groups/9"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"body_group_id\": 9,\n  \"label\": \"W 25 Silver Arrow class\",\n  \"speed\": 2,\n  \"acceleration\": 5,\n  \"weight\": 1,\n  \"handling\": 4,\n  \"traction\": 5,\n  \"mini_turbo\": 5,\n  \"invincibility\": 4\n}"
+            }
+          ]
+        },
+        {
+          "name": "Gets all bodies in a body group",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/body-groups/9/bodies",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "body-groups",
+                "9",
+                "bodies"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/body-groups/9/bodies"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"body_id\": 12,\n    \"name\": \"W 25 Silver Arrow\",\n    \"vehicle_type\": \"Kart\",\n    \"body_group_id\": 9,\n    \"image_file\": \"img/kart/image38.webp\"\n  },\n  {\n    \"body_id\": 13,\n    \"name\": \"Wild Wiggler\",\n    \"vehicle_type\": \"ATV\",\n    \"body_group_id\": 9,\n    \"image_file\": \"img/kart/image39.webp\"\n  },\n  {\n    \"body_id\": 14,\n    \"name\": \"Standard Bike\",\n    \"vehicle_type\": \"Standard Bike\",\n    \"body_group_id\": 9,\n    \"image_file\": \"img/kart/image31.webp\"\n  },\n  {\n    \"body_id\": 15,\n    \"name\": \"Flame Rider\",\n    \"vehicle_type\": \"Standard Bike\",\n    \"body_group_id\": 9,\n    \"image_file\": \"img/kart/image7.webp\"\n  }\n]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tires",
+      "item": [
+        {
+          "name": "Gets all tires",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/tires/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tires",
+                ""
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/tires/"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"tire_id\": 1,\n    \"name\": \"Roller\",\n    \"tire_group_id\": 1,\n    \"image_file\": \"img/tires/image17.webp\"\n  },\n  {\n    \"tire_id\": 2,\n    \"name\": \"Azure Roller\",\n    \"tire_group_id\": 1,\n    \"image_file\": \"img/tires/image1.webp\"\n  },\n  {\n    \"tire_id\": 3,\n    \"name\": \"Button\",\n    \"tire_group_id\": 2,\n    \"image_file\": \"img/tires/image3.webp\"\n  },\n  {\n    \"tire_id\": 4,\n    \"name\": \"Leaf Tires\",\n    \"tire_group_id\": 2,\n    \"image_file\": \"img/tires/image10.webp\"\n  },\n  {\n    \"tire_id\": 5,\n    \"name\": \"Cushion\",\n    \"tire_group_id\": 3,\n    \"image_file\": \"img/tires/image5.webp\"\n  },\n  {\n    \"tire_id\": 6,\n    \"name\": \"Sponge\",\n    \"tire_group_id\": 4,\n    \"image_file\": \"img/tires/image20.webp\"\n  },\n  {\n    \"tire_id\": 7,\n    \"name\": \"GLA Tires\",\n    \"tire_group_id\": 5,\n    \"image_file\": \"img/tires/image7.webp\"\n  },\n  {\n    \"tire_id\": 8,\n    \"name\": \"Standard\",\n    \"tire_group_id\": 6,\n    \"image_file\": \"img/tires/image21.webp\"\n  },\n  {\n    \"tire_id\": 9,\n    \"name\": \"Blue Standard\",\n    \"tire_group_id\": 6,\n    \"image_file\": \"img/tires/image2.webp\"\n  },\n  {\n    \"tire_id\": 10,\n    \"name\": \"Slim\",\n    \"tire_group_id\": 7,\n    \"image_file\": \"img/tires/image19.webp\"\n  },\n  {\n    \"tire_id\": 11,\n    \"name\": \"Crimson Slim\",\n    \"tire_group_id\": 7,\n    \"image_file\": \"img/tires/image4.webp\"\n  },\n  {\n    \"tire_id\": 12,\n    \"name\": \"Wood\",\n    \"tire_group_id\": 7,\n    \"image_file\": \"img/tires/image22.webp\"\n  },\n  {\n    \"tire_id\": 13,\n    \"name\": \"Monster\",\n    \"tire_group_id\": 8,\n    \"image_file\": \"img/tires/image14.webp\"\n  },\n  {\n    \"tire_id\": 14,\n    \"name\": \"Hot Monster\",\n    \"tire_group_id\": 8,\n    \"image_file\": \"img/tires/image9.webp\"\n  },\n  {\n    \"tire_id\": 15,\n    \"name\": \"Ancient Tires\",\n    \"tire_group_id\": 9,\n    \"image_file\": \"img/tires/image12.webp\"\n  },\n  {\n    \"tire_id\": 16,\n    \"name\": \"Off-Road\",\n    \"tire_group_id\": 10,\n    \"image_file\": \"img/tires/image15.webp\"\n  },\n  {\n    \"tire_id\": 17,\n    \"name\": \"Retro Off-Road\",\n    \"tire_group_id\": 10,\n    \"image_file\": \"img/tires/image16.webp\"\n  },\n  {\n    \"tire_id\": 18,\n    \"name\": \"Triforce Tires\",\n    \"tire_group_id\": 10,\n    \"image_file\": \"img/tires/image13.webp\"\n  },\n  {\n    \"tire_id\": 19,\n    \"name\": \"Slick\",\n    \"tire_group_id\": 11,\n    \"image_file\": \"img/tires/image18.webp\"\n  },\n  {\n    \"tire_id\": 20,\n    \"name\": \"Cyber Slick\",\n    \"tire_group_id\": 11,\n    \"image_file\": \"img/tires/image6.webp\"\n  },\n  {\n    \"tire_id\": 21,\n    \"name\": \"Metal\",\n    \"tire_group_id\": 12,\n    \"image_file\": \"img/tires/image11.webp\"\n  },\n  {\n    \"tire_id\": 22,\n    \"name\": \"Gold Tires\",\n    \"tire_group_id\": 13,\n    \"image_file\": \"img/tires/image8.webp\"\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Gets one tire",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/tires/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tires",
+                "1"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/tires/1"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tire_id\": 1,\n  \"name\": \"Roller\",\n  \"tire_group_id\": 1,\n  \"image_file\": \"img/tires/image17.webp\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Gets a tire's stats (its tire group)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/tires/1/stats",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tires",
+                "1",
+                "stats"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/tires/1/stats"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tire_group_id\": 1,\n  \"label\": \"Roller class\",\n  \"speed\": 0,\n  \"acceleration\": 6,\n  \"weight\": 0,\n  \"handling\": 4,\n  \"traction\": 4,\n  \"mini_turbo\": 6,\n  \"invincibility\": 0\n}"
+            }
+          ]
+        },
+        {
+          "name": "Gets all builds that use a tire",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/tires/1/builds",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tires",
+                "1",
+                "builds"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/tires/1/builds"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"build_id\": 1,\n    \"user_id\": 1,\n    \"driver_id\": 30,\n    \"body_id\": 11,\n    \"tire_id\": 1,\n    \"glider_id\": 1,\n    \"build_name\": \"Balanced Teddy\"\n  },\n  {\n    \"build_id\": 3,\n    \"user_id\": 3,\n    \"driver_id\": 1,\n    \"body_id\": 1,\n    \"tire_id\": 1,\n    \"glider_id\": 5,\n    \"build_name\": \"Baby Peach Handler\"\n  },\n  {\n    \"build_id\": 5,\n    \"user_id\": 5,\n    \"driver_id\": 40,\n    \"body_id\": 13,\n    \"tire_id\": 1,\n    \"glider_id\": 1,\n    \"build_name\": \"Rosalina Drift\"\n  }\n]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tire Groups",
+      "item": [
+        {
+          "name": "Gets all tire stat groups",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/tire-groups/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tire-groups",
+                ""
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/tire-groups/"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"tire_group_id\": 1,\n    \"label\": \"Roller class\",\n    \"speed\": 0,\n    \"acceleration\": 6,\n    \"weight\": 0,\n    \"handling\": 4,\n    \"traction\": 4,\n    \"mini_turbo\": 6,\n    \"invincibility\": 0\n  },\n  {\n    \"tire_group_id\": 2,\n    \"label\": \"Button class\",\n    \"speed\": 1,\n    \"acceleration\": 5,\n    \"weight\": 0,\n    \"handling\": 3,\n    \"traction\": 3,\n    \"mini_turbo\": 5,\n    \"invincibility\": 3\n  },\n  {\n    \"tire_group_id\": 3,\n    \"label\": \"Cushion class\",\n    \"speed\": 1,\n    \"acceleration\": 4,\n    \"weight\": 1,\n    \"handling\": 2,\n    \"traction\": 6,\n    \"mini_turbo\": 5,\n    \"invincibility\": 6\n  },\n  {\n    \"tire_group_id\": 4,\n    \"label\": \"Sponge class\",\n    \"speed\": 1,\n    \"acceleration\": 4,\n    \"weight\": 1,\n    \"handling\": 2,\n    \"traction\": 6,\n    \"mini_turbo\": 5,\n    \"invincibility\": 4\n  },\n  {\n    \"tire_group_id\": 5,\n    \"label\": \"GLA Tires class\",\n    \"speed\": 2,\n    \"acceleration\": 4,\n    \"weight\": 2,\n    \"handling\": 3,\n    \"traction\": 5,\n    \"mini_turbo\": 4,\n    \"invincibility\": 5\n  },\n  {\n    \"tire_group_id\": 6,\n    \"label\": \"Standard class\",\n    \"speed\": 2,\n    \"acceleration\": 4,\n    \"weight\": 2,\n    \"handling\": 3,\n    \"traction\": 5,\n    \"mini_turbo\": 4,\n    \"invincibility\": 4\n  },\n  {\n    \"tire_group_id\": 7,\n    \"label\": \"Slim class\",\n    \"speed\": 3,\n    \"acceleration\": 2,\n    \"weight\": 2,\n    \"handling\": 4,\n    \"traction\": 1,\n    \"mini_turbo\": 3,\n    \"invincibility\": 5\n  },\n  {\n    \"tire_group_id\": 8,\n    \"label\": \"Monster class\",\n    \"speed\": 3,\n    \"acceleration\": 2,\n    \"weight\": 4,\n    \"handling\": 0,\n    \"traction\": 7,\n    \"mini_turbo\": 3,\n    \"invincibility\": 6\n  },\n  {\n    \"tire_group_id\": 9,\n    \"label\": \"Ancient Tires class\",\n    \"speed\": 3,\n    \"acceleration\": 2,\n    \"weight\": 4,\n    \"handling\": 0,\n    \"traction\": 7,\n    \"mini_turbo\": 3,\n    \"invincibility\": 5\n  },\n  {\n    \"tire_group_id\": 10,\n    \"label\": \"Off-Road class\",\n    \"speed\": 3,\n    \"acceleration\": 3,\n    \"weight\": 3,\n    \"handling\": 1,\n    \"traction\": 6,\n    \"mini_turbo\": 3,\n    \"invincibility\": 6\n  },\n  {\n    \"tire_group_id\": 11,\n    \"label\": \"Slick class\",\n    \"speed\": 4,\n    \"acceleration\": 1,\n    \"weight\": 3,\n    \"handling\": 2,\n    \"traction\": 0,\n    \"mini_turbo\": 2,\n    \"invincibility\": 5\n  },\n  {\n    \"tire_group_id\": 12,\n    \"label\": \"Metal class\",\n    \"speed\": 4,\n    \"acceleration\": 0,\n    \"weight\": 4,\n    \"handling\": 2,\n    \"traction\": 2,\n    \"mini_turbo\": 2,\n    \"invincibility\": 6\n  },\n  {\n    \"tire_group_id\": 13,\n    \"label\": \"Gold Tires class\",\n    \"speed\": 4,\n    \"acceleration\": 0,\n    \"weight\": 4,\n    \"handling\": 2,\n    \"traction\": 2,\n    \"mini_turbo\": 2,\n    \"invincibility\": 5\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Gets one tire group and its stats",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/tire-groups/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tire-groups",
+                "1"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/tire-groups/1"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tire_group_id\": 1,\n  \"label\": \"Roller class\",\n  \"speed\": 0,\n  \"acceleration\": 6,\n  \"weight\": 0,\n  \"handling\": 4,\n  \"traction\": 4,\n  \"mini_turbo\": 6,\n  \"invincibility\": 0\n}"
+            }
+          ]
+        },
+        {
+          "name": "Gets all tires in a tire group",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/tire-groups/1/tires",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tire-groups",
+                "1",
+                "tires"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/tire-groups/1/tires"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"tire_id\": 1,\n    \"name\": \"Roller\",\n    \"tire_group_id\": 1,\n    \"image_file\": \"img/tires/image17.webp\"\n  },\n  {\n    \"tire_id\": 2,\n    \"name\": \"Azure Roller\",\n    \"tire_group_id\": 1,\n    \"image_file\": \"img/tires/image1.webp\"\n  }\n]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Gliders",
+      "item": [
+        {
+          "name": "Gets all gliders and their stats",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/gliders/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "gliders",
+                ""
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/gliders/"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"glider_id\": 1,\n    \"name\": \"Cloud Glider\",\n    \"image_file\": \"img/glider/image2.webp\",\n    \"speed\": 0,\n    \"acceleration\": 2,\n    \"weight\": 0,\n    \"handling\": 1,\n    \"traction\": 1,\n    \"mini_turbo\": 2,\n    \"invincibility\": 0\n  },\n  {\n    \"glider_id\": 2,\n    \"name\": \"Parachute\",\n    \"image_file\": \"img/glider/image9.webp\",\n    \"speed\": 0,\n    \"acceleration\": 2,\n    \"weight\": 0,\n    \"handling\": 1,\n    \"traction\": 1,\n    \"mini_turbo\": 2,\n    \"invincibility\": 0\n  },\n  {\n    \"glider_id\": 3,\n    \"name\": \"Flower Glider\",\n    \"image_file\": \"img/glider/image3.webp\",\n    \"speed\": 0,\n    \"acceleration\": 2,\n    \"weight\": 0,\n    \"handling\": 1,\n    \"traction\": 1,\n    \"mini_turbo\": 2,\n    \"invincibility\": 0\n  },\n  {\n    \"glider_id\": 4,\n    \"name\": \"Paper Glider\",\n    \"image_file\": \"img/glider/image8.webp\",\n    \"speed\": 0,\n    \"acceleration\": 2,\n    \"weight\": 0,\n    \"handling\": 1,\n    \"traction\": 1,\n    \"mini_turbo\": 2,\n    \"invincibility\": 0\n  },\n  {\n    \"glider_id\": 5,\n    \"name\": \"Peach Parasol\",\n    \"image_file\": \"img/glider/image11.webp\",\n    \"speed\": 0,\n    \"acceleration\": 2,\n    \"weight\": 1,\n    \"handling\": 1,\n    \"traction\": 0,\n    \"mini_turbo\": 2,\n    \"invincibility\": 0\n  },\n  {\n    \"glider_id\": 6,\n    \"name\": \"Parafoil\",\n    \"image_file\": \"img/glider/image10.webp\",\n    \"speed\": 0,\n    \"acceleration\": 2,\n    \"weight\": 1,\n    \"handling\": 1,\n    \"traction\": 0,\n    \"mini_turbo\": 2,\n    \"invincibility\": 0\n  },\n  {\n    \"glider_id\": 7,\n    \"name\": \"Bowser Kite\",\n    \"image_file\": \"img/glider/image1.webp\",\n    \"speed\": 0,\n    \"acceleration\": 2,\n    \"weight\": 1,\n    \"handling\": 1,\n    \"traction\": 0,\n    \"mini_turbo\": 2,\n    \"invincibility\": 0\n  },\n  {\n    \"glider_id\": 8,\n    \"name\": \"MKTV Parafoil\",\n    \"image_file\": \"img/glider/image7.webp\",\n    \"speed\": 0,\n    \"acceleration\": 2,\n    \"weight\": 1,\n    \"handling\": 1,\n    \"traction\": 0,\n    \"mini_turbo\": 2,\n    \"invincibility\": 0\n  },\n  {\n    \"glider_id\": 9,\n    \"name\": \"Wario Wing\",\n    \"image_file\": \"img/glider/image15.webp\",\n    \"speed\": 1,\n    \"acceleration\": 1,\n    \"weight\": 2,\n    \"handling\": 1,\n    \"traction\": 0,\n    \"mini_turbo\": 1,\n    \"invincibility\": 1\n  },\n  {\n    \"glider_id\": 10,\n    \"name\": \"Plane Glider\",\n    \"image_file\": \"img/glider/image12.webp\",\n    \"speed\": 1,\n    \"acceleration\": 1,\n    \"weight\": 2,\n    \"handling\": 1,\n    \"traction\": 0,\n    \"mini_turbo\": 1,\n    \"invincibility\": 1\n  },\n  {\n    \"glider_id\": 11,\n    \"name\": \"Gold Glider\",\n    \"image_file\": \"img/glider/image4.webp\",\n    \"speed\": 1,\n    \"acceleration\": 1,\n    \"weight\": 2,\n    \"handling\": 1,\n    \"traction\": 0,\n    \"mini_turbo\": 1,\n    \"invincibility\": 1\n  },\n  {\n    \"glider_id\": 12,\n    \"name\": \"Paraglider\",\n    \"image_file\": \"img/glider/image5.webp\",\n    \"speed\": 1,\n    \"acceleration\": 1,\n    \"weight\": 2,\n    \"handling\": 1,\n    \"traction\": 0,\n    \"mini_turbo\": 1,\n    \"invincibility\": 1\n  },\n  {\n    \"glider_id\": 13,\n    \"name\": \"Super Glider\",\n    \"image_file\": \"img/glider/image13.webp\",\n    \"speed\": 1,\n    \"acceleration\": 1,\n    \"weight\": 1,\n    \"handling\": 1,\n    \"traction\": 1,\n    \"mini_turbo\": 1,\n    \"invincibility\": 1\n  },\n  {\n    \"glider_id\": 14,\n    \"name\": \"Waddle Wing\",\n    \"image_file\": \"img/glider/image14.webp\",\n    \"speed\": 1,\n    \"acceleration\": 1,\n    \"weight\": 1,\n    \"handling\": 1,\n    \"traction\": 1,\n    \"mini_turbo\": 1,\n    \"invincibility\": 1\n  },\n  {\n    \"glider_id\": 15,\n    \"name\": \"Hylian Kite\",\n    \"image_file\": \"img/glider/image6.webp\",\n    \"speed\": 1,\n    \"acceleration\": 1,\n    \"weight\": 1,\n    \"handling\": 1,\n    \"traction\": 1,\n    \"mini_turbo\": 1,\n    \"invincibility\": 1\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Gets one glider and its stats",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/gliders/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "gliders",
+                "1"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/gliders/1"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"glider_id\": 1,\n  \"name\": \"Cloud Glider\",\n  \"image_file\": \"img/glider/image2.webp\",\n  \"speed\": 0,\n  \"acceleration\": 2,\n  \"weight\": 0,\n  \"handling\": 1,\n  \"traction\": 1,\n  \"mini_turbo\": 2,\n  \"invincibility\": 0\n}"
+            }
+          ]
+        },
+        {
+          "name": "Gets all builds that use a glider",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/gliders/1/builds",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "gliders",
+                "1",
+                "builds"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/gliders/1/builds"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"build_id\": 1,\n    \"user_id\": 1,\n    \"driver_id\": 30,\n    \"body_id\": 11,\n    \"tire_id\": 1,\n    \"glider_id\": 1,\n    \"build_name\": \"Balanced Teddy\"\n  },\n  {\n    \"build_id\": 5,\n    \"user_id\": 5,\n    \"driver_id\": 40,\n    \"body_id\": 13,\n    \"tire_id\": 1,\n    \"glider_id\": 1,\n    \"build_name\": \"Rosalina Drift\"\n  }\n]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Gets users, one page at a time. Supports pagination and sorting",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/users/?limit=2&offset=0&sort=username",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "2"
+                },
+                {
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "key": "sort",
+                  "value": "username"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/users/?limit=2&offset=0&sort=username"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"limit\": 2,\n    \"offset\": 0,\n    \"total\": 5,\n    \"total_pages\": 3,\n    \"current_page\": 1,\n    \"next_page\": 2,\n    \"previous_page\": null,\n    \"sort\": \"username\"\n  },\n  \"users\": [\n    {\n      \"user_id\": 2,\n      \"username\": \"bananapeel99\",\n      \"email\": \"bananapeel99@example.com\"\n    },\n    {\n      \"user_id\": 4,\n      \"username\": \"bluesheller\",\n      \"email\": \"bluesheller@example.com\"\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Searches users by username and email (partial, case-insensitive)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/users/search?q=road,king",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "road,king"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/users/search?q=road,king"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"user_id\": 3,\n    \"username\": \"rainbowroad\",\n    \"email\": \"rainbowroad@example.com\"\n  },\n  {\n    \"user_id\": 5,\n    \"username\": \"driftking\",\n    \"email\": \"driftking@example.com\"\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Gets one user",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/users/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                "1"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/users/1"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"user_id\": 1,\n  \"username\": \"shellshocked\",\n  \"email\": \"shellshocked@example.com\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Gets all builds saved by a user",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/users/1/builds",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                "1",
+                "builds"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/users/1/builds"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"build_id\": 1,\n    \"user_id\": 1,\n    \"driver_id\": 30,\n    \"body_id\": 11,\n    \"tire_id\": 1,\n    \"glider_id\": 1,\n    \"build_name\": \"Balanced Teddy\"\n  },\n  {\n    \"build_id\": 6,\n    \"user_id\": 1,\n    \"driver_id\": 15,\n    \"body_id\": 2,\n    \"tire_id\": 3,\n    \"glider_id\": 12,\n    \"build_name\": \"Toad Scooter\"\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Gets one of a user's builds",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/users/1/builds/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                "1",
+                "builds",
+                "1"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/users/1/builds/1"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"build_id\": 1,\n  \"user_id\": 1,\n  \"driver_id\": 30,\n  \"body_id\": 11,\n  \"tire_id\": 1,\n  \"glider_id\": 1,\n  \"build_name\": \"Balanced Teddy\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Gets all ratings a user has given",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/users/1/ratings",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                "1",
+                "ratings"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/users/1/ratings"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"rating_id\": 3,\n    \"build_id\": 2,\n    \"user_id\": 1,\n    \"score\": 4\n  }\n]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Builds",
+      "item": [
+        {
+          "name": "Gets builds, one page at a time. Supports pagination and sorting",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/builds/?limit=2&sort=user_id,-build_name",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "builds",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "2"
+                },
+                {
+                  "key": "sort",
+                  "value": "user_id,-build_name"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/builds/?limit=2&sort=user_id,-build_name"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"limit\": 2,\n    \"offset\": 0,\n    \"total\": 6,\n    \"total_pages\": 3,\n    \"current_page\": 1,\n    \"next_page\": 2,\n    \"previous_page\": null,\n    \"sort\": \"user_id,-build_name\"\n  },\n  \"builds\": [\n    {\n      \"build_id\": 6,\n      \"user_id\": 1,\n      \"driver_id\": 15,\n      \"body_id\": 2,\n      \"tire_id\": 3,\n      \"glider_id\": 12,\n      \"build_name\": \"Toad Scooter\"\n    },\n    {\n      \"build_id\": 1,\n      \"user_id\": 1,\n      \"driver_id\": 30,\n      \"body_id\": 11,\n      \"tire_id\": 1,\n      \"glider_id\": 1,\n      \"build_name\": \"Balanced Teddy\"\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Searches builds by name (partial, case-insensitive) or by any ID number",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/builds/search?q=teddy",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "builds",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "teddy"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/builds/search?q=teddy"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"build_id\": 1,\n    \"user_id\": 1,\n    \"driver_id\": 30,\n    \"body_id\": 11,\n    \"tire_id\": 1,\n    \"glider_id\": 1,\n    \"build_name\": \"Balanced Teddy\"\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Gets one build",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/builds/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "builds",
+                "1"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/builds/1"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"build_id\": 1,\n  \"user_id\": 1,\n  \"driver_id\": 30,\n  \"body_id\": 11,\n  \"tire_id\": 1,\n  \"glider_id\": 1,\n  \"build_name\": \"Balanced Teddy\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Gets the user who saved a build",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/builds/1/user",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "builds",
+                "1",
+                "user"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/builds/1/user"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"user_id\": 1,\n  \"username\": \"shellshocked\",\n  \"email\": \"shellshocked@example.com\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Gets a build's driver",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/builds/1/driver",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "builds",
+                "1",
+                "driver"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/builds/1/driver"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"driver_id\": 30,\n  \"name\": \"Mario\",\n  \"driver_group_id\": 10,\n  \"image_file\": \"img/character/image30.webp\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Gets a build's body",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/builds/1/body",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "builds",
+                "1",
+                "body"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/builds/1/body"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"body_id\": 11,\n  \"name\": \"Teddy Buggy\",\n  \"vehicle_type\": \"ATV\",\n  \"body_group_id\": 8,\n  \"image_file\": \"img/kart/image34.webp\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Gets a build's tire",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/builds/1/tire",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "builds",
+                "1",
+                "tire"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/builds/1/tire"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tire_id\": 1,\n  \"name\": \"Roller\",\n  \"tire_group_id\": 1,\n  \"image_file\": \"img/tires/image17.webp\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Gets a build's glider",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/builds/1/glider",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "builds",
+                "1",
+                "glider"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/builds/1/glider"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"glider_id\": 1,\n  \"name\": \"Cloud Glider\",\n  \"image_file\": \"img/glider/image2.webp\",\n  \"speed\": 0,\n  \"acceleration\": 2,\n  \"weight\": 0,\n  \"handling\": 1,\n  \"traction\": 1,\n  \"mini_turbo\": 2,\n  \"invincibility\": 0\n}"
+            }
+          ]
+        },
+        {
+          "name": "Gets the combined stats of a build: the level and in-game value of each stat",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/builds/1/stats",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "builds",
+                "1",
+                "stats"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/builds/1/stats"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"build_id\": 1,\n  \"build_name\": \"Balanced Teddy\",\n  \"parts\": {\n    \"driver\": \"Mario\",\n    \"body\": \"Teddy Buggy\",\n    \"tire\": \"Roller\",\n    \"glider\": \"Cloud Glider\"\n  },\n  \"stats\": {\n    \"speed\": {\n      \"level\": 9,\n      \"value\": 3.0\n    },\n    \"acceleration\": {\n      \"level\": 15,\n      \"value\": 4.5\n    },\n    \"weight\": {\n      \"level\": 8,\n      \"value\": 2.75\n    },\n    \"handling\": {\n      \"level\": 13,\n      \"value\": 4.0\n    },\n    \"traction\": {\n      \"level\": 10,\n      \"value\": 3.25\n    },\n    \"mini_turbo\": {\n      \"level\": 17,\n      \"value\": 5.0\n    },\n    \"invincibility\": {\n      \"level\": 4,\n      \"value\": 1.75\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Gets all ratings for a build",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/builds/1/ratings",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "builds",
+                "1",
+                "ratings"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/builds/1/ratings"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"rating_id\": 1,\n    \"build_id\": 1,\n    \"user_id\": 2,\n    \"score\": 5\n  },\n  {\n    \"rating_id\": 2,\n    \"build_id\": 1,\n    \"user_id\": 3,\n    \"score\": 4\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Gets one rating for a build",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/builds/1/ratings/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "builds",
+                "1",
+                "ratings",
+                "1"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/builds/1/ratings/1"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"rating_id\": 1,\n  \"build_id\": 1,\n  \"user_id\": 2,\n  \"score\": 5\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ratings",
+      "item": [
+        {
+          "name": "Gets ratings, one page at a time. Supports pagination and sorting",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/ratings/?limit=2&offset=2&sort=-score,build_id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "ratings",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "2"
+                },
+                {
+                  "key": "offset",
+                  "value": "2"
+                },
+                {
+                  "key": "sort",
+                  "value": "-score,build_id"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/ratings/?limit=2&offset=2&sort=-score,build_id"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"limit\": 2,\n    \"offset\": 2,\n    \"total\": 7,\n    \"total_pages\": 4,\n    \"current_page\": 2,\n    \"next_page\": 3,\n    \"previous_page\": 1,\n    \"sort\": \"-score,build_id\"\n  },\n  \"ratings\": [\n    {\n      \"rating_id\": 6,\n      \"build_id\": 5,\n      \"user_id\": 2,\n      \"score\": 5\n    },\n    {\n      \"rating_id\": 2,\n      \"build_id\": 1,\n      \"user_id\": 3,\n      \"score\": 4\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Gets one rating",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/ratings/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "ratings",
+                "1"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/ratings/1"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"rating_id\": 1,\n  \"build_id\": 1,\n  \"user_id\": 2,\n  \"score\": 5\n}"
+            }
+          ]
+        },
+        {
+          "name": "Gets the build a rating is for",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/ratings/1/build",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "ratings",
+                "1",
+                "build"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/ratings/1/build"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"build_id\": 1,\n  \"user_id\": 1,\n  \"driver_id\": 30,\n  \"body_id\": 11,\n  \"tire_id\": 1,\n  \"glider_id\": 1,\n  \"build_name\": \"Balanced Teddy\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Gets the user who gave a rating",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/ratings/1/user",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "ratings",
+                "1",
+                "user"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/ratings/1/user"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"user_id\": 2,\n  \"username\": \"bananapeel99\",\n  \"email\": \"bananapeel99@example.com\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Combinations",
+      "item": [
+        {
+          "name": "Calculates the stats for any combination of parts without saving it",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/combinations/?driver_id=3&body_id=1&tire_id=1&glider_id=4",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "combinations",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "driver_id",
+                  "value": "3"
+                },
+                {
+                  "key": "body_id",
+                  "value": "1"
+                },
+                {
+                  "key": "tire_id",
+                  "value": "1"
+                },
+                {
+                  "key": "glider_id",
+                  "value": "4"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "200 example",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/combinations/?driver_id=3&body_id=1&tire_id=1&glider_id=4"
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"driver\": \"Baby Rosalina\",\n  \"body\": \"Biddybuggy\",\n  \"tire\": \"Roller\",\n  \"glider\": \"Paper Glider\",\n  \"stats\": {\n    \"speed\": {\n      \"level\": 1,\n      \"value\": 1.0\n    },\n    \"acceleration\": {\n      \"level\": 20,\n      \"value\": 5.75\n    },\n    \"weight\": {\n      \"level\": 0,\n      \"value\": 0.75\n    },\n    \"handling\": {\n      \"level\": 19,\n      \"value\": 5.5\n    },\n    \"traction\": {\n      \"level\": 12,\n      \"value\": 3.75\n    },\n    \"mini_turbo\": {\n      \"level\": 20,\n      \"value\": 5.75\n    },\n    \"invincibility\": {\n      \"level\": 6,\n      \"value\": 2.25\n    }\n  }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pagination, Sorting, and Search",
+      "item": [
+        {
+          "name": "Users page 2 of 3, sorted by username",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/users/?limit=2&offset=2&sort=username",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "2"
+                },
+                {
+                  "key": "offset",
+                  "value": "2"
+                },
+                {
+                  "key": "sort",
+                  "value": "username"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Users sorted by username, descending",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/users/?sort=-username",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "-username"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Builds sorted by two fields",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/builds/?sort=user_id,-build_name",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "builds",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "user_id,-build_name"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Ratings, highest score first, first 3",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/ratings/?limit=3&sort=-score,build_id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "ratings",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "3"
+                },
+                {
+                  "key": "sort",
+                  "value": "-score,build_id"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Search users (or)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/users/search?q=road,king",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "road,king"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Search users (and)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/users/search?q=road,example&logic=and",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "road,example"
+                },
+                {
+                  "key": "logic",
+                  "value": "and"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Search builds by name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/builds/search?q=teddy",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "builds",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "teddy"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Create, Update, Delete",
+      "item": [
+        {
+          "name": "1. Create a user",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/users/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                ""
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"gs_{{$timestamp}}\",\n  \"email\": \"gs{{$timestamp}}@example.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "if (pm.response.code === 201) {",
+                  "    pm.collectionVariables.set(\"new_user_id\", pm.response.json().user_id);",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "2. Update the user (email only)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/users/{{new_user_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                "{{new_user_id}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"gs{{$timestamp}}.new@example.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "3. Create a build for the user",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/builds/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "builds",
+                ""
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": {{new_user_id}},\n  \"driver_id\": 48,\n  \"body_id\": 13,\n  \"tire_id\": 15,\n  \"glider_id\": 13,\n  \"build_name\": \"Yoshi Wiggler\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "if (pm.response.code === 201) {",
+                  "    pm.collectionVariables.set(\"new_build_id\", pm.response.json().build_id);",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "4. Update the build (tire only)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/builds/{{new_build_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "builds",
+                "{{new_build_id}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tire_id\": 3\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "5. Rate the build (as user 1)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/ratings/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "ratings",
+                ""
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"build_id\": {{new_build_id}},\n  \"user_id\": 1,\n  \"score\": 4\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "if (pm.response.code === 201) {",
+                  "    pm.collectionVariables.set(\"new_rating_id\", pm.response.json().rating_id);",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "6. Update the rating",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/ratings/{{new_rating_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "ratings",
+                "{{new_rating_id}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"score\": 5\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "7. Delete the rating",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/ratings/{{new_rating_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "ratings",
+                "{{new_rating_id}}"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "8. Delete the build",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/builds/{{new_build_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "builds",
+                "{{new_build_id}}"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "9. Delete the user",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/users/{{new_user_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                "{{new_user_id}}"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Validation and Errors",
+      "item": [
+        {
+          "name": "422 - User with an invalid email",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/users/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                ""
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"newuser\",\n  \"email\": \"not-an-email\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 422\", function () {",
+                  "    pm.response.to.have.status(422);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "422 - User with a spaces-only username",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/users/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                ""
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"     \",\n  \"email\": \"spaces@example.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 422\", function () {",
+                  "    pm.response.to.have.status(422);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "422 - User with a numbers-only username",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/users/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                ""
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"12345\",\n  \"email\": \"numbers@example.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 422\", function () {",
+                  "    pm.response.to.have.status(422);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "422 - Update a user with no fields",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/users/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                "1"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 422\", function () {",
+                  "    pm.response.to.have.status(422);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "422 - Build with a blank name",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/builds/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "builds",
+                ""
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": 1,\n  \"driver_id\": 1,\n  \"body_id\": 1,\n  \"tire_id\": 1,\n  \"glider_id\": 1,\n  \"build_name\": \"   \"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 422\", function () {",
+                  "    pm.response.to.have.status(422);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "422 - Rating score of 6",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/ratings/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "ratings",
+                ""
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"build_id\": 1,\n  \"user_id\": 4,\n  \"score\": 6\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 422\", function () {",
+                  "    pm.response.to.have.status(422);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "422 - Page limit of 0",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/users/?limit=0",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "0"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 422\", function () {",
+                  "    pm.response.to.have.status(422);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "409 - Username already taken",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/users/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                ""
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"shellshocked\",\n  \"email\": \"someone@example.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 409\", function () {",
+                  "    pm.response.to.have.status(409);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "409 - Rating your own build",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/ratings/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "ratings",
+                ""
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"build_id\": 1,\n  \"user_id\": 1,\n  \"score\": 5\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 409\", function () {",
+                  "    pm.response.to.have.status(409);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "409 - Rating the same build twice",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/ratings/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "ratings",
+                ""
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"build_id\": 1,\n  \"user_id\": 2,\n  \"score\": 3\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 409\", function () {",
+                  "    pm.response.to.have.status(409);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "404 - Build with a driver that does not exist",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/builds/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "builds",
+                ""
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": 1,\n  \"driver_id\": 999,\n  \"body_id\": 1,\n  \"tire_id\": 1,\n  \"glider_id\": 1,\n  \"build_name\": \"Missing Part\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 404\", function () {",
+                  "    pm.response.to.have.status(404);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "404 - Delete a user that does not exist",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/users/999",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                "999"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 404\", function () {",
+                  "    pm.response.to.have.status(404);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000"
+    },
+    {
+      "key": "new_user_id",
+      "value": ""
+    },
+    {
+      "key": "new_build_id",
+      "value": ""
+    },
+    {
+      "key": "new_rating_id",
+      "value": ""
+    }
+  ]
+}

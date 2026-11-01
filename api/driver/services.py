@@ -12,21 +12,17 @@ class DriverService:
         self.session = session
     def fetch_drivers(self):
         drivers = self.session.exec(select(Drivers)).all()
-        if not drivers:
-            raise HTTPException(status_code=404, detail="No drivers found")
         return drivers
     def fetch_driver(self, driver_id):
         driver = self.session.get(Drivers, driver_id)
         if not driver:
             raise HTTPException(status_code=404, detail="Driver not found")
         return driver
-    def fetch_driver_driverSize(self, driver_id: str):
+    def fetch_driver_driverSize(self, driver_id: int):
         driver = self.fetch_driver(driver_id)
-        if not driver.driverSize:
+        if not driver.driver_group:
             raise HTTPException(status_code=404, detail="Driver group not found for this driver")
-        return driver.driverSize
+        return driver.driver_group
     def fetch_driver_builds(self, part_id: int):
         part = self.fetch_driver(part_id)
-        if not part.builds:
-            raise HTTPException(status_code=404, detail="No builds use this part")
         return part.builds

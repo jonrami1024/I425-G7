@@ -7,9 +7,9 @@ from typing import TYPE_CHECKING
 from sqlmodel import SQLModel, Field, Relationship
 
 if TYPE_CHECKING:
-    from api.body.models import Karts
+    from api.body.models import Bodies
 
-class kartType(SQLModel, table=True):
+class BodyGroups(SQLModel, table=True):
     __tablename__ = "body_groups"
     body_group_id: int = Field(primary_key=True)
     label: str
@@ -21,4 +21,4 @@ class kartType(SQLModel, table=True):
     mini_turbo: int
     invincibility: int
 
-    karts: list["Karts"] = Relationship(back_populates="kartType")
+    bodies: list["Bodies"] = Relationship(back_populates="body_group")

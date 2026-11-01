@@ -5,7 +5,25 @@
 
 ## Team Responsibilities
 
-### Daniel Shin
+### Lab 3
+
+#### Jonathan Ramirez-Molina
+- Added pagination to users, build_ratings, and builds (/users/?limit=2&offset=3)
+- Added Sorting to users, build_ratings, and builds
+- Added searching to users and builds
+
+#### Daniel Shin
+- Fixed the Lab 2 feedback: image paths now work with `/static/`, empty lists return 200 with `[]`, added child-to-parent routes (`/builds/{id}/user`, `/ratings/{id}/build`, and more), consistent class names, `int` IDs, and `echo=False`
+- Added create, update, and delete endpoints for users, builds, and ratings (POST returns 201, PUT and DELETE return 200)
+- Added the Pydantic validation schemas: required and optional fields, `EmailStr`, length, number, and pattern limits, and custom `@field_validator` and `@model_validator` rules
+- Wrote the API documentation, the Postman collection, and the endpoint screenshots
+
+#### Angel Avila
+- _(to be added)_
+
+### Lab 2
+
+#### Daniel Shin
 - Reviewed the project against the Lab 2 requirements and fixed the issues found
 - Removed the old glider group code and table, fixed the builds foreign key, and added `glider_id` to build responses
 - Added relationships on both sides (builds with each part, users with ratings) and the related-data endpoints
@@ -13,12 +31,7 @@
 - Applied the Lab 1 feedback to the database: group labels, `build_name` and `username` checks, and the rule against rating your own build
 - Updated the `.sql` script, ER diagram, API documentation (changes highlighted), Postman collection, and endpoint screenshots
 
-### Jonathan Ramirez-Molina
-- Added pagination to users, build_ratings, and builds (/users/?limit=2&offset=3)
-- Added Sorting to users, build_ratings, and builds
-- Added searching to users and builds
-
-### Angel Avila
+#### Angel Avila
 - Created the `Lab 2 Changes Documentation`. This docx contains the changes I have made within the files of our project to 
 match the endpoint document and incorporate the Lab 1 feedback. Below are changes made, in the document it'll specify more of what changed.
   - Revised Database
@@ -36,9 +49,3 @@ match the endpoint document and incorporate the Lab 1 feedback. Below are change
   - Revised builds
   - Revised build_ratings
 - Created the Postman collection for our project, `I425-G7 local`. Each response came back as 200 OK. Every model is included, with it's endpoints.
-
-
-
-
-
-

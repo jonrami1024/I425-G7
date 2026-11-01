@@ -12,8 +12,6 @@ class TireService:
         self.session = session
     def fetch_tires(self):
         tires = self.session.exec(select(Tires)).all()
-        if not tires:
-            raise HTTPException(status_code=404, detail="Tires not found")
         return tires
     def fetch_tire(self, tire_id):
         tire = self.session.get(Tires, tire_id)
@@ -27,6 +25,4 @@ class TireService:
         return tire_obj.tire_group
     def fetch_tire_builds(self, part_id: int):
         part = self.fetch_tire(part_id)
-        if not part.builds:
-            raise HTTPException(status_code=404, detail="No builds use this part")
         return part.builds

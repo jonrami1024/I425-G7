@@ -6,7 +6,7 @@
 from fastapi import APIRouter, Depends, Query
 from typing import Annotated, Union, Optional
 from api.dependencies import SessionDep
-from .schemas import UserRead, UserPage
+from .schemas import UserRead, UserPage, UserCreate, UserUpdate, DeleteResponse
 from .services import UserService
 from api.builds.schemas import BuildRead
 from api.build_ratings.schemas import RatingRead
@@ -49,3 +49,15 @@ def get_user_build(service: ServiceDep, user_id: int, build_id: int):
 @router.get("/{user_id}/ratings", response_model=list[RatingRead], summary="Get all ratings a user has given")
 def get_user_ratings(service: ServiceDep, user_id: int):
     return service.fetch_user_ratings(user_id)
+
+@router.post("/", response_model=UserRead, status_code=201, summary="Create a user")
+def create_user(service: ServiceDep, user_data: UserCreate):
+    return service.create_user(user_data)
+
+@router.put("/{user_id}", response_model=UserRead, summary="Update a user")
+def update_user(service: ServiceDep, user_id: int, user_data: UserUpdate):
+    return service.update_user(user_id, user_data)
+
+@router.delete("/{user_id}", response_model=DeleteResponse, summary="Delete a user and their builds and ratings")
+def delete_user(service: ServiceDep, user_id: int):
+    return service.delete_user(user_id)

@@ -7,7 +7,7 @@ from fastapi import APIRouter, Depends
 from typing import Annotated
 from api.dependencies import SessionDep
 from .services import TireGroupService
-from .schemas import tireGroupRead
+from .schemas import TireGroupRead
 from api.tire.schemas import TireRead
 
 router = APIRouter(
@@ -20,11 +20,11 @@ def get_service(session: SessionDep) -> TireGroupService:
 
 ServiceDep = Annotated[TireGroupService, Depends(get_service)]
 
-@router.get("/", response_model=list[tireGroupRead], summary="Get all tire groups")
+@router.get("/", response_model=list[TireGroupRead], summary="Get all tire groups")
 def get_tire_groups(service: ServiceDep):
     return service.fetch_tireGroups()
 
-@router.get("/{tire_group_id}", response_model=tireGroupRead, summary="Get one tire group and its stats")
+@router.get("/{tire_group_id}", response_model=TireGroupRead, summary="Get one tire group and its stats")
 def get_tire_groups_stats(service: ServiceDep, tire_group_id: int):
     return service.fetch_tireGroup(tire_group_id)
 

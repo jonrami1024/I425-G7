@@ -6,10 +6,15 @@
 from fastapi import APIRouter, Depends, Query
 from typing import Annotated, Union, Optional
 from api.dependencies import SessionDep
-from .schemas import BuildRead, BuildPage
+from .schemas import BuildRead, BuildPage, BuildCreate, BuildUpdate
 from .services import BuildService
 from api.calculateStats.schemas import BuildStatsRead
 from api.build_ratings.schemas import RatingRead
+from api.users.schemas import UserRead, DeleteResponse
+from api.driver.schemas import DriverRead
+from api.body.schemas import BodyRead
+from api.tire.schemas import TireRead
+from api.glider.schemas import GliderRead
 
 router = APIRouter(
     prefix="/builds",
@@ -38,6 +43,26 @@ def search_builds(service: ServiceDep,
 def get_build(service: ServiceDep, build_id: int):
     return service.fetch_build(build_id)
 
+@router.get("/{build_id}/user", response_model=UserRead, summary="Get the user who saved a build")
+def get_build_user(service: ServiceDep, build_id: int):
+    return service.fetch_build_user(build_id)
+
+@router.get("/{build_id}/driver", response_model=DriverRead, summary="Get a build's driver")
+def get_build_driver(service: ServiceDep, build_id: int):
+    return service.fetch_build_driver(build_id)
+
+@router.get("/{build_id}/body", response_model=BodyRead, summary="Get a build's body")
+def get_build_body(service: ServiceDep, build_id: int):
+    return service.fetch_build_body(build_id)
+
+@router.get("/{build_id}/tire", response_model=TireRead, summary="Get a build's tire")
+def get_build_tire(service: ServiceDep, build_id: int):
+    return service.fetch_build_tire(build_id)
+
+@router.get("/{build_id}/glider", response_model=GliderRead, summary="Get a build's glider")
+def get_build_glider(service: ServiceDep, build_id: int):
+    return service.fetch_build_glider(build_id)
+
 @router.get("/{build_id}/stats", response_model=BuildStatsRead, summary="Get the combined stats of a build")
 def get_build_stats(service: ServiceDep, build_id: int):
     return service.fetch_build_stats(build_id)
@@ -49,3 +74,15 @@ def get_build_ratings(service: ServiceDep, build_id: int):
 @router.get("/{build_id}/ratings/{rating_id}", response_model=RatingRead, summary="Get one rating for a build")
 def get_build_rating(service: ServiceDep, build_id: int, rating_id: int):
     return service.fetch_build_rating(build_id, rating_id)
+
+@router.post("/", response_model=BuildRead, status_code=201, summary="Create a build")
+def create_build(service: ServiceDep, build_data: BuildCreate):
+    return service.create_build(build_data)
+
+@router.put("/{build_id}", response_model=BuildRead, summary="Update a build")
+def update_build(service: ServiceDep, build_id: int, build_data: BuildUpdate):
+    return service.update_build(build_id, build_data)
+
+@router.delete("/{build_id}", response_model=DeleteResponse, summary="Delete a build and its ratings")
+def delete_build(service: ServiceDep, build_id: int):
+    return service.delete_build(build_id)

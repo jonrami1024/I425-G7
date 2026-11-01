@@ -13,6 +13,14 @@ from api.calculateStats.schemas import BuildStatsRead, BuildParts
 from api.utilities.sorting import apply_sorting
 
 
+from api.builds.schemas import BuildCreate, BuildUpdate
+from api.users.schemas import DeleteResponse
+from api.users.models import Users
+from api.driver.models import Drivers
+from api.body.models import Bodies
+from api.tire.models import Tires
+from api.glider.models import Gliders
+
 class BuildService:
     def __init__(self, session: Session):
         self.session = session
@@ -47,8 +55,6 @@ class BuildService:
         ratings = self.session.exec(
             select(Ratings).where(Ratings.build_id == build_id)
         ).all()
-        if not ratings:
-            raise HTTPException(status_code=404, detail="No ratings found for this build")
         return ratings
 
     def fetch_build_rating(self, build_id: int, rating_id: int):
@@ -66,11 +72,8 @@ class BuildService:
                          offset: int = 0, sort: str | None = None) -> BuildPage:
         total_stmt = select(func.count()).select_from(Builds)
         total = self.session.exec(total_stmt).one()
-        if total == 0:
-            raise HTTPException(status_code=404,
-                                detail="There isn't any builds in the database")
         if limit is None:
-            limit = total
+            limit = total or 1
         stmt = select(Builds).offset(offset).limit(limit)
 
         if sort is not None:
@@ -122,3 +125,52 @@ class BuildService:
 
         builds = self.session.exec(stmt).all()
         return builds
+
+    def fetch_build_user(self, build_id: int):
+        return self.fetch_build(build_id).user
+
+    def fetch_build_driver(self, build_id: int):
+        return self.fetch_build(build_id).driver
+
+    def fetch_build_body(self, build_id: int):
+        return self.fetch_build(build_id).body
+
+    def fetch_build_tire(self, build_id: int):
+        return self.fetch_build(build_id).tire
+
+    def fetch_build_glider(self, build_id: int):
+        return self.fetch_build(build_id).glider
+
+    # ---------- Lab 3: create, update, delete ----------
+    def check_parts(self, data: dict):
+        for field, model, name in [("user_id", Users, "User"), ("driver_id", Drivers, "Driver"), ("body_id", Bodies, "Body"),
+                                   ("tire_id", Tires, "Tire"), ("glider_id", Gliders, "Glider")]:
+            if data.get(field) is not None and not self.session.get(model, data[field]):
+                raise HTTPException(status_code=404, detail=f"{name} {data[field]} not found")
+
+    def create_build(self, build_data: BuildCreate) -> Builds:
+        self.check_parts(build_data.model_dump())
+        build = Builds(**build_data.model_dump())
+        self.session.add(build)
+        self.session.commit()
+        self.session.refresh(build)
+        return build
+
+    def update_build(self, build_id: int, build_data: BuildUpdate) -> Builds:
+        build = self.fetch_build(build_id)
+        update_data = build_data.model_dump(exclude_unset=True)
+        self.check_parts(update_data)
+        for key, value in update_data.items():
+            setattr(build, key, value)
+        self.session.add(build)
+        self.session.commit()
+        self.session.refresh(build)
+        return build
+
+    def delete_build(self, build_id: int) -> DeleteResponse:
+        build = self.fetch_build(build_id)
+        for rating in self.session.exec(select(Ratings).where(Ratings.build_id == build_id)).all():
+            self.session.delete(rating)
+        self.session.delete(build)
+        self.session.commit()
+        return DeleteResponse(success=True, deleted_id=build_id)

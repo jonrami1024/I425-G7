@@ -8,7 +8,7 @@ from typing import Annotated
 from api.dependencies import SessionDep
 from .schemas import TireRead
 from .services import TireService
-from api.tireGroup.schemas import tireGroupRead
+from api.tireGroup.schemas import TireGroupRead
 from api.builds.schemas import BuildRead
 
 router = APIRouter(
@@ -29,7 +29,7 @@ def get_tires(service: ServiceDep):
 def get_tire(service: ServiceDep, tire_id: int):
     return service.fetch_tire(tire_id)
 
-@router.get("/{tire_id}/stats", response_model=tireGroupRead, summary="Get a tire's stats (its tire group)")
+@router.get("/{tire_id}/stats", response_model=TireGroupRead, summary="Get a tire's stats (its tire group)")
 def get_tire_stats(service: ServiceDep, tire_id: int):
     return service.fetch_tire_tireGroup(tire_id)
 
