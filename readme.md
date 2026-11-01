@@ -19,7 +19,11 @@
 - Wrote the API documentation and the Postman collection
 
 #### Angel Avila
-- _(to be added)_
+- Created the I425-G7_Postman_Screenshots.docx
+  - Stores screenshots of every API request
+  - Added missing "Saved responses" to requests
+- Ensured every API request worked
+- Revised Postman Collection JSON
 
 ### Lab 2
 
