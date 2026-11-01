@@ -16,7 +16,7 @@
 - Fixed the Lab 2 feedback: image paths now work with `/static/`, empty lists return 200 with `[]`, added child-to-parent routes (`/builds/{id}/user`, `/ratings/{id}/build`, and more), consistent class names, `int` IDs, and `echo=False`
 - Added create, update, and delete endpoints for users, builds, and ratings (POST returns 201, PUT and DELETE return 200)
 - Added the Pydantic validation schemas: required and optional fields, `EmailStr`, length, number, and pattern limits, and custom `@field_validator` and `@model_validator` rules
-- Wrote the API documentation, the Postman collection, and the endpoint screenshots
+- Wrote the API documentation and the Postman collection
 
 #### Angel Avila
 - _(to be added)_
