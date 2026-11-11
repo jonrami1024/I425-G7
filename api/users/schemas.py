@@ -4,6 +4,7 @@
 # Description:
 from typing import Optional
 
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict
 
 from typing import Self
@@ -11,15 +12,17 @@ from pydantic import EmailStr, Field, constr, field_validator, model_validator
 
 class UserBase(BaseModel):
     user_id: int
-    username: str
-    email: str
+    username: str = Field(min_length=4, max_length=20)
+    email: EmailStr
+    role_id: int = 4 #sets default to basic user
 
     model_config = ConfigDict(
         from_attributes = True
     )
 
 class UserRead(UserBase):
-    pass
+    created_at: datetime
+    updated_at: datetime
 
 class PaginationMeta(BaseModel):
     limit: int
@@ -78,3 +81,13 @@ class UserUpdate(BaseModel):
 class DeleteResponse(BaseModel):
     success: bool
     deleted_id: int
+
+class UserCreate(BaseModel):
+    username: str = Field(min_length=4, max_length=20)
+    email:EmailStr
+    password: str = Field(min_length=8, max_length=128)
+
+class UserUpdate(BaseModel):
+    name: Optional[str] = None
+    email: Optional[str] = None
+    username: Optional[str] = Field(default=None, min_length=8, max_length=128)

@@ -139,6 +139,8 @@ CREATE TABLE build_ratings (
     UNIQUE (build_id, user_id)
 );
 
+
+
 -- Sample data
 
 INSERT INTO driver_groups (driver_group_id, label, size, speed, acceleration, weight, handling, traction, mini_turbo, invincibility) VALUES
@@ -416,3 +418,71 @@ JOIN body_groups bg   ON bg.body_group_id = bo.body_group_id
 JOIN tires t          ON t.tire_id = b.tire_id
 JOIN tire_groups tg   ON tg.tire_group_id = t.tire_group_id
 JOIN gliders g        ON g.glider_id = b.glider_id;
+
+
+-- Create roles table
+CREATE TABLE IF NOT EXISTS roles (
+    role_id     INTEGER PRIMARY KEY,
+    role        TEXT    NOT NULL,
+    description TEXT
+);
+
+INSERT INTO roles (
+                      role_id,
+                      role,
+                      description
+                  )
+                  VALUES (
+                      1,
+                      'System Administrator',
+                      'A system administrator has permissions to manage users and contents of the website.'
+                  );
+
+INSERT INTO roles (
+                      role_id,
+                      role,
+                      description
+                  )
+                  VALUES (
+                      2,
+                      'User Manager',
+                      'A user manager has permission to manage user accounts.'
+                  );
+
+INSERT INTO roles (
+                      role_id,
+                      role,
+                      description
+                  )
+                  VALUES (
+                      3,
+                      'Advanced User',
+                      'In addition to read access to data, an advanced user may be granted some permissions to perform create, update, and delete operations.'
+                  );
+
+INSERT INTO roles (
+                      role_id,
+                      role,
+                      description
+                  )
+                  VALUES (
+                      4,
+                      'Basic User',
+                      'A basic user has read-only access to data and does not permissions for create, update, and delete operations.'
+                  );
+
+
+-- create new users table
+-- Table: users
+CREATE TABLE IF NOT EXISTS users (
+    user_id    INTEGER   PRIMARY KEY,
+    username   TEXT      NOT NULL
+                         UNIQUE,
+    email      TEXT,
+    password   TEXT      NOT NULL,
+    role_id    INTEGER   NOT NULL
+                         REFERENCES roles (role_id)
+                         DEFAULT (4),
+    created_at TIMESTAMP DEFAULT (CURRENT_TIMESTAMP),
+    updated_at TIMESTAMP DEFAULT (CURRENT_TIMESTAMP)
+);

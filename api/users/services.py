@@ -3,15 +3,18 @@
 # File: services.py
 # Description:
 from sqlalchemy import func, or_, and_
+from sqlalchemy.exc import SQLAlchemyError
 from sqlmodel import select, Session
-from fastapi import HTTPException
+from fastapi import HTTPException, status
 from api.users.models import Users
 from api.users.schemas import PaginationMeta, UserPage
 from api.utilities.sorting import apply_sorting
+from datetime import datetime, timezone
+
 
 
 from api.users.schemas import UserCreate, UserUpdate, DeleteResponse
-from api.builds.models import Builds
+from api.builds.models import Builds, Users
 from api.build_ratings.models import Ratings
 
 class UserService:
@@ -24,6 +27,60 @@ class UserService:
         if not user:
             raise HTTPException(status_code=404, detail="User not found")
         return user
+    def create_user(self, user_data: UserCreate) -> Users:
+        try:
+            user = Users(**user_data.dict())
+            self.session.add(user)
+            self.session.commit()
+            self.session.refresh(user)
+            return user
+
+        except SQLAlchemyError as e:
+            self.session.rollback()
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail="Database error: Unable to create user record",
+            ) from e
+
+    def update_user(self, user_id: int, user_data: UserUpdate) -> Users:
+        def update_user(self, user_id: int, user_data: UserUpdate):
+            user = self.fetch_user(user_id)
+            if not user:
+                raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User not found")
+            try:
+                update_data = user_data = user_data.model_dump(exclude_unset=True)
+                for key, value in update_data.items():
+                    setattr(user, key, value)
+
+                user.updated_at = datetime.now(timezone.utc)
+
+                self.session.add(user)
+                self.session.commit()
+                self.session.refresh(user)
+                return user
+
+            except SQLAlchemyError as e:
+                self.session.rollback()
+                raise HTTPException(
+                    status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                    detail="Database error: Unable to update user record",
+                ) from e
+
+    def delete_user(self, user_id: int) -> None:
+        # Retrieve the user by id
+        user = self.fetch_user(user_id)
+        if not user:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="user not found")
+
+        try:
+            self.session.delete(user)
+            self.session.commit()
+        except SQLAlchemyError as e:
+            self.session.rollback()
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail="Database error: Unable to delete the user record",
+            ) from e
 
     def fetch_user_builds(self, user_id: int):
         user = self.fetch_user(user_id)
