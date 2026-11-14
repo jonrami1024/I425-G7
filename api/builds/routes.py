@@ -5,7 +5,7 @@
 
 from fastapi import APIRouter, Depends, Query
 from typing import Annotated, Union, Optional
-from api.dependencies import SessionDep
+from api.dependencies import SessionDep, get_current_user, role_required, AdminDep, UserManagerDep, AdvancedUserDep, BasicUserDep
 from .schemas import BuildRead, BuildPage, BuildCreate, BuildUpdate
 from .services import BuildService
 from api.calculateStats.schemas import BuildStatsRead
@@ -19,6 +19,7 @@ from api.glider.schemas import GliderRead
 router = APIRouter(
     prefix="/builds",
     tags=["Builds"],
+    dependencies=[Depends(role_required([1, 2, 3, 4]))]
 )
 
 def get_service(session: SessionDep) -> BuildService:
@@ -76,13 +77,13 @@ def get_build_rating(service: ServiceDep, build_id: int, rating_id: int):
     return service.fetch_build_rating(build_id, rating_id)
 
 @router.post("/", response_model=BuildRead, status_code=201, summary="Create a build")
-def create_build(service: ServiceDep, build_data: BuildCreate):
+def create_build(service: ServiceDep, build_data: BuildCreate, _user: AdvancedUserDep):
     return service.create_build(build_data)
 
 @router.put("/{build_id}", response_model=BuildRead, summary="Update a build")
-def update_build(service: ServiceDep, build_id: int, build_data: BuildUpdate):
+def update_build(service: ServiceDep, build_id: int, build_data: BuildUpdate, _user: AdvancedUserDep):
     return service.update_build(build_id, build_data)
 
 @router.delete("/{build_id}", response_model=DeleteResponse, summary="Delete a build and its ratings")
-def delete_build(service: ServiceDep, build_id: int):
+def delete_build(service: ServiceDep, build_id: int, _user: AdvancedUserDep):
     return service.delete_build(build_id)

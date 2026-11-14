@@ -19,6 +19,8 @@ from api.calculateStats.routes import router as calculate_stats_router
 from api.users.routes import router as user_router
 from api.builds.routes import router as builds_router
 from api.build_ratings.routes import router as ratings_router
+from api.auth.routes import router as auth_router
+
 
 app = FastAPI(
     title="Mario Kart 8 API",
@@ -48,3 +50,4 @@ app.include_router(calculate_stats_router)
 app.include_router(user_router)
 app.include_router(builds_router)
 app.include_router(ratings_router)
+app.include_router(auth_router)

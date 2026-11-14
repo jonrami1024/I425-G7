@@ -5,7 +5,37 @@
 
 ## Team Responsibilities
 
-### Lab 3
+## Lab 4
+
+#### Jonathan Ramirez-Molina
+- k
+
+#### Daniel Shin
+- k
+
+#### Angel Avila
+- Created the authentication (auth) folder
+  - Added routes.py 
+  - Added schemas.py
+  - Added services.py
+- Modified the users services.py
+  - Added fetch_user_by_username to authenticate the users username
+- Created config.py
+- Modified dependencies.py
+  - Stores code for JWT token and roles authorization
+- Modified the routes files for all folders:
+  - build_ratings and builds can only authorize advance users to create, update, and delete
+  - users only authorizes roles 1 and 2
+  - body, bodyTypeGroup, calculateStats, driver, driverSize, glider, tire, tireGroup, users is authorized to every role
+- Created the I425-G7 Lab 4 Documentation docx.
+  - Stores the screenshots as well as the user logins.
+- Modified Postman collection
+  - Added Auth folder for User Registration and User Login
+  - Added child inheritance of parent token to every folder
+
+### -----------------
+
+## Lab 3
 
 #### Jonathan Ramirez-Molina
 - Added pagination to users, build_ratings, and builds (/users/?limit=2&offset=3)
@@ -25,7 +55,9 @@
 - Ensured every API request worked
 - Revised Postman Collection JSON
 
-### Lab 2
+### -----------------
+
+## Lab 2
 
 #### Daniel Shin
 - Reviewed the project against the Lab 2 requirements and fixed the issues found

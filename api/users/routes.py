@@ -5,7 +5,7 @@
 
 from fastapi import APIRouter, Depends, Query
 from typing import Annotated, Union, Optional
-from api.dependencies import SessionDep
+from api.dependencies import SessionDep, get_current_user, role_required, AdminDep, UserManagerDep, AdvancedUserDep, BasicUserDep
 from .schemas import UserRead, UserPage, UserCreate, UserUpdate, DeleteResponse
 from .services import UserService
 from api.builds.schemas import BuildRead
@@ -14,6 +14,7 @@ from api.build_ratings.schemas import RatingRead
 router = APIRouter(
     prefix="/users",
     tags=["Users"],
+    dependencies=[Depends(role_required([1,2]))]
 )
 
 def get_service(session: SessionDep) -> UserService:

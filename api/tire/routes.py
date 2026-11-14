@@ -5,7 +5,7 @@
 
 from fastapi import APIRouter, Depends
 from typing import Annotated
-from api.dependencies import SessionDep
+from api.dependencies import SessionDep, get_current_user, role_required, AdminDep, UserManagerDep, AdvancedUserDep, BasicUserDep
 from .schemas import TireRead
 from .services import TireService
 from api.tireGroup.schemas import TireGroupRead
@@ -14,6 +14,7 @@ from api.builds.schemas import BuildRead
 router = APIRouter(
     prefix="/tires",
     tags=["Tires"],
+    dependencies=[Depends(role_required([1, 2, 3, 4]))]
 )
 
 def get_service(session: SessionDep) -> TireService:

@@ -5,14 +5,15 @@
 
 from fastapi import APIRouter, Depends
 from typing import Annotated
-from api.dependencies import SessionDep
+from api.dependencies import SessionDep, get_current_user, role_required, AdminDep, UserManagerDep, AdvancedUserDep, BasicUserDep
 from .services import BodyGroupService
 from .schemas import BodyGroupRead
 from api.body.schemas import BodyRead
 
 router = APIRouter(
     prefix="/body-groups",
-    tags=["Body Groups"]
+    tags=["Body Groups"],
+    dependencies=[Depends(role_required([1, 2, 3, 4]))]
 )
 
 def get_service(session: SessionDep) -> BodyGroupService:

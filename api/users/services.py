@@ -14,7 +14,7 @@ from datetime import datetime, timezone
 
 
 from api.users.schemas import UserCreate, UserUpdate, DeleteResponse
-from api.builds.models import Builds, Users
+from api.builds.models import Builds
 from api.build_ratings.models import Ratings
 
 class UserService:
@@ -190,3 +190,8 @@ class UserService:
         self.session.delete(user)
         self.session.commit()
         return DeleteResponse(success=True, deleted_id=user_id)
+
+    def fetch_user_by_username(self, username):
+        stmt = select(Users).where(Users.username == username)
+
+        return self.session.exec(stmt).first()

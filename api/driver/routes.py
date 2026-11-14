@@ -5,7 +5,7 @@
 
 from fastapi import APIRouter, Depends
 from typing import Annotated
-from api.dependencies import SessionDep
+from api.dependencies import SessionDep, get_current_user, role_required, AdminDep, UserManagerDep, AdvancedUserDep, BasicUserDep
 from .schemas import DriverRead
 from .services import DriverService
 from api.driverSize.schemas import DriverGroupRead
@@ -13,7 +13,8 @@ from api.builds.schemas import BuildRead
 
 router = APIRouter(
     prefix="/drivers",
-    tags=["Drivers"]
+    tags=["Drivers"],
+    dependencies=[Depends(role_required([1, 2, 3, 4]))]
 )
 
 def get_service(session: SessionDep) -> DriverService:

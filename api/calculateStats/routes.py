@@ -1,12 +1,13 @@
 from typing import Annotated
 from fastapi import APIRouter, Depends
-from api.dependencies import SessionDep
+from api.dependencies import SessionDep, get_current_user, role_required, AdminDep, UserManagerDep, AdvancedUserDep, BasicUserDep
 from .schemas import CombinationRead
 from .services import CalculateStatsService
 
 router = APIRouter(
     prefix="/combinations",
-    tags=["Combinations"]
+    tags=["Combinations"],
+    dependencies=[Depends(role_required([1, 2, 3, 4]))]
 )
 
 def get_service(session: SessionDep) -> CalculateStatsService:

@@ -5,7 +5,7 @@
 
 from fastapi import APIRouter, Depends
 from typing import Annotated
-from api.dependencies import SessionDep
+from api.dependencies import SessionDep, get_current_user, role_required, AdminDep, UserManagerDep, AdvancedUserDep, BasicUserDep
 from .schemas import GliderRead
 from .services import GliderService
 from api.builds.schemas import BuildRead
@@ -13,6 +13,7 @@ from api.builds.schemas import BuildRead
 router = APIRouter(
     prefix="/gliders",
     tags=["Gliders"],
+    dependencies=[Depends(role_required([1, 2, 3, 4]))]
 )
 
 def get_service(session: SessionDep) -> GliderService:
