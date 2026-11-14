@@ -1,0 +1,5048 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "I425-G7 Mario Kart 8 API (Lab 4)",
+    "version": "1.0.0",
+    "description": "Start the API with: uvicorn main:app --reload\nRun the folders in order. 'Create, Update, Delete' passes the new IDs between requests automatically. 'Validation and Errors' shows requests that are rejected."
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:8000"
+    }
+  ],
+  "paths": {
+    "/drivers/": {
+      "get": {
+        "summary": "Gets all drivers",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "driver_id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "driver_group_id": {
+                        "type": "integer"
+                      },
+                      "image_file": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "driver_id": 1,
+                    "name": "Baby Peach",
+                    "driver_group_id": 1,
+                    "image_file": "img/character/image8.webp"
+                  },
+                  {
+                    "driver_id": 2,
+                    "name": "Baby Daisy",
+                    "driver_group_id": 1,
+                    "image_file": "img/character/image5.webp"
+                  },
+                  {
+                    "driver_id": 3,
+                    "name": "Baby Rosalina",
+                    "driver_group_id": 2,
+                    "image_file": "img/character/image9.webp"
+                  },
+                  {
+                    "driver_id": 4,
+                    "name": "Lemmy",
+                    "driver_group_id": 2,
+                    "image_file": "img/character/image26.webp"
+                  },
+                  {
+                    "driver_id": 5,
+                    "name": "Baby Mario",
+                    "driver_group_id": 3,
+                    "image_file": "img/character/image7.webp"
+                  },
+                  {
+                    "driver_id": 6,
+                    "name": "Baby Luigi",
+                    "driver_group_id": 3,
+                    "image_file": "img/character/image6.webp"
+                  },
+                  {
+                    "driver_id": 7,
+                    "name": "Dry Bones",
+                    "driver_group_id": 3,
+                    "image_file": "img/character/image15.webp"
+                  },
+                  {
+                    "driver_id": 8,
+                    "name": "Mii (Light)",
+                    "driver_group_id": 3,
+                    "image_file": "img/character/image51.png"
+                  },
+                  {
+                    "driver_id": 9,
+                    "name": "Koopa Troopa",
+                    "driver_group_id": 4,
+                    "image_file": "img/character/image23.webp"
+                  },
+                  {
+                    "driver_id": 10,
+                    "name": "Lakitu",
+                    "driver_group_id": 4,
+                    "image_file": "img/character/image24.webp"
+                  },
+                  {
+                    "driver_id": 11,
+                    "name": "Bowser Jr.",
+                    "driver_group_id": 4,
+                    "image_file": "img/character/image2.webp"
+                  },
+                  {
+                    "driver_id": 12,
+                    "name": "Toadette",
+                    "driver_group_id": 5,
+                    "image_file": "img/character/image43.webp"
+                  },
+                  {
+                    "driver_id": 13,
+                    "name": "Wendy",
+                    "driver_group_id": 5,
+                    "image_file": "img/character/image46.webp"
+                  },
+                  {
+                    "driver_id": 14,
+                    "name": "Isabelle",
+                    "driver_group_id": 5,
+                    "image_file": "img/character/image20.webp"
+                  },
+                  {
+                    "driver_id": 15,
+                    "name": "Toad",
+                    "driver_group_id": 6,
+                    "image_file": "img/character/image42.webp"
+                  },
+                  {
+                    "driver_id": 16,
+                    "name": "Shy Guy",
+                    "driver_group_id": 6,
+                    "image_file": "img/character/image40.webp"
+                  },
+                  {
+                    "driver_id": 17,
+                    "name": "Larry",
+                    "driver_group_id": 6,
+                    "image_file": "img/character/image25.webp"
+                  },
+                  {
+                    "driver_id": 18,
+                    "name": "Cat Peach",
+                    "driver_group_id": 7,
+                    "image_file": "img/character/image11.webp"
+                  },
+                  {
+                    "driver_id": 19,
+                    "name": "Inkling Girl",
+                    "driver_group_id": 7,
+                    "image_file": "img/character/image17.webp"
+                  },
+                  {
+                    "driver_id": 20,
+                    "name": "Villager (Female)",
+                    "driver_group_id": 7,
+                    "image_file": "img/character/image49.webp"
+                  },
+                  {
+                    "driver_id": 21,
+                    "name": "Diddy Kong",
+                    "driver_group_id": 7,
+                    "image_file": "img/character/image13.webp"
+                  },
+                  {
+                    "driver_id": 22,
+                    "name": "Peach",
+                    "driver_group_id": 8,
+                    "image_file": "img/character/image34.webp"
+                  },
+                  {
+                    "driver_id": 23,
+                    "name": "Daisy",
+                    "driver_group_id": 8,
+                    "image_file": "img/character/image12.webp"
+                  },
+                  {
+                    "driver_id": 24,
+                    "name": "Yoshi",
+                    "driver_group_id": 8,
+                    "image_file": "img/character/image48.webp"
+                  },
+                  {
+                    "driver_id": 25,
+                    "name": "Birdo",
+                    "driver_group_id": 8,
+                    "image_file": "img/character/image3.webp"
+                  },
+                  {
+                    "driver_id": 26,
+                    "name": "Peachette",
+                    "driver_group_id": 8,
+                    "image_file": "img/character/image35.webp"
+                  },
+                  {
+                    "driver_id": 27,
+                    "name": "Tanooki Mario",
+                    "driver_group_id": 9,
+                    "image_file": "img/character/image41.webp"
+                  },
+                  {
+                    "driver_id": 28,
+                    "name": "Inkling Boy",
+                    "driver_group_id": 9,
+                    "image_file": "img/character/image50.webp"
+                  },
+                  {
+                    "driver_id": 29,
+                    "name": "Villager (Male)",
+                    "driver_group_id": 9,
+                    "image_file": "img/character/image29.webp"
+                  },
+                  {
+                    "driver_id": 30,
+                    "name": "Mario",
+                    "driver_group_id": 10,
+                    "image_file": "img/character/image30.webp"
+                  },
+                  {
+                    "driver_id": 31,
+                    "name": "Ludwig",
+                    "driver_group_id": 10,
+                    "image_file": "img/character/image27.webp"
+                  },
+                  {
+                    "driver_id": 32,
+                    "name": "Mii (Medium)",
+                    "driver_group_id": 10,
+                    "image_file": "img/character/image52.png"
+                  },
+                  {
+                    "driver_id": 33,
+                    "name": "Luigi",
+                    "driver_group_id": 11,
+                    "image_file": "img/character/image28.webp"
+                  },
+                  {
+                    "driver_id": 34,
+                    "name": "Iggy",
+                    "driver_group_id": 11,
+                    "image_file": "img/character/image19.webp"
+                  },
+                  {
+                    "driver_id": 35,
+                    "name": "Kamek",
+                    "driver_group_id": 11,
+                    "image_file": "img/character/image21.webp"
+                  },
+                  {
+                    "driver_id": 36,
+                    "name": "Metal Mario",
+                    "driver_group_id": 12,
+                    "image_file": "img/character/image31.webp"
+                  },
+                  {
+                    "driver_id": 37,
+                    "name": "Gold Mario",
+                    "driver_group_id": 12,
+                    "image_file": "img/character/image54.webp"
+                  },
+                  {
+                    "driver_id": 38,
+                    "name": "Pink Gold Peach",
+                    "driver_group_id": 12,
+                    "image_file": "img/character/image37.webp"
+                  },
+                  {
+                    "driver_id": 39,
+                    "name": "Wiggler",
+                    "driver_group_id": 13,
+                    "image_file": "img/character/image47.webp"
+                  },
+                  {
+                    "driver_id": 40,
+                    "name": "Rosalina",
+                    "driver_group_id": 14,
+                    "image_file": "img/character/image38.webp"
+                  },
+                  {
+                    "driver_id": 41,
+                    "name": "King Boo",
+                    "driver_group_id": 14,
+                    "image_file": "img/character/image22.webp"
+                  },
+                  {
+                    "driver_id": 42,
+                    "name": "Link",
+                    "driver_group_id": 14,
+                    "image_file": "img/character/image4.webp"
+                  },
+                  {
+                    "driver_id": 43,
+                    "name": "Link (BotW)",
+                    "driver_group_id": 14,
+                    "image_file": "img/character/image4.webp"
+                  },
+                  {
+                    "driver_id": 44,
+                    "name": "Pauline",
+                    "driver_group_id": 14,
+                    "image_file": "img/character/image33.webp"
+                  },
+                  {
+                    "driver_id": 45,
+                    "name": "Petey Piranha",
+                    "driver_group_id": 15,
+                    "image_file": "img/character/image36.webp"
+                  },
+                  {
+                    "driver_id": 46,
+                    "name": "Waluigi",
+                    "driver_group_id": 16,
+                    "image_file": "img/character/image44.webp"
+                  },
+                  {
+                    "driver_id": 47,
+                    "name": "Donkey Kong",
+                    "driver_group_id": 16,
+                    "image_file": "img/character/image14.webp"
+                  },
+                  {
+                    "driver_id": 48,
+                    "name": "Roy",
+                    "driver_group_id": 16,
+                    "image_file": "img/character/image39.webp"
+                  },
+                  {
+                    "driver_id": 49,
+                    "name": "Wario",
+                    "driver_group_id": 17,
+                    "image_file": "img/character/image45.webp"
+                  },
+                  {
+                    "driver_id": 50,
+                    "name": "Dry Bowser",
+                    "driver_group_id": 17,
+                    "image_file": "img/character/image16.webp"
+                  },
+                  {
+                    "driver_id": 51,
+                    "name": "Funky Kong",
+                    "driver_group_id": 17,
+                    "image_file": "img/character/image18.webp"
+                  },
+                  {
+                    "driver_id": 52,
+                    "name": "Mii (Heavy)",
+                    "driver_group_id": 17,
+                    "image_file": "img/character/image53.png"
+                  },
+                  {
+                    "driver_id": 53,
+                    "name": "Bowser",
+                    "driver_group_id": 18,
+                    "image_file": "img/character/image10.webp"
+                  },
+                  {
+                    "driver_id": 54,
+                    "name": "Morton",
+                    "driver_group_id": 18,
+                    "image_file": "img/character/image32.webp"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "tags": [
+          "Drivers"
+        ]
+      }
+    },
+    "/drivers/30": {
+      "get": {
+        "summary": "Gets one driver",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "driver_id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "driver_group_id": {
+                      "type": "integer"
+                    },
+                    "image_file": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "driver_id": 30,
+                  "name": "Mario",
+                  "driver_group_id": 10,
+                  "image_file": "img/character/image30.webp"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Drivers"
+        ]
+      }
+    },
+    "/drivers/30/stats": {
+      "get": {
+        "summary": "Gets a driver's stats (its driver group)",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "driver_group_id": {
+                      "type": "integer"
+                    },
+                    "label": {
+                      "type": "string"
+                    },
+                    "size": {
+                      "type": "string"
+                    },
+                    "speed": {
+                      "type": "integer"
+                    },
+                    "acceleration": {
+                      "type": "integer"
+                    },
+                    "weight": {
+                      "type": "integer"
+                    },
+                    "handling": {
+                      "type": "integer"
+                    },
+                    "traction": {
+                      "type": "integer"
+                    },
+                    "mini_turbo": {
+                      "type": "integer"
+                    },
+                    "invincibility": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "example": {
+                  "driver_group_id": 10,
+                  "label": "Mario class",
+                  "size": "Medium",
+                  "speed": 7,
+                  "acceleration": 2,
+                  "weight": 6,
+                  "handling": 4,
+                  "traction": 2,
+                  "mini_turbo": 3,
+                  "invincibility": 3
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Drivers"
+        ]
+      }
+    },
+    "/drivers/30/builds": {
+      "get": {
+        "summary": "Gets all builds that use a driver",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "build_id": {
+                        "type": "integer"
+                      },
+                      "user_id": {
+                        "type": "integer"
+                      },
+                      "driver_id": {
+                        "type": "integer"
+                      },
+                      "body_id": {
+                        "type": "integer"
+                      },
+                      "tire_id": {
+                        "type": "integer"
+                      },
+                      "glider_id": {
+                        "type": "integer"
+                      },
+                      "build_name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "build_id": 1,
+                    "user_id": 1,
+                    "driver_id": 30,
+                    "body_id": 11,
+                    "tire_id": 1,
+                    "glider_id": 1,
+                    "build_name": "Balanced Teddy"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "tags": [
+          "Drivers"
+        ]
+      }
+    },
+    "/driver-groups/": {
+      "get": {
+        "summary": "Gets all driver stat groups",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "driver_group_id": {
+                        "type": "integer"
+                      },
+                      "label": {
+                        "type": "string"
+                      },
+                      "size": {
+                        "type": "string"
+                      },
+                      "speed": {
+                        "type": "integer"
+                      },
+                      "acceleration": {
+                        "type": "integer"
+                      },
+                      "weight": {
+                        "type": "integer"
+                      },
+                      "handling": {
+                        "type": "integer"
+                      },
+                      "traction": {
+                        "type": "integer"
+                      },
+                      "mini_turbo": {
+                        "type": "integer"
+                      },
+                      "invincibility": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "driver_group_id": 1,
+                    "label": "Baby Peach class",
+                    "size": "Small",
+                    "speed": 1,
+                    "acceleration": 4,
+                    "weight": 0,
+                    "handling": 10,
+                    "traction": 5,
+                    "mini_turbo": 5,
+                    "invincibility": 6
+                  },
+                  {
+                    "driver_group_id": 2,
+                    "label": "Baby Rosalina class",
+                    "size": "Small",
+                    "speed": 1,
+                    "acceleration": 5,
+                    "weight": 0,
+                    "handling": 9,
+                    "traction": 3,
+                    "mini_turbo": 5,
+                    "invincibility": 6
+                  },
+                  {
+                    "driver_group_id": 3,
+                    "label": "Baby Mario class",
+                    "size": "Small",
+                    "speed": 2,
+                    "acceleration": 5,
+                    "weight": 1,
+                    "handling": 8,
+                    "traction": 4,
+                    "mini_turbo": 5,
+                    "invincibility": 5
+                  },
+                  {
+                    "driver_group_id": 4,
+                    "label": "Koopa Troopa class",
+                    "size": "Small",
+                    "speed": 3,
+                    "acceleration": 4,
+                    "weight": 2,
+                    "handling": 8,
+                    "traction": 5,
+                    "mini_turbo": 4,
+                    "invincibility": 4
+                  },
+                  {
+                    "driver_group_id": 5,
+                    "label": "Toadette class",
+                    "size": "Small",
+                    "speed": 3,
+                    "acceleration": 5,
+                    "weight": 2,
+                    "handling": 7,
+                    "traction": 2,
+                    "mini_turbo": 4,
+                    "invincibility": 3
+                  },
+                  {
+                    "driver_group_id": 6,
+                    "label": "Toad class",
+                    "size": "Small",
+                    "speed": 4,
+                    "acceleration": 4,
+                    "weight": 3,
+                    "handling": 7,
+                    "traction": 4,
+                    "mini_turbo": 4,
+                    "invincibility": 3
+                  },
+                  {
+                    "driver_group_id": 7,
+                    "label": "Cat Peach class",
+                    "size": "Medium",
+                    "speed": 5,
+                    "acceleration": 4,
+                    "weight": 3,
+                    "handling": 6,
+                    "traction": 3,
+                    "mini_turbo": 4,
+                    "invincibility": 3
+                  },
+                  {
+                    "driver_group_id": 8,
+                    "label": "Peach class",
+                    "size": "Medium",
+                    "speed": 6,
+                    "acceleration": 3,
+                    "weight": 4,
+                    "handling": 5,
+                    "traction": 3,
+                    "mini_turbo": 4,
+                    "invincibility": 1
+                  },
+                  {
+                    "driver_group_id": 9,
+                    "label": "Tanooki Mario class",
+                    "size": "Medium",
+                    "speed": 6,
+                    "acceleration": 3,
+                    "weight": 5,
+                    "handling": 5,
+                    "traction": 1,
+                    "mini_turbo": 4,
+                    "invincibility": 1
+                  },
+                  {
+                    "driver_group_id": 10,
+                    "label": "Mario class",
+                    "size": "Medium",
+                    "speed": 7,
+                    "acceleration": 2,
+                    "weight": 6,
+                    "handling": 4,
+                    "traction": 2,
+                    "mini_turbo": 3,
+                    "invincibility": 3
+                  },
+                  {
+                    "driver_group_id": 11,
+                    "label": "Luigi class",
+                    "size": "Medium",
+                    "speed": 7,
+                    "acceleration": 2,
+                    "weight": 6,
+                    "handling": 5,
+                    "traction": 1,
+                    "mini_turbo": 3,
+                    "invincibility": 3
+                  },
+                  {
+                    "driver_group_id": 12,
+                    "label": "Metal Mario class",
+                    "size": "Medium",
+                    "speed": 8,
+                    "acceleration": 1,
+                    "weight": 10,
+                    "handling": 3,
+                    "traction": 1,
+                    "mini_turbo": 1,
+                    "invincibility": 3
+                  },
+                  {
+                    "driver_group_id": 13,
+                    "label": "Wiggler class",
+                    "size": "Medium",
+                    "speed": 9,
+                    "acceleration": 1,
+                    "weight": 8,
+                    "handling": 2,
+                    "traction": 0,
+                    "mini_turbo": 1,
+                    "invincibility": 4
+                  },
+                  {
+                    "driver_group_id": 14,
+                    "label": "Rosalina class",
+                    "size": "Large",
+                    "speed": 8,
+                    "acceleration": 1,
+                    "weight": 7,
+                    "handling": 3,
+                    "traction": 3,
+                    "mini_turbo": 2,
+                    "invincibility": 4
+                  },
+                  {
+                    "driver_group_id": 15,
+                    "label": "Petey Piranha class",
+                    "size": "Large",
+                    "speed": 8,
+                    "acceleration": 1,
+                    "weight": 10,
+                    "handling": 3,
+                    "traction": 1,
+                    "mini_turbo": 1,
+                    "invincibility": 6
+                  },
+                  {
+                    "driver_group_id": 16,
+                    "label": "Waluigi class",
+                    "size": "Large",
+                    "speed": 9,
+                    "acceleration": 1,
+                    "weight": 8,
+                    "handling": 2,
+                    "traction": 0,
+                    "mini_turbo": 1,
+                    "invincibility": 4
+                  },
+                  {
+                    "driver_group_id": 17,
+                    "label": "Wario class",
+                    "size": "Large",
+                    "speed": 10,
+                    "acceleration": 0,
+                    "weight": 9,
+                    "handling": 1,
+                    "traction": 1,
+                    "mini_turbo": 0,
+                    "invincibility": 5
+                  },
+                  {
+                    "driver_group_id": 18,
+                    "label": "Bowser class",
+                    "size": "Large",
+                    "speed": 10,
+                    "acceleration": 0,
+                    "weight": 10,
+                    "handling": 0,
+                    "traction": 0,
+                    "mini_turbo": 0,
+                    "invincibility": 6
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "tags": [
+          "Driver Groups"
+        ]
+      }
+    },
+    "/driver-groups/10": {
+      "get": {
+        "summary": "Gets one driver group and its stats",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "driver_group_id": {
+                      "type": "integer"
+                    },
+                    "label": {
+                      "type": "string"
+                    },
+                    "size": {
+                      "type": "string"
+                    },
+                    "speed": {
+                      "type": "integer"
+                    },
+                    "acceleration": {
+                      "type": "integer"
+                    },
+                    "weight": {
+                      "type": "integer"
+                    },
+                    "handling": {
+                      "type": "integer"
+                    },
+                    "traction": {
+                      "type": "integer"
+                    },
+                    "mini_turbo": {
+                      "type": "integer"
+                    },
+                    "invincibility": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "example": {
+                  "driver_group_id": 10,
+                  "label": "Mario class",
+                  "size": "Medium",
+                  "speed": 7,
+                  "acceleration": 2,
+                  "weight": 6,
+                  "handling": 4,
+                  "traction": 2,
+                  "mini_turbo": 3,
+                  "invincibility": 3
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Driver Groups"
+        ]
+      }
+    },
+    "/driver-groups/10/drivers": {
+      "get": {
+        "summary": "Gets all drivers in a driver group",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "driver_id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "driver_group_id": {
+                        "type": "integer"
+                      },
+                      "image_file": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "driver_id": 30,
+                    "name": "Mario",
+                    "driver_group_id": 10,
+                    "image_file": "img/character/image30.webp"
+                  },
+                  {
+                    "driver_id": 31,
+                    "name": "Ludwig",
+                    "driver_group_id": 10,
+                    "image_file": "img/character/image27.webp"
+                  },
+                  {
+                    "driver_id": 32,
+                    "name": "Mii (Medium)",
+                    "driver_group_id": 10,
+                    "image_file": "img/character/image52.png"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "tags": [
+          "Driver Groups"
+        ]
+      }
+    },
+    "/bodies/": {
+      "get": {
+        "summary": "Gets all bodies",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "body_id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "vehicle_type": {
+                        "type": "string"
+                      },
+                      "body_group_id": {
+                        "type": "integer"
+                      },
+                      "image_file": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "body_id": 1,
+                    "name": "Biddybuggy",
+                    "vehicle_type": "Kart",
+                    "body_group_id": 1,
+                    "image_file": "img/kart/image3.webp"
+                  },
+                  {
+                    "body_id": 2,
+                    "name": "Mr. Scooty",
+                    "vehicle_type": "Standard Bike",
+                    "body_group_id": 1,
+                    "image_file": "img/kart/image24.webp"
+                  },
+                  {
+                    "body_id": 3,
+                    "name": "Streetle",
+                    "vehicle_type": "Kart",
+                    "body_group_id": 2,
+                    "image_file": "img/kart/image23.webp"
+                  },
+                  {
+                    "body_id": 4,
+                    "name": "Landship",
+                    "vehicle_type": "Kart",
+                    "body_group_id": 3,
+                    "image_file": "img/kart/image11.webp"
+                  },
+                  {
+                    "body_id": 5,
+                    "name": "Pipe Frame",
+                    "vehicle_type": "Kart",
+                    "body_group_id": 4,
+                    "image_file": "img/kart/image25.webp"
+                  },
+                  {
+                    "body_id": 6,
+                    "name": "Varmint",
+                    "vehicle_type": "Standard Bike",
+                    "body_group_id": 5,
+                    "image_file": "img/kart/image36.webp"
+                  },
+                  {
+                    "body_id": 7,
+                    "name": "City Tripper",
+                    "vehicle_type": "Standard Bike",
+                    "body_group_id": 5,
+                    "image_file": "img/kart/image13.webp"
+                  },
+                  {
+                    "body_id": 8,
+                    "name": "Cat Cruiser",
+                    "vehicle_type": "Kart",
+                    "body_group_id": 6,
+                    "image_file": "img/kart/image4.webp"
+                  },
+                  {
+                    "body_id": 9,
+                    "name": "Comet",
+                    "vehicle_type": "Sport Bike",
+                    "body_group_id": 6,
+                    "image_file": "img/kart/image10.webp"
+                  },
+                  {
+                    "body_id": 10,
+                    "name": "Yoshi Bike",
+                    "vehicle_type": "Sport Bike",
+                    "body_group_id": 7,
+                    "image_file": "img/kart/image40.webp"
+                  },
+                  {
+                    "body_id": 11,
+                    "name": "Teddy Buggy",
+                    "vehicle_type": "ATV",
+                    "body_group_id": 8,
+                    "image_file": "img/kart/image34.webp"
+                  },
+                  {
+                    "body_id": 12,
+                    "name": "W 25 Silver Arrow",
+                    "vehicle_type": "Kart",
+                    "body_group_id": 9,
+                    "image_file": "img/kart/image38.webp"
+                  },
+                  {
+                    "body_id": 13,
+                    "name": "Wild Wiggler",
+                    "vehicle_type": "ATV",
+                    "body_group_id": 9,
+                    "image_file": "img/kart/image39.webp"
+                  },
+                  {
+                    "body_id": 14,
+                    "name": "Standard Bike",
+                    "vehicle_type": "Standard Bike",
+                    "body_group_id": 9,
+                    "image_file": "img/kart/image31.webp"
+                  },
+                  {
+                    "body_id": 15,
+                    "name": "Flame Rider",
+                    "vehicle_type": "Standard Bike",
+                    "body_group_id": 9,
+                    "image_file": "img/kart/image7.webp"
+                  },
+                  {
+                    "body_id": 16,
+                    "name": "Mach 8",
+                    "vehicle_type": "Kart",
+                    "body_group_id": 10,
+                    "image_file": "img/kart/image12.webp"
+                  },
+                  {
+                    "body_id": 17,
+                    "name": "Sports Coupe",
+                    "vehicle_type": "Kart",
+                    "body_group_id": 10,
+                    "image_file": "img/kart/image29.webp"
+                  },
+                  {
+                    "body_id": 18,
+                    "name": "Inkstriker",
+                    "vehicle_type": "ATV",
+                    "body_group_id": 11,
+                    "image_file": "img/kart/image18.webp"
+                  },
+                  {
+                    "body_id": 19,
+                    "name": "Tanooki Kart",
+                    "vehicle_type": "Kart",
+                    "body_group_id": 12,
+                    "image_file": "img/kart/image26.webp"
+                  },
+                  {
+                    "body_id": 20,
+                    "name": "Koopa Clown",
+                    "vehicle_type": "Kart",
+                    "body_group_id": 13,
+                    "image_file": "img/kart/image19.webp"
+                  },
+                  {
+                    "body_id": 21,
+                    "name": "Master Cycle Zero",
+                    "vehicle_type": "Standard Bike",
+                    "body_group_id": 13,
+                    "image_file": "img/kart/image17.webp"
+                  },
+                  {
+                    "body_id": 22,
+                    "name": "300 SL Roadster",
+                    "vehicle_type": "Kart",
+                    "body_group_id": 14,
+                    "image_file": "img/kart/image1.webp"
+                  },
+                  {
+                    "body_id": 23,
+                    "name": "Standard Kart",
+                    "vehicle_type": "Kart",
+                    "body_group_id": 15,
+                    "image_file": "img/kart/image32.webp"
+                  },
+                  {
+                    "body_id": 24,
+                    "name": "The Duke",
+                    "vehicle_type": "Standard Bike",
+                    "body_group_id": 15,
+                    "image_file": "img/kart/image30.webp"
+                  },
+                  {
+                    "body_id": 25,
+                    "name": "Blue Falcon",
+                    "vehicle_type": "Kart",
+                    "body_group_id": 16,
+                    "image_file": "img/kart/image5.webp"
+                  },
+                  {
+                    "body_id": 26,
+                    "name": "Splat Buggy",
+                    "vehicle_type": "ATV",
+                    "body_group_id": 17,
+                    "image_file": "img/kart/image20.webp"
+                  },
+                  {
+                    "body_id": 27,
+                    "name": "Prancer",
+                    "vehicle_type": "Kart",
+                    "body_group_id": 18,
+                    "image_file": "img/kart/image2.webp"
+                  },
+                  {
+                    "body_id": 28,
+                    "name": "Sport Bike",
+                    "vehicle_type": "Sport Bike",
+                    "body_group_id": 19,
+                    "image_file": "img/kart/image28.webp"
+                  },
+                  {
+                    "body_id": 29,
+                    "name": "Jet Bike",
+                    "vehicle_type": "Sport Bike",
+                    "body_group_id": 19,
+                    "image_file": "img/kart/image35.webp"
+                  },
+                  {
+                    "body_id": 30,
+                    "name": "Sneeker",
+                    "vehicle_type": "Kart",
+                    "body_group_id": 20,
+                    "image_file": "img/kart/image27.webp"
+                  },
+                  {
+                    "body_id": 31,
+                    "name": "Gold Standard",
+                    "vehicle_type": "Kart",
+                    "body_group_id": 21,
+                    "image_file": "img/kart/image9.webp"
+                  },
+                  {
+                    "body_id": 32,
+                    "name": "Master Cycle",
+                    "vehicle_type": "Sport Bike",
+                    "body_group_id": 22,
+                    "image_file": "img/kart/image21.webp"
+                  },
+                  {
+                    "body_id": 33,
+                    "name": "Steel Driver",
+                    "vehicle_type": "Kart",
+                    "body_group_id": 23,
+                    "image_file": "img/kart/image33.webp"
+                  },
+                  {
+                    "body_id": 34,
+                    "name": "Tri-Speeder",
+                    "vehicle_type": "Kart",
+                    "body_group_id": 23,
+                    "image_file": "img/kart/image14.webp"
+                  },
+                  {
+                    "body_id": 35,
+                    "name": "Bone Rattler",
+                    "vehicle_type": "ATV",
+                    "body_group_id": 24,
+                    "image_file": "img/kart/image37.webp"
+                  },
+                  {
+                    "body_id": 36,
+                    "name": "Circuit Special",
+                    "vehicle_type": "Kart",
+                    "body_group_id": 25,
+                    "image_file": "img/kart/image41.webp"
+                  },
+                  {
+                    "body_id": 37,
+                    "name": "B Dasher",
+                    "vehicle_type": "Kart",
+                    "body_group_id": 25,
+                    "image_file": "img/kart/image15.webp"
+                  },
+                  {
+                    "body_id": 38,
+                    "name": "P-Wing",
+                    "vehicle_type": "Kart",
+                    "body_group_id": 25,
+                    "image_file": "img/kart/image22.webp"
+                  },
+                  {
+                    "body_id": 39,
+                    "name": "Badwagon",
+                    "vehicle_type": "Kart",
+                    "body_group_id": 26,
+                    "image_file": "img/kart/image16.webp"
+                  },
+                  {
+                    "body_id": 40,
+                    "name": "GLA",
+                    "vehicle_type": "Kart",
+                    "body_group_id": 26,
+                    "image_file": "img/kart/image8.webp"
+                  },
+                  {
+                    "body_id": 41,
+                    "name": "Standard ATV",
+                    "vehicle_type": "ATV",
+                    "body_group_id": 27,
+                    "image_file": "img/kart/image6.webp"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "tags": [
+          "Bodies"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/bodies/11": {
+      "get": {
+        "summary": "Gets one body",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "body_id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "vehicle_type": {
+                      "type": "string"
+                    },
+                    "body_group_id": {
+                      "type": "integer"
+                    },
+                    "image_file": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "body_id": 11,
+                  "name": "Teddy Buggy",
+                  "vehicle_type": "ATV",
+                  "body_group_id": 8,
+                  "image_file": "img/kart/image34.webp"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Bodies"
+        ]
+      }
+    },
+    "/bodies/11/stats": {
+      "get": {
+        "summary": "Gets a body's stats (its body group)",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "body_group_id": {
+                      "type": "integer"
+                    },
+                    "label": {
+                      "type": "string"
+                    },
+                    "speed": {
+                      "type": "integer"
+                    },
+                    "acceleration": {
+                      "type": "integer"
+                    },
+                    "weight": {
+                      "type": "integer"
+                    },
+                    "handling": {
+                      "type": "integer"
+                    },
+                    "traction": {
+                      "type": "integer"
+                    },
+                    "mini_turbo": {
+                      "type": "integer"
+                    },
+                    "invincibility": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "example": {
+                  "body_group_id": 8,
+                  "label": "Teddy Buggy class",
+                  "speed": 2,
+                  "acceleration": 5,
+                  "weight": 2,
+                  "handling": 4,
+                  "traction": 3,
+                  "mini_turbo": 6,
+                  "invincibility": 1
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Bodies"
+        ]
+      }
+    },
+    "/bodies/11/builds": {
+      "get": {
+        "summary": "Gets all builds that use a body",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "build_id": {
+                        "type": "integer"
+                      },
+                      "user_id": {
+                        "type": "integer"
+                      },
+                      "driver_id": {
+                        "type": "integer"
+                      },
+                      "body_id": {
+                        "type": "integer"
+                      },
+                      "tire_id": {
+                        "type": "integer"
+                      },
+                      "glider_id": {
+                        "type": "integer"
+                      },
+                      "build_name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "build_id": 1,
+                    "user_id": 1,
+                    "driver_id": 30,
+                    "body_id": 11,
+                    "tire_id": 1,
+                    "glider_id": 1,
+                    "build_name": "Balanced Teddy"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "tags": [
+          "Bodies"
+        ]
+      }
+    },
+    "/body-groups/": {
+      "get": {
+        "summary": "Gets all body stat groups",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "body_group_id": {
+                        "type": "integer"
+                      },
+                      "label": {
+                        "type": "string"
+                      },
+                      "speed": {
+                        "type": "integer"
+                      },
+                      "acceleration": {
+                        "type": "integer"
+                      },
+                      "weight": {
+                        "type": "integer"
+                      },
+                      "handling": {
+                        "type": "integer"
+                      },
+                      "traction": {
+                        "type": "integer"
+                      },
+                      "mini_turbo": {
+                        "type": "integer"
+                      },
+                      "invincibility": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "body_group_id": 1,
+                    "label": "Biddybuggy class",
+                    "speed": 0,
+                    "acceleration": 7,
+                    "weight": 0,
+                    "handling": 5,
+                    "traction": 4,
+                    "mini_turbo": 7,
+                    "invincibility": 0
+                  },
+                  {
+                    "body_group_id": 2,
+                    "label": "Streetle class",
+                    "speed": 2,
+                    "acceleration": 6,
+                    "weight": 0,
+                    "handling": 4,
+                    "traction": 6,
+                    "mini_turbo": 6,
+                    "invincibility": 3
+                  },
+                  {
+                    "body_group_id": 3,
+                    "label": "Landship class",
+                    "speed": 2,
+                    "acceleration": 6,
+                    "weight": 0,
+                    "handling": 4,
+                    "traction": 6,
+                    "mini_turbo": 6,
+                    "invincibility": 2
+                  },
+                  {
+                    "body_group_id": 4,
+                    "label": "Pipe Frame class",
+                    "speed": 2,
+                    "acceleration": 6,
+                    "weight": 1,
+                    "handling": 5,
+                    "traction": 4,
+                    "mini_turbo": 6,
+                    "invincibility": 3
+                  },
+                  {
+                    "body_group_id": 5,
+                    "label": "Varmint class",
+                    "speed": 2,
+                    "acceleration": 6,
+                    "weight": 1,
+                    "handling": 5,
+                    "traction": 4,
+                    "mini_turbo": 6,
+                    "invincibility": 2
+                  },
+                  {
+                    "body_group_id": 6,
+                    "label": "Cat Cruiser class",
+                    "speed": 2,
+                    "acceleration": 5,
+                    "weight": 2,
+                    "handling": 4,
+                    "traction": 3,
+                    "mini_turbo": 6,
+                    "invincibility": 3
+                  },
+                  {
+                    "body_group_id": 7,
+                    "label": "Yoshi Bike class",
+                    "speed": 2,
+                    "acceleration": 5,
+                    "weight": 2,
+                    "handling": 4,
+                    "traction": 3,
+                    "mini_turbo": 6,
+                    "invincibility": 2
+                  },
+                  {
+                    "body_group_id": 8,
+                    "label": "Teddy Buggy class",
+                    "speed": 2,
+                    "acceleration": 5,
+                    "weight": 2,
+                    "handling": 4,
+                    "traction": 3,
+                    "mini_turbo": 6,
+                    "invincibility": 1
+                  },
+                  {
+                    "body_group_id": 9,
+                    "label": "W 25 Silver Arrow class",
+                    "speed": 2,
+                    "acceleration": 5,
+                    "weight": 1,
+                    "handling": 4,
+                    "traction": 5,
+                    "mini_turbo": 5,
+                    "invincibility": 4
+                  },
+                  {
+                    "body_group_id": 10,
+                    "label": "Mach 8 class",
+                    "speed": 3,
+                    "acceleration": 3,
+                    "weight": 3,
+                    "handling": 2,
+                    "traction": 4,
+                    "mini_turbo": 5,
+                    "invincibility": 3
+                  },
+                  {
+                    "body_group_id": 11,
+                    "label": "Inkstriker class",
+                    "speed": 3,
+                    "acceleration": 3,
+                    "weight": 3,
+                    "handling": 2,
+                    "traction": 4,
+                    "mini_turbo": 5,
+                    "invincibility": 1
+                  },
+                  {
+                    "body_group_id": 12,
+                    "label": "Tanooki Kart class",
+                    "speed": 3,
+                    "acceleration": 2,
+                    "weight": 3,
+                    "handling": 4,
+                    "traction": 7,
+                    "mini_turbo": 5,
+                    "invincibility": 4
+                  },
+                  {
+                    "body_group_id": 13,
+                    "label": "Koopa Clown class",
+                    "speed": 3,
+                    "acceleration": 2,
+                    "weight": 3,
+                    "handling": 4,
+                    "traction": 7,
+                    "mini_turbo": 5,
+                    "invincibility": 3
+                  },
+                  {
+                    "body_group_id": 14,
+                    "label": "300 SL Roadster class",
+                    "speed": 3,
+                    "acceleration": 4,
+                    "weight": 2,
+                    "handling": 3,
+                    "traction": 3,
+                    "mini_turbo": 5,
+                    "invincibility": 4
+                  },
+                  {
+                    "body_group_id": 15,
+                    "label": "Standard Kart class",
+                    "speed": 3,
+                    "acceleration": 4,
+                    "weight": 2,
+                    "handling": 3,
+                    "traction": 3,
+                    "mini_turbo": 5,
+                    "invincibility": 3
+                  },
+                  {
+                    "body_group_id": 16,
+                    "label": "Blue Falcon class",
+                    "speed": 4,
+                    "acceleration": 3,
+                    "weight": 0,
+                    "handling": 2,
+                    "traction": 3,
+                    "mini_turbo": 4,
+                    "invincibility": 4
+                  },
+                  {
+                    "body_group_id": 17,
+                    "label": "Splat Buggy class",
+                    "speed": 4,
+                    "acceleration": 3,
+                    "weight": 0,
+                    "handling": 2,
+                    "traction": 3,
+                    "mini_turbo": 4,
+                    "invincibility": 3
+                  },
+                  {
+                    "body_group_id": 18,
+                    "label": "Prancer class",
+                    "speed": 4,
+                    "acceleration": 2,
+                    "weight": 1,
+                    "handling": 3,
+                    "traction": 2,
+                    "mini_turbo": 4,
+                    "invincibility": 5
+                  },
+                  {
+                    "body_group_id": 19,
+                    "label": "Sport Bike class",
+                    "speed": 4,
+                    "acceleration": 2,
+                    "weight": 1,
+                    "handling": 3,
+                    "traction": 2,
+                    "mini_turbo": 4,
+                    "invincibility": 3
+                  },
+                  {
+                    "body_group_id": 20,
+                    "label": "Sneeker class",
+                    "speed": 4,
+                    "acceleration": 2,
+                    "weight": 2,
+                    "handling": 3,
+                    "traction": 0,
+                    "mini_turbo": 4,
+                    "invincibility": 5
+                  },
+                  {
+                    "body_group_id": 21,
+                    "label": "Gold Standard class",
+                    "speed": 4,
+                    "acceleration": 2,
+                    "weight": 2,
+                    "handling": 3,
+                    "traction": 0,
+                    "mini_turbo": 4,
+                    "invincibility": 4
+                  },
+                  {
+                    "body_group_id": 22,
+                    "label": "Master Cycle class",
+                    "speed": 4,
+                    "acceleration": 2,
+                    "weight": 2,
+                    "handling": 3,
+                    "traction": 0,
+                    "mini_turbo": 4,
+                    "invincibility": 3
+                  },
+                  {
+                    "body_group_id": 23,
+                    "label": "Steel Driver class",
+                    "speed": 4,
+                    "acceleration": 1,
+                    "weight": 4,
+                    "handling": 1,
+                    "traction": 3,
+                    "mini_turbo": 3,
+                    "invincibility": 6
+                  },
+                  {
+                    "body_group_id": 24,
+                    "label": "Bone Rattler class",
+                    "speed": 4,
+                    "acceleration": 1,
+                    "weight": 4,
+                    "handling": 1,
+                    "traction": 3,
+                    "mini_turbo": 3,
+                    "invincibility": 5
+                  },
+                  {
+                    "body_group_id": 25,
+                    "label": "Circuit Special class",
+                    "speed": 5,
+                    "acceleration": 1,
+                    "weight": 3,
+                    "handling": 1,
+                    "traction": 1,
+                    "mini_turbo": 3,
+                    "invincibility": 6
+                  },
+                  {
+                    "body_group_id": 26,
+                    "label": "Badwagon class",
+                    "speed": 5,
+                    "acceleration": 0,
+                    "weight": 4,
+                    "handling": 0,
+                    "traction": 5,
+                    "mini_turbo": 3,
+                    "invincibility": 7
+                  },
+                  {
+                    "body_group_id": 27,
+                    "label": "Standard ATV class",
+                    "speed": 5,
+                    "acceleration": 0,
+                    "weight": 4,
+                    "handling": 0,
+                    "traction": 5,
+                    "mini_turbo": 3,
+                    "invincibility": 6
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "tags": [
+          "Body Groups"
+        ]
+      }
+    },
+    "/body-groups/9": {
+      "get": {
+        "summary": "Gets one body group and its stats",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "body_group_id": {
+                      "type": "integer"
+                    },
+                    "label": {
+                      "type": "string"
+                    },
+                    "speed": {
+                      "type": "integer"
+                    },
+                    "acceleration": {
+                      "type": "integer"
+                    },
+                    "weight": {
+                      "type": "integer"
+                    },
+                    "handling": {
+                      "type": "integer"
+                    },
+                    "traction": {
+                      "type": "integer"
+                    },
+                    "mini_turbo": {
+                      "type": "integer"
+                    },
+                    "invincibility": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "example": {
+                  "body_group_id": 9,
+                  "label": "W 25 Silver Arrow class",
+                  "speed": 2,
+                  "acceleration": 5,
+                  "weight": 1,
+                  "handling": 4,
+                  "traction": 5,
+                  "mini_turbo": 5,
+                  "invincibility": 4
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Body Groups"
+        ]
+      }
+    },
+    "/body-groups/9/bodies": {
+      "get": {
+        "summary": "Gets all bodies in a body group",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "body_id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "vehicle_type": {
+                        "type": "string"
+                      },
+                      "body_group_id": {
+                        "type": "integer"
+                      },
+                      "image_file": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "body_id": 12,
+                    "name": "W 25 Silver Arrow",
+                    "vehicle_type": "Kart",
+                    "body_group_id": 9,
+                    "image_file": "img/kart/image38.webp"
+                  },
+                  {
+                    "body_id": 13,
+                    "name": "Wild Wiggler",
+                    "vehicle_type": "ATV",
+                    "body_group_id": 9,
+                    "image_file": "img/kart/image39.webp"
+                  },
+                  {
+                    "body_id": 14,
+                    "name": "Standard Bike",
+                    "vehicle_type": "Standard Bike",
+                    "body_group_id": 9,
+                    "image_file": "img/kart/image31.webp"
+                  },
+                  {
+                    "body_id": 15,
+                    "name": "Flame Rider",
+                    "vehicle_type": "Standard Bike",
+                    "body_group_id": 9,
+                    "image_file": "img/kart/image7.webp"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "tags": [
+          "Body Groups"
+        ]
+      }
+    },
+    "/tires/": {
+      "get": {
+        "summary": "Gets all tires",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "tire_id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "tire_group_id": {
+                        "type": "integer"
+                      },
+                      "image_file": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "tire_id": 1,
+                    "name": "Roller",
+                    "tire_group_id": 1,
+                    "image_file": "img/tires/image17.webp"
+                  },
+                  {
+                    "tire_id": 2,
+                    "name": "Azure Roller",
+                    "tire_group_id": 1,
+                    "image_file": "img/tires/image1.webp"
+                  },
+                  {
+                    "tire_id": 3,
+                    "name": "Button",
+                    "tire_group_id": 2,
+                    "image_file": "img/tires/image3.webp"
+                  },
+                  {
+                    "tire_id": 4,
+                    "name": "Leaf Tires",
+                    "tire_group_id": 2,
+                    "image_file": "img/tires/image10.webp"
+                  },
+                  {
+                    "tire_id": 5,
+                    "name": "Cushion",
+                    "tire_group_id": 3,
+                    "image_file": "img/tires/image5.webp"
+                  },
+                  {
+                    "tire_id": 6,
+                    "name": "Sponge",
+                    "tire_group_id": 4,
+                    "image_file": "img/tires/image20.webp"
+                  },
+                  {
+                    "tire_id": 7,
+                    "name": "GLA Tires",
+                    "tire_group_id": 5,
+                    "image_file": "img/tires/image7.webp"
+                  },
+                  {
+                    "tire_id": 8,
+                    "name": "Standard",
+                    "tire_group_id": 6,
+                    "image_file": "img/tires/image21.webp"
+                  },
+                  {
+                    "tire_id": 9,
+                    "name": "Blue Standard",
+                    "tire_group_id": 6,
+                    "image_file": "img/tires/image2.webp"
+                  },
+                  {
+                    "tire_id": 10,
+                    "name": "Slim",
+                    "tire_group_id": 7,
+                    "image_file": "img/tires/image19.webp"
+                  },
+                  {
+                    "tire_id": 11,
+                    "name": "Crimson Slim",
+                    "tire_group_id": 7,
+                    "image_file": "img/tires/image4.webp"
+                  },
+                  {
+                    "tire_id": 12,
+                    "name": "Wood",
+                    "tire_group_id": 7,
+                    "image_file": "img/tires/image22.webp"
+                  },
+                  {
+                    "tire_id": 13,
+                    "name": "Monster",
+                    "tire_group_id": 8,
+                    "image_file": "img/tires/image14.webp"
+                  },
+                  {
+                    "tire_id": 14,
+                    "name": "Hot Monster",
+                    "tire_group_id": 8,
+                    "image_file": "img/tires/image9.webp"
+                  },
+                  {
+                    "tire_id": 15,
+                    "name": "Ancient Tires",
+                    "tire_group_id": 9,
+                    "image_file": "img/tires/image12.webp"
+                  },
+                  {
+                    "tire_id": 16,
+                    "name": "Off-Road",
+                    "tire_group_id": 10,
+                    "image_file": "img/tires/image15.webp"
+                  },
+                  {
+                    "tire_id": 17,
+                    "name": "Retro Off-Road",
+                    "tire_group_id": 10,
+                    "image_file": "img/tires/image16.webp"
+                  },
+                  {
+                    "tire_id": 18,
+                    "name": "Triforce Tires",
+                    "tire_group_id": 10,
+                    "image_file": "img/tires/image13.webp"
+                  },
+                  {
+                    "tire_id": 19,
+                    "name": "Slick",
+                    "tire_group_id": 11,
+                    "image_file": "img/tires/image18.webp"
+                  },
+                  {
+                    "tire_id": 20,
+                    "name": "Cyber Slick",
+                    "tire_group_id": 11,
+                    "image_file": "img/tires/image6.webp"
+                  },
+                  {
+                    "tire_id": 21,
+                    "name": "Metal",
+                    "tire_group_id": 12,
+                    "image_file": "img/tires/image11.webp"
+                  },
+                  {
+                    "tire_id": 22,
+                    "name": "Gold Tires",
+                    "tire_group_id": 13,
+                    "image_file": "img/tires/image8.webp"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "tags": [
+          "Tires"
+        ]
+      }
+    },
+    "/tires/1": {
+      "get": {
+        "summary": "Gets one tire",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "tire_id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "tire_group_id": {
+                      "type": "integer"
+                    },
+                    "image_file": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "tire_id": 1,
+                  "name": "Roller",
+                  "tire_group_id": 1,
+                  "image_file": "img/tires/image17.webp"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Tires"
+        ]
+      }
+    },
+    "/tires/1/stats": {
+      "get": {
+        "summary": "Gets a tire's stats (its tire group)",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "tire_group_id": {
+                      "type": "integer"
+                    },
+                    "label": {
+                      "type": "string"
+                    },
+                    "speed": {
+                      "type": "integer"
+                    },
+                    "acceleration": {
+                      "type": "integer"
+                    },
+                    "weight": {
+                      "type": "integer"
+                    },
+                    "handling": {
+                      "type": "integer"
+                    },
+                    "traction": {
+                      "type": "integer"
+                    },
+                    "mini_turbo": {
+                      "type": "integer"
+                    },
+                    "invincibility": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "example": {
+                  "tire_group_id": 1,
+                  "label": "Roller class",
+                  "speed": 0,
+                  "acceleration": 6,
+                  "weight": 0,
+                  "handling": 4,
+                  "traction": 4,
+                  "mini_turbo": 6,
+                  "invincibility": 0
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Tires"
+        ]
+      }
+    },
+    "/tires/1/builds": {
+      "get": {
+        "summary": "Gets all builds that use a tire",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "build_id": {
+                        "type": "integer"
+                      },
+                      "user_id": {
+                        "type": "integer"
+                      },
+                      "driver_id": {
+                        "type": "integer"
+                      },
+                      "body_id": {
+                        "type": "integer"
+                      },
+                      "tire_id": {
+                        "type": "integer"
+                      },
+                      "glider_id": {
+                        "type": "integer"
+                      },
+                      "build_name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "build_id": 1,
+                    "user_id": 1,
+                    "driver_id": 30,
+                    "body_id": 11,
+                    "tire_id": 1,
+                    "glider_id": 1,
+                    "build_name": "Balanced Teddy"
+                  },
+                  {
+                    "build_id": 3,
+                    "user_id": 3,
+                    "driver_id": 1,
+                    "body_id": 1,
+                    "tire_id": 1,
+                    "glider_id": 5,
+                    "build_name": "Baby Peach Handler"
+                  },
+                  {
+                    "build_id": 5,
+                    "user_id": 5,
+                    "driver_id": 40,
+                    "body_id": 13,
+                    "tire_id": 1,
+                    "glider_id": 1,
+                    "build_name": "Rosalina Drift"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "tags": [
+          "Tires"
+        ]
+      }
+    },
+    "/tire-groups/": {
+      "get": {
+        "summary": "Gets all tire stat groups",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "tire_group_id": {
+                        "type": "integer"
+                      },
+                      "label": {
+                        "type": "string"
+                      },
+                      "speed": {
+                        "type": "integer"
+                      },
+                      "acceleration": {
+                        "type": "integer"
+                      },
+                      "weight": {
+                        "type": "integer"
+                      },
+                      "handling": {
+                        "type": "integer"
+                      },
+                      "traction": {
+                        "type": "integer"
+                      },
+                      "mini_turbo": {
+                        "type": "integer"
+                      },
+                      "invincibility": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "tire_group_id": 1,
+                    "label": "Roller class",
+                    "speed": 0,
+                    "acceleration": 6,
+                    "weight": 0,
+                    "handling": 4,
+                    "traction": 4,
+                    "mini_turbo": 6,
+                    "invincibility": 0
+                  },
+                  {
+                    "tire_group_id": 2,
+                    "label": "Button class",
+                    "speed": 1,
+                    "acceleration": 5,
+                    "weight": 0,
+                    "handling": 3,
+                    "traction": 3,
+                    "mini_turbo": 5,
+                    "invincibility": 3
+                  },
+                  {
+                    "tire_group_id": 3,
+                    "label": "Cushion class",
+                    "speed": 1,
+                    "acceleration": 4,
+                    "weight": 1,
+                    "handling": 2,
+                    "traction": 6,
+                    "mini_turbo": 5,
+                    "invincibility": 6
+                  },
+                  {
+                    "tire_group_id": 4,
+                    "label": "Sponge class",
+                    "speed": 1,
+                    "acceleration": 4,
+                    "weight": 1,
+                    "handling": 2,
+                    "traction": 6,
+                    "mini_turbo": 5,
+                    "invincibility": 4
+                  },
+                  {
+                    "tire_group_id": 5,
+                    "label": "GLA Tires class",
+                    "speed": 2,
+                    "acceleration": 4,
+                    "weight": 2,
+                    "handling": 3,
+                    "traction": 5,
+                    "mini_turbo": 4,
+                    "invincibility": 5
+                  },
+                  {
+                    "tire_group_id": 6,
+                    "label": "Standard class",
+                    "speed": 2,
+                    "acceleration": 4,
+                    "weight": 2,
+                    "handling": 3,
+                    "traction": 5,
+                    "mini_turbo": 4,
+                    "invincibility": 4
+                  },
+                  {
+                    "tire_group_id": 7,
+                    "label": "Slim class",
+                    "speed": 3,
+                    "acceleration": 2,
+                    "weight": 2,
+                    "handling": 4,
+                    "traction": 1,
+                    "mini_turbo": 3,
+                    "invincibility": 5
+                  },
+                  {
+                    "tire_group_id": 8,
+                    "label": "Monster class",
+                    "speed": 3,
+                    "acceleration": 2,
+                    "weight": 4,
+                    "handling": 0,
+                    "traction": 7,
+                    "mini_turbo": 3,
+                    "invincibility": 6
+                  },
+                  {
+                    "tire_group_id": 9,
+                    "label": "Ancient Tires class",
+                    "speed": 3,
+                    "acceleration": 2,
+                    "weight": 4,
+                    "handling": 0,
+                    "traction": 7,
+                    "mini_turbo": 3,
+                    "invincibility": 5
+                  },
+                  {
+                    "tire_group_id": 10,
+                    "label": "Off-Road class",
+                    "speed": 3,
+                    "acceleration": 3,
+                    "weight": 3,
+                    "handling": 1,
+                    "traction": 6,
+                    "mini_turbo": 3,
+                    "invincibility": 6
+                  },
+                  {
+                    "tire_group_id": 11,
+                    "label": "Slick class",
+                    "speed": 4,
+                    "acceleration": 1,
+                    "weight": 3,
+                    "handling": 2,
+                    "traction": 0,
+                    "mini_turbo": 2,
+                    "invincibility": 5
+                  },
+                  {
+                    "tire_group_id": 12,
+                    "label": "Metal class",
+                    "speed": 4,
+                    "acceleration": 0,
+                    "weight": 4,
+                    "handling": 2,
+                    "traction": 2,
+                    "mini_turbo": 2,
+                    "invincibility": 6
+                  },
+                  {
+                    "tire_group_id": 13,
+                    "label": "Gold Tires class",
+                    "speed": 4,
+                    "acceleration": 0,
+                    "weight": 4,
+                    "handling": 2,
+                    "traction": 2,
+                    "mini_turbo": 2,
+                    "invincibility": 5
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "tags": [
+          "Tire Groups"
+        ]
+      }
+    },
+    "/tire-groups/1": {
+      "get": {
+        "summary": "Gets one tire group and its stats",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "tire_group_id": {
+                      "type": "integer"
+                    },
+                    "label": {
+                      "type": "string"
+                    },
+                    "speed": {
+                      "type": "integer"
+                    },
+                    "acceleration": {
+                      "type": "integer"
+                    },
+                    "weight": {
+                      "type": "integer"
+                    },
+                    "handling": {
+                      "type": "integer"
+                    },
+                    "traction": {
+                      "type": "integer"
+                    },
+                    "mini_turbo": {
+                      "type": "integer"
+                    },
+                    "invincibility": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "example": {
+                  "tire_group_id": 1,
+                  "label": "Roller class",
+                  "speed": 0,
+                  "acceleration": 6,
+                  "weight": 0,
+                  "handling": 4,
+                  "traction": 4,
+                  "mini_turbo": 6,
+                  "invincibility": 0
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Tire Groups"
+        ]
+      }
+    },
+    "/tire-groups/1/tires": {
+      "get": {
+        "summary": "Gets all tires in a tire group",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "tire_id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "tire_group_id": {
+                        "type": "integer"
+                      },
+                      "image_file": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "tire_id": 1,
+                    "name": "Roller",
+                    "tire_group_id": 1,
+                    "image_file": "img/tires/image17.webp"
+                  },
+                  {
+                    "tire_id": 2,
+                    "name": "Azure Roller",
+                    "tire_group_id": 1,
+                    "image_file": "img/tires/image1.webp"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "tags": [
+          "Tire Groups"
+        ]
+      }
+    },
+    "/gliders/": {
+      "get": {
+        "summary": "Gets all gliders and their stats",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "glider_id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "image_file": {
+                        "type": "string"
+                      },
+                      "speed": {
+                        "type": "integer"
+                      },
+                      "acceleration": {
+                        "type": "integer"
+                      },
+                      "weight": {
+                        "type": "integer"
+                      },
+                      "handling": {
+                        "type": "integer"
+                      },
+                      "traction": {
+                        "type": "integer"
+                      },
+                      "mini_turbo": {
+                        "type": "integer"
+                      },
+                      "invincibility": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "glider_id": 1,
+                    "name": "Cloud Glider",
+                    "image_file": "img/glider/image2.webp",
+                    "speed": 0,
+                    "acceleration": 2,
+                    "weight": 0,
+                    "handling": 1,
+                    "traction": 1,
+                    "mini_turbo": 2,
+                    "invincibility": 0
+                  },
+                  {
+                    "glider_id": 2,
+                    "name": "Parachute",
+                    "image_file": "img/glider/image9.webp",
+                    "speed": 0,
+                    "acceleration": 2,
+                    "weight": 0,
+                    "handling": 1,
+                    "traction": 1,
+                    "mini_turbo": 2,
+                    "invincibility": 0
+                  },
+                  {
+                    "glider_id": 3,
+                    "name": "Flower Glider",
+                    "image_file": "img/glider/image3.webp",
+                    "speed": 0,
+                    "acceleration": 2,
+                    "weight": 0,
+                    "handling": 1,
+                    "traction": 1,
+                    "mini_turbo": 2,
+                    "invincibility": 0
+                  },
+                  {
+                    "glider_id": 4,
+                    "name": "Paper Glider",
+                    "image_file": "img/glider/image8.webp",
+                    "speed": 0,
+                    "acceleration": 2,
+                    "weight": 0,
+                    "handling": 1,
+                    "traction": 1,
+                    "mini_turbo": 2,
+                    "invincibility": 0
+                  },
+                  {
+                    "glider_id": 5,
+                    "name": "Peach Parasol",
+                    "image_file": "img/glider/image11.webp",
+                    "speed": 0,
+                    "acceleration": 2,
+                    "weight": 1,
+                    "handling": 1,
+                    "traction": 0,
+                    "mini_turbo": 2,
+                    "invincibility": 0
+                  },
+                  {
+                    "glider_id": 6,
+                    "name": "Parafoil",
+                    "image_file": "img/glider/image10.webp",
+                    "speed": 0,
+                    "acceleration": 2,
+                    "weight": 1,
+                    "handling": 1,
+                    "traction": 0,
+                    "mini_turbo": 2,
+                    "invincibility": 0
+                  },
+                  {
+                    "glider_id": 7,
+                    "name": "Bowser Kite",
+                    "image_file": "img/glider/image1.webp",
+                    "speed": 0,
+                    "acceleration": 2,
+                    "weight": 1,
+                    "handling": 1,
+                    "traction": 0,
+                    "mini_turbo": 2,
+                    "invincibility": 0
+                  },
+                  {
+                    "glider_id": 8,
+                    "name": "MKTV Parafoil",
+                    "image_file": "img/glider/image7.webp",
+                    "speed": 0,
+                    "acceleration": 2,
+                    "weight": 1,
+                    "handling": 1,
+                    "traction": 0,
+                    "mini_turbo": 2,
+                    "invincibility": 0
+                  },
+                  {
+                    "glider_id": 9,
+                    "name": "Wario Wing",
+                    "image_file": "img/glider/image15.webp",
+                    "speed": 1,
+                    "acceleration": 1,
+                    "weight": 2,
+                    "handling": 1,
+                    "traction": 0,
+                    "mini_turbo": 1,
+                    "invincibility": 1
+                  },
+                  {
+                    "glider_id": 10,
+                    "name": "Plane Glider",
+                    "image_file": "img/glider/image12.webp",
+                    "speed": 1,
+                    "acceleration": 1,
+                    "weight": 2,
+                    "handling": 1,
+                    "traction": 0,
+                    "mini_turbo": 1,
+                    "invincibility": 1
+                  },
+                  {
+                    "glider_id": 11,
+                    "name": "Gold Glider",
+                    "image_file": "img/glider/image4.webp",
+                    "speed": 1,
+                    "acceleration": 1,
+                    "weight": 2,
+                    "handling": 1,
+                    "traction": 0,
+                    "mini_turbo": 1,
+                    "invincibility": 1
+                  },
+                  {
+                    "glider_id": 12,
+                    "name": "Paraglider",
+                    "image_file": "img/glider/image5.webp",
+                    "speed": 1,
+                    "acceleration": 1,
+                    "weight": 2,
+                    "handling": 1,
+                    "traction": 0,
+                    "mini_turbo": 1,
+                    "invincibility": 1
+                  },
+                  {
+                    "glider_id": 13,
+                    "name": "Super Glider",
+                    "image_file": "img/glider/image13.webp",
+                    "speed": 1,
+                    "acceleration": 1,
+                    "weight": 1,
+                    "handling": 1,
+                    "traction": 1,
+                    "mini_turbo": 1,
+                    "invincibility": 1
+                  },
+                  {
+                    "glider_id": 14,
+                    "name": "Waddle Wing",
+                    "image_file": "img/glider/image14.webp",
+                    "speed": 1,
+                    "acceleration": 1,
+                    "weight": 1,
+                    "handling": 1,
+                    "traction": 1,
+                    "mini_turbo": 1,
+                    "invincibility": 1
+                  },
+                  {
+                    "glider_id": 15,
+                    "name": "Hylian Kite",
+                    "image_file": "img/glider/image6.webp",
+                    "speed": 1,
+                    "acceleration": 1,
+                    "weight": 1,
+                    "handling": 1,
+                    "traction": 1,
+                    "mini_turbo": 1,
+                    "invincibility": 1
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "tags": [
+          "Gliders"
+        ]
+      }
+    },
+    "/gliders/1": {
+      "get": {
+        "summary": "Gets one glider and its stats",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "glider_id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "image_file": {
+                      "type": "string"
+                    },
+                    "speed": {
+                      "type": "integer"
+                    },
+                    "acceleration": {
+                      "type": "integer"
+                    },
+                    "weight": {
+                      "type": "integer"
+                    },
+                    "handling": {
+                      "type": "integer"
+                    },
+                    "traction": {
+                      "type": "integer"
+                    },
+                    "mini_turbo": {
+                      "type": "integer"
+                    },
+                    "invincibility": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "example": {
+                  "glider_id": 1,
+                  "name": "Cloud Glider",
+                  "image_file": "img/glider/image2.webp",
+                  "speed": 0,
+                  "acceleration": 2,
+                  "weight": 0,
+                  "handling": 1,
+                  "traction": 1,
+                  "mini_turbo": 2,
+                  "invincibility": 0
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Gliders"
+        ]
+      }
+    },
+    "/gliders/1/builds": {
+      "get": {
+        "summary": "Gets all builds that use a glider",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "build_id": {
+                        "type": "integer"
+                      },
+                      "user_id": {
+                        "type": "integer"
+                      },
+                      "driver_id": {
+                        "type": "integer"
+                      },
+                      "body_id": {
+                        "type": "integer"
+                      },
+                      "tire_id": {
+                        "type": "integer"
+                      },
+                      "glider_id": {
+                        "type": "integer"
+                      },
+                      "build_name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "build_id": 1,
+                    "user_id": 1,
+                    "driver_id": 30,
+                    "body_id": 11,
+                    "tire_id": 1,
+                    "glider_id": 1,
+                    "build_name": "Balanced Teddy"
+                  },
+                  {
+                    "build_id": 5,
+                    "user_id": 5,
+                    "driver_id": 40,
+                    "body_id": 13,
+                    "tire_id": 1,
+                    "glider_id": 1,
+                    "build_name": "Rosalina Drift"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "tags": [
+          "Gliders"
+        ]
+      }
+    },
+    "/users/": {
+      "get": {
+        "summary": "Gets users, one page at a time. Supports pagination and sorting",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 2
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 0
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "username"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "limit": {
+                          "type": "integer"
+                        },
+                        "offset": {
+                          "type": "integer"
+                        },
+                        "total": {
+                          "type": "integer"
+                        },
+                        "total_pages": {
+                          "type": "integer"
+                        },
+                        "current_page": {
+                          "type": "integer"
+                        },
+                        "next_page": {
+                          "type": "integer"
+                        },
+                        "previous_page": {
+                          "nullable": true
+                        },
+                        "sort": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "users": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "user_id": {
+                            "type": "integer"
+                          },
+                          "username": {
+                            "type": "string"
+                          },
+                          "email": {
+                            "type": "string",
+                            "format": "email"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "meta": {
+                    "limit": 2,
+                    "offset": 0,
+                    "total": 5,
+                    "total_pages": 3,
+                    "current_page": 1,
+                    "next_page": 2,
+                    "previous_page": null,
+                    "sort": "username"
+                  },
+                  "users": [
+                    {
+                      "user_id": 2,
+                      "username": "bananapeel99",
+                      "email": "bananapeel99@example.com"
+                    },
+                    {
+                      "user_id": 4,
+                      "username": "bluesheller",
+                      "email": "bluesheller@example.com"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Users"
+        ]
+      },
+      "post": {
+        "summary": "1. Create a user",
+        "responses": {},
+        "tags": [
+          "Create, Update, Delete"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  }
+                }
+              },
+              "example": {
+                "username": "gs_{{$timestamp}}",
+                "email": "gs{{$timestamp}}@example.com"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/search": {
+      "get": {
+        "summary": "Searches users by username and email (partial, case-insensitive)",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "road,king"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "user_id": {
+                        "type": "integer"
+                      },
+                      "username": {
+                        "type": "string"
+                      },
+                      "email": {
+                        "type": "string",
+                        "format": "email"
+                      }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "user_id": 3,
+                    "username": "rainbowroad",
+                    "email": "rainbowroad@example.com"
+                  },
+                  {
+                    "user_id": 5,
+                    "username": "driftking",
+                    "email": "driftking@example.com"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/users/1": {
+      "get": {
+        "summary": "Gets one user",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "user_id": {
+                      "type": "integer"
+                    },
+                    "username": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string",
+                      "format": "email"
+                    }
+                  }
+                },
+                "example": {
+                  "user_id": 1,
+                  "username": "shellshocked",
+                  "email": "shellshocked@example.com"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Users"
+        ]
+      },
+      "put": {
+        "summary": "Update a User",
+        "responses": {},
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "username": "Toadsworth"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/1/builds": {
+      "get": {
+        "summary": "Gets all builds saved by a user",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "build_id": {
+                        "type": "integer"
+                      },
+                      "user_id": {
+                        "type": "integer"
+                      },
+                      "driver_id": {
+                        "type": "integer"
+                      },
+                      "body_id": {
+                        "type": "integer"
+                      },
+                      "tire_id": {
+                        "type": "integer"
+                      },
+                      "glider_id": {
+                        "type": "integer"
+                      },
+                      "build_name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "build_id": 1,
+                    "user_id": 1,
+                    "driver_id": 30,
+                    "body_id": 11,
+                    "tire_id": 1,
+                    "glider_id": 1,
+                    "build_name": "Balanced Teddy"
+                  },
+                  {
+                    "build_id": 6,
+                    "user_id": 1,
+                    "driver_id": 15,
+                    "body_id": 2,
+                    "tire_id": 3,
+                    "glider_id": 12,
+                    "build_name": "Toad Scooter"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/users/1/builds/1": {
+      "get": {
+        "summary": "Gets one of a user's builds",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "build_id": {
+                      "type": "integer"
+                    },
+                    "user_id": {
+                      "type": "integer"
+                    },
+                    "driver_id": {
+                      "type": "integer"
+                    },
+                    "body_id": {
+                      "type": "integer"
+                    },
+                    "tire_id": {
+                      "type": "integer"
+                    },
+                    "glider_id": {
+                      "type": "integer"
+                    },
+                    "build_name": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "build_id": 1,
+                  "user_id": 1,
+                  "driver_id": 30,
+                  "body_id": 11,
+                  "tire_id": 1,
+                  "glider_id": 1,
+                  "build_name": "Balanced Teddy"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/users/1/ratings": {
+      "get": {
+        "summary": "Gets all ratings a user has given",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "rating_id": {
+                        "type": "integer"
+                      },
+                      "build_id": {
+                        "type": "integer"
+                      },
+                      "user_id": {
+                        "type": "integer"
+                      },
+                      "score": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "rating_id": 3,
+                    "build_id": 2,
+                    "user_id": 1,
+                    "score": 4
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/users": {
+      "post": {
+        "summary": "Create a User",
+        "parameters": [
+          {
+            "name": "args",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "{}"
+          },
+          {
+            "name": "kwargs",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "{}"
+          }
+        ],
+        "responses": {},
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "name": "Test 2",
+                "email": "test2@mariokart.com",
+                "username": "TestDummy2",
+                "password": "MarioKart2"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Get Users",
+        "parameters": [
+          {
+            "name": "args",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "{}"
+          },
+          {
+            "name": "kwargs",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "{}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 Example",
+            "headers": {
+              "date": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "Sat, 14 Nov 2026 16:56:23 GMT"
+              },
+              "server": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "uvicorn"
+              },
+              "content-length": {
+                "schema": {
+                  "type": "integer"
+                },
+                "example": 815
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "limit": {
+                          "type": "integer"
+                        },
+                        "offset": {
+                          "type": "integer"
+                        },
+                        "total": {
+                          "type": "integer"
+                        },
+                        "total_pages": {
+                          "type": "integer"
+                        },
+                        "current_page": {
+                          "type": "integer"
+                        },
+                        "next_page": {
+                          "nullable": true
+                        },
+                        "previous_page": {
+                          "nullable": true
+                        },
+                        "sort": {
+                          "nullable": true
+                        }
+                      }
+                    },
+                    "users": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "user_id": {
+                            "type": "integer"
+                          },
+                          "username": {
+                            "type": "string"
+                          },
+                          "email": {
+                            "type": "string",
+                            "format": "email"
+                          },
+                          "role_id": {
+                            "type": "integer"
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "updated_at": {
+                            "type": "string",
+                            "format": "date-time"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "meta": {
+                    "limit": 4,
+                    "offset": 0,
+                    "total": 4,
+                    "total_pages": 1,
+                    "current_page": 1,
+                    "next_page": null,
+                    "previous_page": null,
+                    "sort": null
+                  },
+                  "users": [
+                    {
+                      "user_id": 1,
+                      "username": "RoyalSteward",
+                      "email": "toadsworth@mariokart.com",
+                      "role_id": 1,
+                      "created_at": "2026-11-13T00:56:22.022504Z",
+                      "updated_at": "2026-11-13T00:56:22.022513Z"
+                    },
+                    {
+                      "user_id": 2,
+                      "username": "ProfessorEGadd",
+                      "email": "egadd@mariokart.com",
+                      "role_id": 2,
+                      "created_at": "2026-11-13T00:56:33.494460Z",
+                      "updated_at": "2026-11-13T00:56:33.494473Z"
+                    },
+                    {
+                      "user_id": 3,
+                      "username": "StarSprite",
+                      "email": "starlow@mariokart.com",
+                      "role_id": 3,
+                      "created_at": "2026-11-13T00:56:42.096292Z",
+                      "updated_at": "2026-11-13T00:56:42.096301Z"
+                    },
+                    {
+                      "user_id": 4,
+                      "username": "PrivateGoomba",
+                      "email": "goomba@mariokart.com",
+                      "role_id": 4,
+                      "created_at": "2026-11-13T00:56:51.499722Z",
+                      "updated_at": "2026-11-13T00:56:51.499750Z"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/users/4": {
+      "delete": {
+        "summary": "Delete a User",
+        "responses": {},
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/builds/": {
+      "get": {
+        "summary": "Gets builds, one page at a time. Supports pagination and sorting",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 2
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "user_id,-build_name"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "limit": {
+                          "type": "integer"
+                        },
+                        "offset": {
+                          "type": "integer"
+                        },
+                        "total": {
+                          "type": "integer"
+                        },
+                        "total_pages": {
+                          "type": "integer"
+                        },
+                        "current_page": {
+                          "type": "integer"
+                        },
+                        "next_page": {
+                          "type": "integer"
+                        },
+                        "previous_page": {
+                          "nullable": true
+                        },
+                        "sort": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "builds": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "build_id": {
+                            "type": "integer"
+                          },
+                          "user_id": {
+                            "type": "integer"
+                          },
+                          "driver_id": {
+                            "type": "integer"
+                          },
+                          "body_id": {
+                            "type": "integer"
+                          },
+                          "tire_id": {
+                            "type": "integer"
+                          },
+                          "glider_id": {
+                            "type": "integer"
+                          },
+                          "build_name": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "meta": {
+                    "limit": 2,
+                    "offset": 0,
+                    "total": 6,
+                    "total_pages": 3,
+                    "current_page": 1,
+                    "next_page": 2,
+                    "previous_page": null,
+                    "sort": "user_id,-build_name"
+                  },
+                  "builds": [
+                    {
+                      "build_id": 6,
+                      "user_id": 1,
+                      "driver_id": 15,
+                      "body_id": 2,
+                      "tire_id": 3,
+                      "glider_id": 12,
+                      "build_name": "Toad Scooter"
+                    },
+                    {
+                      "build_id": 1,
+                      "user_id": 1,
+                      "driver_id": 30,
+                      "body_id": 11,
+                      "tire_id": 1,
+                      "glider_id": 1,
+                      "build_name": "Balanced Teddy"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Builds"
+        ]
+      },
+      "post": {
+        "summary": "3. Create a build for the user",
+        "responses": {},
+        "tags": [
+          "Create, Update, Delete"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_id": {
+                    "type": "string"
+                  },
+                  "driver_id": {
+                    "type": "integer"
+                  },
+                  "body_id": {
+                    "type": "integer"
+                  },
+                  "tire_id": {
+                    "type": "integer"
+                  },
+                  "glider_id": {
+                    "type": "integer"
+                  },
+                  "build_name": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "user_id": "",
+                "driver_id": 48,
+                "body_id": 13,
+                "tire_id": 15,
+                "glider_id": 13,
+                "build_name": "Yoshi Wiggler"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/builds/search": {
+      "get": {
+        "summary": "Searches builds by name (partial, case-insensitive) or by any ID number",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "teddy"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "build_id": {
+                        "type": "integer"
+                      },
+                      "user_id": {
+                        "type": "integer"
+                      },
+                      "driver_id": {
+                        "type": "integer"
+                      },
+                      "body_id": {
+                        "type": "integer"
+                      },
+                      "tire_id": {
+                        "type": "integer"
+                      },
+                      "glider_id": {
+                        "type": "integer"
+                      },
+                      "build_name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "build_id": 1,
+                    "user_id": 1,
+                    "driver_id": 30,
+                    "body_id": 11,
+                    "tire_id": 1,
+                    "glider_id": 1,
+                    "build_name": "Balanced Teddy"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "tags": [
+          "Builds"
+        ]
+      }
+    },
+    "/builds/1": {
+      "get": {
+        "summary": "Gets one build",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "build_id": {
+                      "type": "integer"
+                    },
+                    "user_id": {
+                      "type": "integer"
+                    },
+                    "driver_id": {
+                      "type": "integer"
+                    },
+                    "body_id": {
+                      "type": "integer"
+                    },
+                    "tire_id": {
+                      "type": "integer"
+                    },
+                    "glider_id": {
+                      "type": "integer"
+                    },
+                    "build_name": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "build_id": 1,
+                  "user_id": 1,
+                  "driver_id": 30,
+                  "body_id": 11,
+                  "tire_id": 1,
+                  "glider_id": 1,
+                  "build_name": "Balanced Teddy"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Builds"
+        ]
+      }
+    },
+    "/builds/1/user": {
+      "get": {
+        "summary": "Gets the user who saved a build",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "user_id": {
+                      "type": "integer"
+                    },
+                    "username": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string",
+                      "format": "email"
+                    }
+                  }
+                },
+                "example": {
+                  "user_id": 1,
+                  "username": "shellshocked",
+                  "email": "shellshocked@example.com"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Builds"
+        ]
+      }
+    },
+    "/builds/1/driver": {
+      "get": {
+        "summary": "Gets a build's driver",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "driver_id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "driver_group_id": {
+                      "type": "integer"
+                    },
+                    "image_file": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "driver_id": 30,
+                  "name": "Mario",
+                  "driver_group_id": 10,
+                  "image_file": "img/character/image30.webp"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Builds"
+        ]
+      }
+    },
+    "/builds/1/body": {
+      "get": {
+        "summary": "Gets a build's body",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "body_id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "vehicle_type": {
+                      "type": "string"
+                    },
+                    "body_group_id": {
+                      "type": "integer"
+                    },
+                    "image_file": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "body_id": 11,
+                  "name": "Teddy Buggy",
+                  "vehicle_type": "ATV",
+                  "body_group_id": 8,
+                  "image_file": "img/kart/image34.webp"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Builds"
+        ]
+      }
+    },
+    "/builds/1/tire": {
+      "get": {
+        "summary": "Gets a build's tire",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "tire_id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "tire_group_id": {
+                      "type": "integer"
+                    },
+                    "image_file": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "tire_id": 1,
+                  "name": "Roller",
+                  "tire_group_id": 1,
+                  "image_file": "img/tires/image17.webp"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Builds"
+        ]
+      }
+    },
+    "/builds/1/glider": {
+      "get": {
+        "summary": "Gets a build's glider",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "glider_id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "image_file": {
+                      "type": "string"
+                    },
+                    "speed": {
+                      "type": "integer"
+                    },
+                    "acceleration": {
+                      "type": "integer"
+                    },
+                    "weight": {
+                      "type": "integer"
+                    },
+                    "handling": {
+                      "type": "integer"
+                    },
+                    "traction": {
+                      "type": "integer"
+                    },
+                    "mini_turbo": {
+                      "type": "integer"
+                    },
+                    "invincibility": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "example": {
+                  "glider_id": 1,
+                  "name": "Cloud Glider",
+                  "image_file": "img/glider/image2.webp",
+                  "speed": 0,
+                  "acceleration": 2,
+                  "weight": 0,
+                  "handling": 1,
+                  "traction": 1,
+                  "mini_turbo": 2,
+                  "invincibility": 0
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Builds"
+        ]
+      }
+    },
+    "/builds/1/stats": {
+      "get": {
+        "summary": "Gets the combined stats of a build: the level and in-game value of each stat",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "build_id": {
+                      "type": "integer"
+                    },
+                    "build_name": {
+                      "type": "string"
+                    },
+                    "parts": {
+                      "type": "object",
+                      "properties": {
+                        "driver": {
+                          "type": "string"
+                        },
+                        "body": {
+                          "type": "string"
+                        },
+                        "tire": {
+                          "type": "string"
+                        },
+                        "glider": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "stats": {
+                      "type": "object",
+                      "properties": {
+                        "speed": {
+                          "type": "object",
+                          "properties": {
+                            "level": {
+                              "type": "integer"
+                            },
+                            "value": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "acceleration": {
+                          "type": "object",
+                          "properties": {
+                            "level": {
+                              "type": "integer"
+                            },
+                            "value": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "weight": {
+                          "type": "object",
+                          "properties": {
+                            "level": {
+                              "type": "integer"
+                            },
+                            "value": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "handling": {
+                          "type": "object",
+                          "properties": {
+                            "level": {
+                              "type": "integer"
+                            },
+                            "value": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "traction": {
+                          "type": "object",
+                          "properties": {
+                            "level": {
+                              "type": "integer"
+                            },
+                            "value": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "mini_turbo": {
+                          "type": "object",
+                          "properties": {
+                            "level": {
+                              "type": "integer"
+                            },
+                            "value": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "invincibility": {
+                          "type": "object",
+                          "properties": {
+                            "level": {
+                              "type": "integer"
+                            },
+                            "value": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "build_id": 1,
+                  "build_name": "Balanced Teddy",
+                  "parts": {
+                    "driver": "Mario",
+                    "body": "Teddy Buggy",
+                    "tire": "Roller",
+                    "glider": "Cloud Glider"
+                  },
+                  "stats": {
+                    "speed": {
+                      "level": 9,
+                      "value": 3
+                    },
+                    "acceleration": {
+                      "level": 15,
+                      "value": 4.5
+                    },
+                    "weight": {
+                      "level": 8,
+                      "value": 2.75
+                    },
+                    "handling": {
+                      "level": 13,
+                      "value": 4
+                    },
+                    "traction": {
+                      "level": 10,
+                      "value": 3.25
+                    },
+                    "mini_turbo": {
+                      "level": 17,
+                      "value": 5
+                    },
+                    "invincibility": {
+                      "level": 4,
+                      "value": 1.75
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Builds"
+        ]
+      }
+    },
+    "/builds/1/ratings": {
+      "get": {
+        "summary": "Gets all ratings for a build",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "rating_id": {
+                        "type": "integer"
+                      },
+                      "build_id": {
+                        "type": "integer"
+                      },
+                      "user_id": {
+                        "type": "integer"
+                      },
+                      "score": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "rating_id": 1,
+                    "build_id": 1,
+                    "user_id": 2,
+                    "score": 5
+                  },
+                  {
+                    "rating_id": 2,
+                    "build_id": 1,
+                    "user_id": 3,
+                    "score": 4
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "tags": [
+          "Builds"
+        ]
+      }
+    },
+    "/builds/1/ratings/1": {
+      "get": {
+        "summary": "Gets one rating for a build",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "rating_id": {
+                      "type": "integer"
+                    },
+                    "build_id": {
+                      "type": "integer"
+                    },
+                    "user_id": {
+                      "type": "integer"
+                    },
+                    "score": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "example": {
+                  "rating_id": 1,
+                  "build_id": 1,
+                  "user_id": 2,
+                  "score": 5
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Builds"
+        ]
+      }
+    },
+    "/ratings/": {
+      "get": {
+        "summary": "Gets ratings, one page at a time. Supports pagination and sorting",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 2
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 2
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "-score,build_id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "limit": {
+                          "type": "integer"
+                        },
+                        "offset": {
+                          "type": "integer"
+                        },
+                        "total": {
+                          "type": "integer"
+                        },
+                        "total_pages": {
+                          "type": "integer"
+                        },
+                        "current_page": {
+                          "type": "integer"
+                        },
+                        "next_page": {
+                          "type": "integer"
+                        },
+                        "previous_page": {
+                          "type": "integer"
+                        },
+                        "sort": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "ratings": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "rating_id": {
+                            "type": "integer"
+                          },
+                          "build_id": {
+                            "type": "integer"
+                          },
+                          "user_id": {
+                            "type": "integer"
+                          },
+                          "score": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "meta": {
+                    "limit": 2,
+                    "offset": 2,
+                    "total": 7,
+                    "total_pages": 4,
+                    "current_page": 2,
+                    "next_page": 3,
+                    "previous_page": 1,
+                    "sort": "-score,build_id"
+                  },
+                  "ratings": [
+                    {
+                      "rating_id": 6,
+                      "build_id": 5,
+                      "user_id": 2,
+                      "score": 5
+                    },
+                    {
+                      "rating_id": 2,
+                      "build_id": 1,
+                      "user_id": 3,
+                      "score": 4
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Ratings"
+        ]
+      },
+      "post": {
+        "summary": "5. Rate the build (as user 1)",
+        "responses": {},
+        "tags": [
+          "Create, Update, Delete"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "build_id": {
+                    "type": "string"
+                  },
+                  "user_id": {
+                    "type": "integer"
+                  },
+                  "score": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "example": {
+                "build_id": "",
+                "user_id": 1,
+                "score": 4
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ratings/1": {
+      "get": {
+        "summary": "Gets one rating",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "rating_id": {
+                      "type": "integer"
+                    },
+                    "build_id": {
+                      "type": "integer"
+                    },
+                    "user_id": {
+                      "type": "integer"
+                    },
+                    "score": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "example": {
+                  "rating_id": 1,
+                  "build_id": 1,
+                  "user_id": 2,
+                  "score": 5
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Ratings"
+        ]
+      }
+    },
+    "/ratings/1/build": {
+      "get": {
+        "summary": "Gets the build a rating is for",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "build_id": {
+                      "type": "integer"
+                    },
+                    "user_id": {
+                      "type": "integer"
+                    },
+                    "driver_id": {
+                      "type": "integer"
+                    },
+                    "body_id": {
+                      "type": "integer"
+                    },
+                    "tire_id": {
+                      "type": "integer"
+                    },
+                    "glider_id": {
+                      "type": "integer"
+                    },
+                    "build_name": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "build_id": 1,
+                  "user_id": 1,
+                  "driver_id": 30,
+                  "body_id": 11,
+                  "tire_id": 1,
+                  "glider_id": 1,
+                  "build_name": "Balanced Teddy"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Ratings"
+        ]
+      }
+    },
+    "/ratings/1/user": {
+      "get": {
+        "summary": "Gets the user who gave a rating",
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "user_id": {
+                      "type": "integer"
+                    },
+                    "username": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string",
+                      "format": "email"
+                    }
+                  }
+                },
+                "example": {
+                  "user_id": 2,
+                  "username": "bananapeel99",
+                  "email": "bananapeel99@example.com"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Ratings"
+        ]
+      }
+    },
+    "/combinations/": {
+      "get": {
+        "summary": "Calculates the stats for any combination of parts without saving it",
+        "parameters": [
+          {
+            "name": "driver_id",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 3
+          },
+          {
+            "name": "body_id",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1
+          },
+          {
+            "name": "tire_id",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1
+          },
+          {
+            "name": "glider_id",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 4
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 example",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "driver": {
+                      "type": "string"
+                    },
+                    "body": {
+                      "type": "string"
+                    },
+                    "tire": {
+                      "type": "string"
+                    },
+                    "glider": {
+                      "type": "string"
+                    },
+                    "stats": {
+                      "type": "object",
+                      "properties": {
+                        "speed": {
+                          "type": "object",
+                          "properties": {
+                            "level": {
+                              "type": "integer"
+                            },
+                            "value": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "acceleration": {
+                          "type": "object",
+                          "properties": {
+                            "level": {
+                              "type": "integer"
+                            },
+                            "value": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "weight": {
+                          "type": "object",
+                          "properties": {
+                            "level": {
+                              "type": "integer"
+                            },
+                            "value": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "handling": {
+                          "type": "object",
+                          "properties": {
+                            "level": {
+                              "type": "integer"
+                            },
+                            "value": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "traction": {
+                          "type": "object",
+                          "properties": {
+                            "level": {
+                              "type": "integer"
+                            },
+                            "value": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "mini_turbo": {
+                          "type": "object",
+                          "properties": {
+                            "level": {
+                              "type": "integer"
+                            },
+                            "value": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "invincibility": {
+                          "type": "object",
+                          "properties": {
+                            "level": {
+                              "type": "integer"
+                            },
+                            "value": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "driver": "Baby Rosalina",
+                  "body": "Biddybuggy",
+                  "tire": "Roller",
+                  "glider": "Paper Glider",
+                  "stats": {
+                    "speed": {
+                      "level": 1,
+                      "value": 1
+                    },
+                    "acceleration": {
+                      "level": 20,
+                      "value": 5.75
+                    },
+                    "weight": {
+                      "level": 0,
+                      "value": 0.75
+                    },
+                    "handling": {
+                      "level": 19,
+                      "value": 5.5
+                    },
+                    "traction": {
+                      "level": 12,
+                      "value": 3.75
+                    },
+                    "mini_turbo": {
+                      "level": 20,
+                      "value": 5.75
+                    },
+                    "invincibility": {
+                      "level": 6,
+                      "value": 2.25
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Combinations"
+        ]
+      }
+    },
+    "/users/{new_user_id}": {
+      "put": {
+        "summary": "2. Update the user (email only)",
+        "responses": {},
+        "tags": [
+          "Create, Update, Delete"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  }
+                }
+              },
+              "example": {
+                "email": "gs{{$timestamp}}.new@example.com"
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "new_user_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "example": ""
+        }
+      ],
+      "delete": {
+        "summary": "9. Delete the user",
+        "responses": {},
+        "tags": [
+          "Create, Update, Delete"
+        ]
+      }
+    },
+    "/builds/{new_build_id}": {
+      "put": {
+        "summary": "4. Update the build (tire only)",
+        "responses": {},
+        "tags": [
+          "Create, Update, Delete"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "tire_id": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "example": {
+                "tire_id": 3
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "new_build_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "example": ""
+        }
+      ],
+      "delete": {
+        "summary": "8. Delete the build",
+        "responses": {},
+        "tags": [
+          "Create, Update, Delete"
+        ]
+      }
+    },
+    "/ratings/{new_rating_id}": {
+      "put": {
+        "summary": "6. Update the rating",
+        "responses": {},
+        "tags": [
+          "Create, Update, Delete"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "score": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "example": {
+                "score": 5
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "new_rating_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "example": ""
+        }
+      ],
+      "delete": {
+        "summary": "7. Delete the rating",
+        "responses": {},
+        "tags": [
+          "Create, Update, Delete"
+        ]
+      }
+    },
+    "/users/999": {
+      "delete": {
+        "summary": "404 - Delete a user that does not exist",
+        "responses": {},
+        "tags": [
+          "Validation and Errors"
+        ]
+      }
+    },
+    "/auth/register": {
+      "post": {
+        "summary": "User Registration",
+        "responses": {},
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "email": "goomba@mariokart.com",
+                "username": "Goomba",
+                "password": "EliteTrio"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "summary": "User Login",
+        "responses": {},
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "username": "Toadsworth",
+                "password": "TallyHoPassword"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}
