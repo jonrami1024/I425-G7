@@ -13,7 +13,6 @@ from api.database import get_session
 from fastapi.security import OAuth2PasswordBearer
 
 from api.config import SECRET_KEY, ALGORITHM
-from api.users.services import UserService
 from api.users.models import Users
 
 # database connection
@@ -42,12 +41,10 @@ def get_current_user(
     except (KeyError, TypeError, ValueError):
         raise credentials_exception
 
-    user = UserService(session).fetch_user(user_id)
+    # the user may have been deleted after the token was issued
+    user = session.get(Users, user_id)
     if not user:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail="User not found"
-        )
+        raise credentials_exception
 
     return user
 

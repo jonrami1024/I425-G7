@@ -19,7 +19,7 @@ from api.glider.schemas import GliderRead
 router = APIRouter(
     prefix="/builds",
     tags=["Builds"],
-    dependencies=[Depends(role_required([1, 2, 3, 4]))]
+    dependencies=[Depends(get_current_user)]
 )
 
 def get_service(session: SessionDep) -> BuildService:

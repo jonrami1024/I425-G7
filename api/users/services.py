@@ -27,61 +27,6 @@ class UserService:
         if not user:
             raise HTTPException(status_code=404, detail="User not found")
         return user
-    def create_user(self, user_data: UserCreate) -> Users:
-        try:
-            user = Users(**user_data.dict())
-            self.session.add(user)
-            self.session.commit()
-            self.session.refresh(user)
-            return user
-
-        except SQLAlchemyError as e:
-            self.session.rollback()
-            raise HTTPException(
-                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-                detail="Database error: Unable to create user record",
-            ) from e
-
-    def update_user(self, user_id: int, user_data: UserUpdate) -> Users:
-        def update_user(self, user_id: int, user_data: UserUpdate):
-            user = self.fetch_user(user_id)
-            if not user:
-                raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User not found")
-            try:
-                update_data = user_data = user_data.model_dump(exclude_unset=True)
-                for key, value in update_data.items():
-                    setattr(user, key, value)
-
-                user.updated_at = datetime.now(timezone.utc)
-
-                self.session.add(user)
-                self.session.commit()
-                self.session.refresh(user)
-                return user
-
-            except SQLAlchemyError as e:
-                self.session.rollback()
-                raise HTTPException(
-                    status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-                    detail="Database error: Unable to update user record",
-                ) from e
-
-    def delete_user(self, user_id: int) -> None:
-        # Retrieve the user by id
-        user = self.fetch_user(user_id)
-        if not user:
-            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="user not found")
-
-        try:
-            self.session.delete(user)
-            self.session.commit()
-        except SQLAlchemyError as e:
-            self.session.rollback()
-            raise HTTPException(
-                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-                detail="Database error: Unable to delete the user record",
-            ) from e
-
     def fetch_user_builds(self, user_id: int):
         user = self.fetch_user(user_id)
         return user.builds
@@ -159,20 +104,24 @@ class UserService:
             if taken and taken.user_id != user_id:
                 raise HTTPException(status_code=409, detail="Email is already taken")
 
-    def create_user(self, user_data: UserCreate) -> Users:
+    def create_user(self, user_data: UserCreate, hashed_password: str) -> Users:
+        # only the hashed password is saved, never the plain password
         self.check_unique(user_data.username, user_data.email)
-        user = Users(**user_data.model_dump())
+        user = Users(**user_data.model_dump(exclude={"password"}), password=hashed_password)
         self.session.add(user)
         self.session.commit()
         self.session.refresh(user)
         return user
 
-    def update_user(self, user_id: int, user_data: UserUpdate) -> Users:
+    def update_user(self, user_id: int, user_data: UserUpdate, hashed_password: str | None = None) -> Users:
         user = self.fetch_user(user_id)
-        update_data = user_data.model_dump(exclude_unset=True)
+        update_data = user_data.model_dump(exclude_unset=True, exclude={"password"})
         self.check_unique(update_data.get("username"), update_data.get("email"), user_id)
         for key, value in update_data.items():
             setattr(user, key, value)
+        if hashed_password is not None:
+            user.password = hashed_password
+        user.updated_at = datetime.now(timezone.utc)
         self.session.add(user)
         self.session.commit()
         self.session.refresh(user)

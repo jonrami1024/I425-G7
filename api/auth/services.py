@@ -5,7 +5,7 @@ from api.users.models import Users
 from api.users.schemas import UserCreate, UserBase
 from .schemas import UserRegister, UserLogin
 from api.config import SECRET_KEY, ALGORITHM, ACCESS_TOKEN_EXPIRE_MINUTES
-from datetime import datetime, timedelta,timezone
+from datetime import datetime, timedelta, timezone
 from jose import jwt
 from fastapi import HTTPException, status
 
@@ -30,16 +30,18 @@ class AuthService:
         to_encode.update({"exp": expire})
         return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
 
-    def register_user(self, data: UserRegister) -> User:
+    def register_user(self, data: UserRegister) -> Users:
         hashed_pw = AuthService.hash_password(data.password)
 
+        # new accounts are always Basic Users (role 4)
         user = UserCreate(
             email=data.email,
             username=data.username,
-            password=hashed_pw
+            password=data.password,
+            role_id=4
         )
 
-        return self.user_service.create_user(user)
+        return self.user_service.create_user(user, hashed_pw)
 
     def login_user(self, data: UserLogin):
         user = self.user_service.fetch_user_by_username(data.username)
@@ -49,12 +51,11 @@ class AuthService:
                                 detail="Invalid credentials")
 
         # user's credentials are valid; create a token
-        token_data = {"sub": str(user.user_id), "role_id": str(user.role_id)}
+        token_data = {"sub": str(user.user_id), "role_id": user.role_id}
         token = AuthService.create_jwt_token(data=token_data)
 
         return {
             "jwt": token,
             "token_type": "bearer",
             "user": UserBase.model_validate(user, from_attributes=True)
-
         }

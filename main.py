@@ -4,6 +4,7 @@ from sqlalchemy.exc import SQLAlchemyError
 
 from starlette.staticfiles import StaticFiles
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from api.exceptions import sqlalchemy_exception_handler
 
@@ -37,6 +38,15 @@ app.mount("/static", StaticFiles(directory=static_path))
 
 
 app.add_exception_handler(SQLAlchemyError, sqlalchemy_exception_handler)
+
+# Allow only our future web client to call the API from a browser
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # add app routers
 app.include_router(driver_router)

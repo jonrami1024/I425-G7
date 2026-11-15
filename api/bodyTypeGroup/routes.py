@@ -13,7 +13,7 @@ from api.body.schemas import BodyRead
 router = APIRouter(
     prefix="/body-groups",
     tags=["Body Groups"],
-    dependencies=[Depends(role_required([1, 2, 3, 4]))]
+    dependencies=[Depends(get_current_user)]
 )
 
 def get_service(session: SessionDep) -> BodyGroupService:
