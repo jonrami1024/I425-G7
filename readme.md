@@ -19,6 +19,8 @@ Starlow / HelloYello (Advanced User), Goomba / EliteTrio (Basic User).
 ## Lab 4
 
 #### Jonathan Ramirez-Molina
+- Added roles table and added password row to users table
+- Started adding the create and delete users
 
 #### Daniel Shin
 - Fixed POST /users and PUT /users so passwords are always hashed and never saved as plain text
