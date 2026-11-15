@@ -14,7 +14,7 @@ from api.builds.schemas import BuildRead
 router = APIRouter(
     prefix="/drivers",
     tags=["Drivers"],
-    dependencies=[Depends(role_required([1, 2, 3, 4]))]
+    dependencies=[Depends(get_current_user)]
 )
 
 def get_service(session: SessionDep) -> DriverService:

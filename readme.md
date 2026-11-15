@@ -3,15 +3,29 @@
 > To get calculated stats, do:
 > `/combinations?driver_id=1&body_id=1&tire_id=1&glider_id=1`
 
+## Setup (Lab 4)
+
+1. `pip install -r requirements.txt`
+2. Copy `.env.example` to `.env` and put a secret key in it
+   (make one with `python -c "import secrets; print(secrets.token_urlsafe(64))"`).
+3. `uvicorn main:app --reload`
+4. Log in with `POST /auth/login` and send the token as `Authorization: Bearer <jwt>`.
+
+Test logins: Toadsworth / TallyHoPassword (Admin), ProfessorEGadd / Poltergust3000 (User Manager),
+Starlow / HelloYello (Advanced User), Goomba / EliteTrio (Basic User).
+
 ## Team Responsibilities
 
 ## Lab 4
 
 #### Jonathan Ramirez-Molina
-- k
 
 #### Daniel Shin
-- k
+- Fixed POST /users and PUT /users so passwords are always hashed and never saved as plain text
+- Fixed the .sql script and database so the roles and users tables rebuild correctly
+- Switched the read-only routers to `get_current_user` and kept role checks on create, update, and delete
+- Added CORS for http://localhost:3000 and moved the secret key to a .env file (.env.example included)
+- Updated requirements.txt, the API documentation, the Postman collection, and the testing document
 
 #### Angel Avila
 - Created the authentication (auth) folder

@@ -22,10 +22,10 @@ def get_auth_service(user_service: UserService = Depends(get_user_service)) -> A
 # Annotated dependency
 AuthServiceDep = Annotated[AuthService, Depends(get_auth_service)]
 
-@router.post("/register", response_model=UserRead, status_code=201)
+@router.post("/register", response_model=UserRead, status_code=201, summary="Register a new user (Basic User role)")
 def register(service: AuthServiceDep, user: UserRegister):
     return service.register_user(user)
 
-@router.post("/login", status_code=201, response_model=UserLoginResponse)
+@router.post("/login", response_model=UserLoginResponse, summary="Log in and get a JWT token")
 def login_user(service: AuthServiceDep, data: UserLogin):
     return service.login_user(data)

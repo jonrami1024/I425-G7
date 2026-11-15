@@ -10,6 +10,7 @@ from .schemas import UserRead, UserPage, UserCreate, UserUpdate, DeleteResponse
 from .services import UserService
 from api.builds.schemas import BuildRead
 from api.build_ratings.schemas import RatingRead
+from api.auth.services import AuthService
 
 router = APIRouter(
     prefix="/users",
@@ -53,11 +54,13 @@ def get_user_ratings(service: ServiceDep, user_id: int):
 
 @router.post("/", response_model=UserRead, status_code=201, summary="Create a user")
 def create_user(service: ServiceDep, user_data: UserCreate):
-    return service.create_user(user_data)
+    hashed_password = AuthService.hash_password(user_data.password)
+    return service.create_user(user_data, hashed_password)
 
 @router.put("/{user_id}", response_model=UserRead, summary="Update a user")
 def update_user(service: ServiceDep, user_id: int, user_data: UserUpdate):
-    return service.update_user(user_id, user_data)
+    hashed_password = AuthService.hash_password(user_data.password) if user_data.password else None
+    return service.update_user(user_id, user_data, hashed_password)
 
 @router.delete("/{user_id}", response_model=DeleteResponse, summary="Delete a user and their builds and ratings")
 def delete_user(service: ServiceDep, user_id: int):

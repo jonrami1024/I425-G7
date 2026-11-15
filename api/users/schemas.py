@@ -12,8 +12,8 @@ from pydantic import EmailStr, Field, constr, field_validator, model_validator
 
 class UserBase(BaseModel):
     user_id: int
-    username: str = Field(min_length=4, max_length=20)
-    email: EmailStr
+    username: str
+    email: str
     role_id: int = 4 #sets default to basic user
 
     model_config = ConfigDict(
@@ -39,10 +39,12 @@ class UserPage(BaseModel):
     users: list[UserRead]
 
 # ---------- Lab 3: input validation for create and update ----------
+# ---------- Lab 4: password and role added ----------
 
-class UserCreate(BaseModel):
+class UserAccount(BaseModel):
     username: constr(min_length=3, max_length=20, pattern=r'^[A-Za-z0-9_]+$')
     email: EmailStr = Field(..., max_length=100)
+    password: str = Field(min_length=8, max_length=20)
 
     @field_validator("username", mode='after')
     @classmethod
@@ -56,9 +58,14 @@ class UserCreate(BaseModel):
     def email_to_lowercase(cls, value):
         return value.lower()
 
+class UserCreate(UserAccount):
+    role_id: int = Field(default=4, ge=1, le=4)
+
 class UserUpdate(BaseModel):
     username: Optional[constr(min_length=3, max_length=20, pattern=r'^[A-Za-z0-9_]+$')] = None
     email: Optional[EmailStr] = Field(default=None, max_length=100)
+    password: Optional[str] = Field(default=None, min_length=8, max_length=20)
+    role_id: Optional[int] = Field(default=None, ge=1, le=4)
 
     @field_validator("username", mode='after')
     @classmethod
@@ -74,20 +81,10 @@ class UserUpdate(BaseModel):
 
     @model_validator(mode='after')
     def at_least_one_field(self) -> Self:
-        if self.username is None and self.email is None:
-            raise ValueError('Provide at least one field to update: username or email')
+        if self.username is None and self.email is None and self.password is None and self.role_id is None:
+            raise ValueError('Provide at least one field to update: username, email, password, or role_id')
         return self
 
 class DeleteResponse(BaseModel):
     success: bool
     deleted_id: int
-
-class UserCreate(BaseModel):
-    username: str = Field(min_length=4, max_length=20)
-    email:EmailStr
-    password: str = Field(min_length=8, max_length=128)
-
-class UserUpdate(BaseModel):
-    name: Optional[str] = None
-    email: Optional[str] = None
-    username: Optional[str] = Field(default=None, min_length=8, max_length=128)

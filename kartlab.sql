@@ -14,6 +14,7 @@ DROP TRIGGER IF EXISTS no_self_rating_update;
 DROP TABLE IF EXISTS build_ratings;
 DROP TABLE IF EXISTS builds;
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS roles;
 DROP TABLE IF EXISTS gliders;
 DROP TABLE IF EXISTS tires;
 DROP TABLE IF EXISTS tire_groups;
@@ -62,10 +63,23 @@ CREATE TABLE tire_groups (
     invincibility  INTEGER NOT NULL CHECK (invincibility BETWEEN 0 AND 20)
 );
 
+-- Lab 4: roles for role-based access control
+CREATE TABLE roles (
+    role_id        INTEGER PRIMARY KEY,
+    role           TEXT    NOT NULL UNIQUE,
+    description    TEXT
+);
+
+-- Lab 4: users now have a hashed password and a role
 CREATE TABLE users (
     user_id        INTEGER PRIMARY KEY AUTOINCREMENT,
     username       TEXT    NOT NULL UNIQUE CHECK (length(trim(username)) > 0),
-    email          TEXT    NOT NULL UNIQUE
+    email          TEXT    NOT NULL UNIQUE,
+    password       TEXT    NOT NULL,
+    role_id        INTEGER NOT NULL DEFAULT 4,
+    created_at     TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at     TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (role_id) REFERENCES roles(role_id) ON DELETE RESTRICT
 );
 
 -- Gliders keep their stats directly: the game has only 4 glider stat groups,
@@ -347,12 +361,26 @@ INSERT INTO gliders (glider_id, name, image_file, speed, acceleration, weight, h
 (14, 'Waddle Wing', 'img/glider/image14.webp', 1, 1, 1, 1, 1, 1, 1),
 (15, 'Hylian Kite', 'img/glider/image6.webp', 1, 1, 1, 1, 1, 1, 1);
 
-INSERT INTO users (username, email) VALUES
-('shellshocked',  'shellshocked@example.com'),
-('bananapeel99',  'bananapeel99@example.com'),
-('rainbowroad',   'rainbowroad@example.com'),
-('bluesheller',   'bluesheller@example.com'),
-('driftking',     'driftking@example.com');
+INSERT INTO roles (role_id, role, description) VALUES
+(1, 'System Administrator', 'A system administrator has permissions to manage users and contents of the website.'),
+(2, 'User Manager', 'A user manager has permission to manage user accounts.'),
+(3, 'Advanced User', 'In addition to read access to data, an advanced user may be granted some permissions to perform create, update, and delete operations.'),
+(4, 'Basic User', 'A basic user has read-only access to data and does not permissions for create, update, and delete operations.');
+
+-- Passwords are stored as bcrypt hashes, never as plain text.
+-- Test logins: Toadsworth / TallyHoPassword (admin), ProfessorEGadd / Poltergust3000 (user manager),
+-- Starlow / HelloYello (advanced user), Goomba / EliteTrio (basic user),
+-- and the sample users 5-9 all use KartLab123.
+INSERT INTO users (username, email, password, role_id) VALUES
+('Toadsworth', 'toadsworth@mariokart.com', '$2b$12$5pCAvnKgdGH5x4LVuDBxCeqcKj2S5AguZqqlqK0VVdZJD7cFje7Te', 1),
+('ProfessorEGadd', 'egad@mariokart.com', '$2b$12$X5eCzZ5HKe1CAO/7iuxyyetWSe5.jjduWn3VLzRuPZXX1JRyhp/3m', 2),
+('Starlow', 'starlow@mariokart.com', '$2b$12$4hoWrPgSyIvZwnGPbbjTIOajJfxoCsXCgoW10MyTPHRDzoaRJxY6e', 3),
+('Goomba', 'goomba@mariokart.com', '$2b$12$.DtgePDKjK76AXaq.o3oau3lGrxGKMG.IQXwuKotB24VVuX4Y2Mye', 4),
+('shellshocked', 'shellshocked@example.com', '$2b$12$A1sn29yFSrtlIa2rXnks2ejQ/cq6mplHx/i/fEZ8SOaT/ShUfiQ4e', 3),
+('bananapeel99', 'bananapeel99@example.com', '$2b$12$1h.mn.XSyFZekPBEqyD9e.gGqPI2zyn9kZLo7INT7kA6llVupcD5.', 3),
+('rainbowroad', 'rainbowroad@example.com', '$2b$12$KtvlPyXwRMhOh3S/OLeMHOobVA42VyWjohapaTTFGgO3yEfPjn1WW', 4),
+('bluesheller', 'bluesheller@example.com', '$2b$12$PyVB3sltgHq8pAFbtlmG4.u/mBFHeXPDmgB1vPs3/.ONLVKHdq5gG', 4),
+('driftking', 'driftking@example.com', '$2b$12$S9FMzEF3tYDzv6fAKsL1Ie45umIiQsOmh2zziFYxuMVmtjzVbgoG6', 4);
 
 -- 1: Mario / Teddy Buggy / Roller / Cloud Glider
 -- 2: Bowser / Mach 8 / Slick / Wario Wing
@@ -361,21 +389,21 @@ INSERT INTO users (username, email) VALUES
 -- 5: Rosalina / Wild Wiggler / Roller / Cloud Glider
 -- 6: Toad / Mr. Scooty / Button / Paraglider
 INSERT INTO builds (user_id, driver_id, body_id, tire_id, glider_id, build_name) VALUES
-(1, 30, 11, 1, 1, 'Balanced Teddy'),
-(2, 53, 16, 19, 9, 'Max Speed Bowser'),
-(3, 1, 1, 1, 5, 'Baby Peach Handler'),
-(4, 49, 39, 13, 10, 'Heavy Tank'),
-(5, 40, 13, 1, 1, 'Rosalina Drift'),
-(1, 15, 2, 3, 12, 'Toad Scooter');
+(5, 30, 11, 1, 1, 'Balanced Teddy'),
+(6, 53, 16, 19, 9, 'Max Speed Bowser'),
+(7, 1, 1, 1, 5, 'Baby Peach Handler'),
+(8, 49, 39, 13, 10, 'Heavy Tank'),
+(9, 40, 13, 1, 1, 'Rosalina Drift'),
+(5, 15, 2, 3, 12, 'Toad Scooter');
 
 INSERT INTO build_ratings (build_id, user_id, score) VALUES
-(1, 2, 5),
-(1, 3, 4),
-(2, 1, 4),
-(3, 4, 5),
-(4, 5, 2),
-(5, 2, 5),
-(6, 3, 3);
+(1, 6, 5),
+(1, 7, 4),
+(2, 5, 4),
+(3, 8, 5),
+(4, 9, 2),
+(5, 6, 5),
+(6, 7, 3);
 
 -- Rule: users cannot rate their own builds
 CREATE TRIGGER no_self_rating_insert
@@ -418,71 +446,3 @@ JOIN body_groups bg   ON bg.body_group_id = bo.body_group_id
 JOIN tires t          ON t.tire_id = b.tire_id
 JOIN tire_groups tg   ON tg.tire_group_id = t.tire_group_id
 JOIN gliders g        ON g.glider_id = b.glider_id;
-
-
--- Create roles table
-CREATE TABLE IF NOT EXISTS roles (
-    role_id     INTEGER PRIMARY KEY,
-    role        TEXT    NOT NULL,
-    description TEXT
-);
-
-INSERT INTO roles (
-                      role_id,
-                      role,
-                      description
-                  )
-                  VALUES (
-                      1,
-                      'System Administrator',
-                      'A system administrator has permissions to manage users and contents of the website.'
-                  );
-
-INSERT INTO roles (
-                      role_id,
-                      role,
-                      description
-                  )
-                  VALUES (
-                      2,
-                      'User Manager',
-                      'A user manager has permission to manage user accounts.'
-                  );
-
-INSERT INTO roles (
-                      role_id,
-                      role,
-                      description
-                  )
-                  VALUES (
-                      3,
-                      'Advanced User',
-                      'In addition to read access to data, an advanced user may be granted some permissions to perform create, update, and delete operations.'
-                  );
-
-INSERT INTO roles (
-                      role_id,
-                      role,
-                      description
-                  )
-                  VALUES (
-                      4,
-                      'Basic User',
-                      'A basic user has read-only access to data and does not permissions for create, update, and delete operations.'
-                  );
-
-
--- create new users table
--- Table: users
-CREATE TABLE IF NOT EXISTS users (
-    user_id    INTEGER   PRIMARY KEY,
-    username   TEXT      NOT NULL
-                         UNIQUE,
-    email      TEXT,
-    password   TEXT      NOT NULL,
-    role_id    INTEGER   NOT NULL
-                         REFERENCES roles (role_id)
-                         DEFAULT (4),
-    created_at TIMESTAMP DEFAULT (CURRENT_TIMESTAMP),
-    updated_at TIMESTAMP DEFAULT (CURRENT_TIMESTAMP)
-);
