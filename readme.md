@@ -1,3 +1,5 @@
+![mk8-api](mk8 api.png)
+
 # Group 7
 
 > To get calculated stats, do:
