@@ -1,4 +1,6 @@
-![mk8-api](mk8 api.png)
+![mk8-api](mk8api.png)
+
+image is work in progress
 
 # Group 7
 
