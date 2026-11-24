@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MK8 API</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<!-- Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <!-- MK8 API Logo -->
+       <a href="/" class="logo">
+    <img src="/assets/logo.png" alt="MK8 API Logo" class="logo">
+      </a>
+
+      <!-- Nav Links -->
+      <nav class="main-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+<br>
+  <!-- body -->
+  <main>
+    <section class="content-box">
+      <h2>Build Calculator</h2><hr>
+      insert build calculator here
+    </section>
+    <section class="content-box">
+      <h2>How the Build Calculator works</h2><hr>
+        <p>
+            The Build Calculator collects the stats of the selected driver, kart, tire, and glider, and calculates the total stats for the build. <br>
+            This calculator follows a two step process to calculate the total stats for a build. <br>
+
+            <strong>1. speedLevel = selectedCharacter.speed + selectedKart.speed + selectedTire.speed + selectedGlider.speed</strong> <br>
+            <p>The game first sums up each stat for the selected character, kart, tire, and glider to determine the overall speed level of the build. This results in a value (in this case speedValue)</p>
+            <strong>2. speedValue = (speedLevel + 3) / 4;</strong> <br>
+            <p>To get the stats to appear correctly in game, the value is added by 3 and then divided by 4 to get the average. This is the stat that appears in game.</p>
+            <img src="../assets/stats-screen.jpg" alt="Build Calculator Image" width="250">
+    </section>
+
+  </main>
+
+
+  <!-- footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <p>This project is an unofficial, 
+        open-source utility and is not affiliated with, authorized, maintained, or endorsed by Nintendo Co., Ltd. 
+        or any of its affiliates. All product names, logos, and brands are property of their respective owners.</p>
+    </div>
+  </footer>
+</body>
+</html>
