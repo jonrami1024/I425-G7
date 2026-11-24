@@ -1,6 +1,5 @@
-![mk8-api](mk8api.png)
+![mk8-api](logo.png)
 
-image is work in progress
 
 # Group 7
 
@@ -18,7 +17,20 @@ image is work in progress
 Test logins: Toadsworth / TallyHoPassword (Admin), ProfessorEGadd / Poltergust3000 (User Manager),
 Starlow / HelloYello (Advanced User), Goomba / EliteTrio (Basic User).
 
+
 ## Team Responsibilities
+
+## Lab 5
+#### Jonathan Ramirez-Molina
+- Created visual design, layout, header, footer, the application routes, navigation, and the not-found page
+- Created Logo
+
+#### Daniel Shin
+- 
+
+#### Angel Avila
+- 
+
 
 ## Lab 4
 
