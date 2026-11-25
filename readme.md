@@ -26,11 +26,21 @@ Starlow / HelloYello (Advanced User), Goomba / EliteTrio (Basic User).
 - Created Logo
 
 #### Daniel Shin
-- 
+- k
 
 #### Angel Avila
-- 
+- Worked on incorporating step 3 of lab 5
+  - Added src/config/settings.jsx
+  - Added src/hooks/useAxios.jsx
+- Worked on character and builds for step 4 of lab 5
+  - List, detail, and related data:
+    - Files are in src/pages/character and src/pages/builds. Routes are in src/routes, and CSS's are in src/assets/css
+  - Pagination and sorting:
+      - File is in src/pages/builds 
+- Revised AppRoutes to incorporate character and build routes
+- Disabled authentication for driver and builds routes in mk8api-api for them to display the information
 
+### -----------------
 
 ## Lab 4
 
