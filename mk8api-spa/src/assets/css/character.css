@@ -1,0 +1,119 @@
+/*
+*  styles for character-related elements
+ */
+
+/* styles for list of characters */
+.character-container {
+    margin: 10px auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.character-list {
+    display: flex;
+    flex-direction: column;
+    min-width: 250px;
+}
+
+.character-list a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-top: 1px solid #d9e2ec;
+    border-bottom: 1px solid #d9e2ec;
+    border-right: 1px dotted #d9e2ec;
+    border-left: 1px dotted #d9e2ec;
+    margin-bottom: -1px;
+    margin-right: 40px;
+    min-height: 35px;
+    flex-shrink: 0;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.character-list a div {
+    display: inline-block;
+    height: 80%;
+}
+
+.character-list a.active,
+.character-list a:hover {
+    background-color: #e4f1fe;
+}
+
+.character-list a span {
+    display: inline-block;
+    width: 10px;
+    height: 35px;
+    margin-right: 5px;
+}
+
+.character-list a.active span {
+    background-color: gold;
+}
+
+/* styles for character details */
+
+.character-item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+}
+
+.character-details {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    min-height: 230px;
+}
+
+.character-info {
+    width: 60%;
+    min-width: 260px;
+    max-width: 460px;
+}
+
+.character-info div {
+    padding: 3px;
+}
+
+.character-name {
+    min-width: 250px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+    border-bottom: 1px dotted #bcccdc;
+}
+
+.character-photo {
+    width: 40%;
+    display: flex;
+    justify-content: right;
+    align-items: flex-start;
+    height: 250px;
+    order: 1;
+}
+
+.character-photo img {
+    width: 150px;
+    height: auto;
+    object-fit: contain;
+}
+
+.character-stats {
+    margin-top: 40px;
+    width: 100%;
+}
+
+.character-stats .character-stats {
+    margin-top: 0;
+}
+
+.character-stats div {
+    padding: 3px;
+}

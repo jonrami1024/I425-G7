@@ -1,0 +1,152 @@
+/*
+*  styles for build-related elements
+ */
+/* styles for list of builds */
+.build-container{
+    margin: 10px auto;
+    width: 100%;
+    border: 0px solid var(--clr-primary-8);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.build-list {
+    display: flex;
+    flex-direction: column;
+    min-width: 250px;
+}
+
+.build-list a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-top: 1px solid var(--clr-grey-9);
+    border-bottom: 1px solid var(--clr-grey-9);
+    border-right: 1px dotted var(--clr-grey-9);
+    border-left: 1px dotted var(--clr-grey-9);
+    margin-bottom: -1px;
+    margin-right: 40px;
+    height: 35px;
+}
+
+.build-list a div {
+    display: inline-block;
+    height: 80%;
+}
+.build-list a.active,
+.build-list a:hover {
+    background-color: #e4f1fe;
+}
+
+.build-list a span {
+    display: inline-block;
+    width: 10px;
+    height: 100%;
+    margin-right: 5px;
+}
+
+.build-list a.active span {
+    background-color: gold;
+}
+
+/* styles for build details*/
+
+.build-item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.build-details {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: left;
+    min-height: 230px;
+}
+
+.build-info {
+    width: 60%;
+    min-width: 260px;
+    max-width: 460px;
+}
+
+.build-info div {
+    padding: 3px;
+}
+
+.build-name {
+    min-width: 250px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+    border-bottom: 1px dotted var(--clr-grey-8);
+}
+
+.build-photo {
+    width: 40%;
+    display: flex;
+    justify-content: right;
+    align-items: flex-start;
+    height: 250px;
+}
+.build-photo img {
+    width: 150px;
+}
+
+.build-stats {
+    margin-top: 40px;
+    width: 100%;
+}
+
+/* styles for pagination and sorting */
+.build-pagination-container {
+    display: flex;
+    justify-content: right;
+    margin-bottom: 50px;
+}
+
+.build-pagination select {
+    font-size: small;
+}
+
+.build-pagination {
+    text-align: right;
+    font-size: 0.9em;
+    margin-right: 20px;
+}
+
+.build-pagination  a {
+    font-size: smaller;
+    border-radius: 3px;
+    border: 1px solid #e4f1fe;
+    min-width: 20px;
+    padding: 1px 6px;
+    display: inline-block;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.build-pagination a:hover {
+    background-color: #f8f9fa;
+}
+
+.build-sorting {
+    text-align: right;
+    font-size: 0.9em;
+}
+
+.build-pagination select,
+.build-sorting select {
+    font-size: smaller;
+}
+
+/* disable a link*/
+a.disabled {
+  pointer-events: none;
+  color: gray;
+  opacity: 0.5;
+  cursor: default;
+}
